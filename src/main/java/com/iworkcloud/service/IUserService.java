@@ -1,0 +1,12 @@
+package com.iworkcloud.service;
+
+import com.iworkcloud.pojo.User;
+
+public interface IUserService {
+
+    int register(User user);
+    String getIcon(String phone);
+    boolean isExist(String phone);
+    boolean login(String phone, String password);
+
+}
