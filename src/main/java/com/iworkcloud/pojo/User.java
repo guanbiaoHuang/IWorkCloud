@@ -1,5 +1,7 @@
 package com.iworkcloud.pojo;
 
+
+//员工信息
 public class User {
 	private String phone;
 	private String password;
