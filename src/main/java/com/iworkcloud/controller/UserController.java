@@ -1,6 +1,6 @@
 package com.iworkcloud.controller;
 
-import java.io.IOException;
+import java.io.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -25,61 +25,59 @@ import com.iworkcloud.utils.UploadUtils;
 public class UserController {
 	@Autowired
 	private IUserService userService;
-	
-	
+
 	@ResponseBody
 	@RequestMapping("getIcon")
-	public String getIcon(@RequestParam("phone")String phone) {
+	public String getIcon(@RequestParam("phone")String phone,HttpServletRequest request) {
 		return userService.getIcon(phone);
 	}
-	
-	@RequestMapping("register")
-	public String toReigister() {	
-		return "register";
+
+	@ResponseBody
+	@RequestMapping("getImg")
+	public byte[] getImg(@RequestParam("img") String name, HttpServletRequest request) throws IOException {
+		String fileLocation = request.getServletContext().getRealPath("WEB-INF/img/faces/");
+		String path = fileLocation + name;
+		InputStream is = new FileInputStream(path);
+		byte[] flush = new byte[is.available()];
+		is.read(flush);
+		return flush;
 	}
-	
-	@RequestMapping("login")
-	public String toLogin() {
-		return "login";
-	}
-	
+
 	@ResponseBody
 	@RequestMapping("checkCode")
 	public String getCode(@RequestParam("phone")String phone,HttpSession session,HttpServletResponse response){
-		String firstPhone = phone;
-		String code = GetMessageCode.getCode(firstPhone);
-		if(code.length()>0) {
-			session.setAttribute(firstPhone, code);
-		}
+		if(userService.isExist(phone))
+			return "该手机号已注册";
+		String code = GetMessageCode.getCode(phone);
+		if(code.length()>0)
+			session.setAttribute(phone, code);
 		return code.length()>0?"获取验证码成功，注意查收":"获取验证码失败，请重试";
 	}
 	
 	@RequestMapping("log")
-	public ModelAndView login(HttpServletRequest request,HttpSession session) {
+	public ModelAndView login(String phone, String password,HttpServletRequest request,HttpSession session) {
 		ModelAndView mv = new ModelAndView("login");
-		boolean isloged = userService.login(request.getParameter("phone"),
-				request.getParameter("password"));
+		boolean isloged = userService.login(phone, password);
 		if(isloged) {
-			session.setAttribute("userPhone", request.getAttribute("phone"));
+			session.setAttribute("userPhone", phone);
+			System.out.println(session.getAttribute("userPhone"));
+			mv.addObject("msg","success");
 		}else {
-			mv.addObject("msg","登陆失败");
+			mv.addObject("msg","failed");
 		}
 		return mv;
 	}
 	
 	@RequestMapping("reg")
-	public ModelAndView register(HttpServletRequest request,HttpSession session,@RequestParam("icon")MultipartFile file) {
+	public ModelAndView register(String phone, String password, String verifyCode, HttpServletRequest request, HttpSession session, @RequestParam("icon")MultipartFile file) {
 		ModelAndView mv = new ModelAndView("register");
-		
-		if(session.getAttribute(request.getParameter("phone"))==null||!session.getAttribute(request.getParameter("phone")).equals(request.getParameter("verifyCode"))) {
+		if(session.getAttribute(phone)==null||!session.getAttribute(phone).equals(verifyCode)) {
 			mv.addObject("msg", "验证码与手机号不一致");
 			return mv;
 		}
-		User user = new User(request.getParameter("phone"),
-				request.getParameter("password"),
-				request.getContextPath()+"/img/faces/"+request.getParameter("phone")+file.getOriginalFilename());;
-		if(!userService.isExist(request.getParameter("phone"))) {
-			String path = request.getServletContext().getRealPath("/")+"img/faces/"+request.getParameter("phone")+file.getOriginalFilename();
+		User user = new User(phone,password, phone+file.getOriginalFilename());;
+		if(!userService.isExist(phone)) {
+			String path = request.getServletContext().getRealPath("WEB-INF/img/faces/")+phone+file.getOriginalFilename();
 			try {
 				UploadUtils.uploadIcon(path, request, file.getInputStream());						
 			} catch (IOException e) {

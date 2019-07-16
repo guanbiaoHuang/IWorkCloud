@@ -39,9 +39,9 @@
         <property name="password" value="${password}"></property>
     </bean>
 
-    <bean id="userMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-        <property name="mapperInterface" value="com.iworkcloud.mapper.UserMapper"></property>
-        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+    <bean id="Mappers" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.iworkcloud.mapper"></property>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 
 

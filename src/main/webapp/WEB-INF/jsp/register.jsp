@@ -90,12 +90,14 @@
     			if(!(/^1[3456789]\d{9}$/.test($phone))){
     	    		layer.msg("手机号非法");
     	    	 }else{
-    	    		 getCodeClick();
+
     	    		 $.post(
     	     				"${pageContext.request.contextPath}/checkCode",
     	     				{"phone":$phone},
     	     				function(result){
-								layer.msg(result);
+
+                                getCodeClick();
+                                layer.msg(result);
     	     				}
     	     			); 
     	    	 }

@@ -81,16 +81,30 @@
     				{"phone":$("#loginPhone").val()},
     				function(result){
     					if(result.length>0){
-    						$("#iconImg").attr("src",result);
+    						$("#iconImg").attr("src","${pageContext.request.contextPath}/getImg?img="+result);
     					}else{
     						layer.msg("手机号未注册");	
     					}
     						
     				}		
     			)
-    		}); 
+    		});
     		msg();
+
     	})
+        function msg(){
+            var $msg = $("#msg").text().trim();
+            if($msg!="") {
+                if ($msg=="failed") {
+                    layer.msg("登陆失败");
+                } else if($msg=="success"){
+                    layer.msg("登陆成功，即将跳转");
+                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/index')},3000);
+                }else if($msg=="notLogin"){
+                    layer.msg("请登录");
+                }
+            }
+        }
     
     </script>
 </body>
