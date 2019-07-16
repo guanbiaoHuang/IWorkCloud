@@ -4,13 +4,9 @@
 <mapper namespace="com.iworkcloud.mapper.ExpensesMapper">
 
 
-    <select id="queryStaffByPhone" resultType="com.iworkcloud.pojo.Expenses" parameterType="String">
+    <select id="queryStaffByPhone" resultType="com.iworkcloud.pojo.Staff" parameterType="String">
 		select * from staff where phone = #{phone}
 	</select>
-
-    <insert id="addExpenses" parameterType="com.iworkcloud.pojo.User">
-		insert into user values(#{phone},#{password},#{icon})
-	</insert>
 
 
 
