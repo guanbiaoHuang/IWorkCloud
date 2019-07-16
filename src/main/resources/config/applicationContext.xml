@@ -12,9 +12,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
 
-
     <context:component-scan base-package="com.iworkcloud.controller"></context:component-scan>
-
     <bean id="dbConf" class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer">
         <property name="locations">
             <array>
@@ -27,11 +25,20 @@
         <property name="userMapper" ref="userMapper"></property>
     </bean>
 
+    <bean id="staffService" class="com.iworkcloud.serviceImp.StaffService">
+        <property name="staffMapper" ref="staffMapper"></property>
+    </bean>
+
+
+
+
+
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>
         <!--<property name="configLocation" value="classpath:conf.xml"></property>  -->
         <property name="mapperLocations" value="classpath:mapper/UserMapper.xml"></property>
     </bean>
+
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
         <property name="driverClassName" value="${driverName}"></property>
         <property name="url" value="${url}"></property>
@@ -44,10 +51,8 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
     </bean>
 
-
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="1024000"></property>
-
     </bean>
 
 </beans>

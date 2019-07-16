@@ -1,7 +1,9 @@
 package com.iworkcloud.pojo;
 
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
 
   private String phone;
   private String password;
@@ -34,12 +36,12 @@ public class User {
     this.icon = icon;
   }
 
+  public User() {
+  }
+
   public User(String phone, String password, String icon) {
     this.phone = phone;
     this.password = password;
     this.icon = icon;
-  }
-
-  public User() {
   }
 }

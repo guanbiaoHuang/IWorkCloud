@@ -1,5 +1,7 @@
 package com.iworkcloud.controller;
 
+import com.iworkcloud.serviceImp.StaffService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.ui.Model;
@@ -10,6 +12,9 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class PageGet {
+
+    @Autowired
+    private StaffService staffService;
 
     @RequestMapping("register")
     public String toReigister() {
@@ -26,8 +31,12 @@ public class PageGet {
         if(session.getAttribute("userPhone")==null){
             model.addAttribute("msg","notLogin");
             return "forward:login";
-        }else {
-            return "index";
+        }else{
+            if(staffService.isBindStaff((String)session.getAttribute("phone"))){
+                return "index";
+            }else {
+                return "bind";
+            }
         }
     }
 }

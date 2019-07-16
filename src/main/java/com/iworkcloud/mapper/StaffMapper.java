@@ -1,4 +1,8 @@
 package com.iworkcloud.mapper;
 
-public class StaffMapper {
+
+import com.iworkcloud.pojo.Staff;
+
+public interface StaffMapper {
+    Staff queryStaffByPhone(String phone);
 }
