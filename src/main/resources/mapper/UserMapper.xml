@@ -6,14 +6,10 @@
 
 	<select id="queryUserByPhone" resultType="com.iworkcloud.pojo.User" parameterType="String">
 		select * from user where phone = #{phone}  
-	</select> 
-	
-	
+	</select>
 	<insert id="addUser" parameterType="com.iworkcloud.pojo.User">
 		insert into user values(#{phone},#{password},#{icon})
 	</insert>
-	
-	
-	
-	
+
+
 </mapper>
