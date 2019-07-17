@@ -23,17 +23,17 @@ public class PageGet {
         return "login";
     }
 
-    @RequestMapping("bind")
-    public String bind(){
-        return "bind";
-    }
-
     @RequestMapping("index")
     public String toIndex(Model model, HttpSession session){
-        if(session.getAttribute("staffID")==null){
-            model.addAttribute("msg","notLogin");
-            return "forward:login";
-        }else{
+        if(session.getAttribute("staff")==null){
+            if(session.getAttribute("phone")==null) {
+                model.addAttribute("msg", "请登录");
+                return "forward:login";
+            }else{
+                model.addAttribute("msg", "notBind");
+                return "forward:login";
+            }
+        }else {
             return "index";
         }
     }

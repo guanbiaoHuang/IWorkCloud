@@ -73,7 +73,7 @@ public class UserController {
 			}
 
 		}else {
-			mv.addObject("msg","failed");
+			mv.addObject("msg","登陆失败");
 		}
 		return mv;
 	}
@@ -81,10 +81,12 @@ public class UserController {
 	@RequestMapping("reg")
 	public ModelAndView register(String phone, String password, String verifyCode, HttpServletRequest request, HttpSession session, @RequestParam("icon")MultipartFile file) {
 		ModelAndView mv = new ModelAndView("register");
+		/*
 		if(session.getAttribute(phone)==null||!session.getAttribute(phone).equals(verifyCode)) {
 			mv.addObject("msg", "验证码与手机号不一致");
 			return mv;
 		}
+		*/
 		User user = new User(phone,password, phone+file.getOriginalFilename());;
 		if(!userService.isExist(phone)) {
 			String path = request.getServletContext().getRealPath("WEB-INF/img/faces/")+phone+file.getOriginalFilename();
@@ -99,8 +101,8 @@ public class UserController {
 				if(status == 1) {
 					mv.setViewName("login");
 					mv.addObject("msg","注册成功");
-					session.removeAttribute(request.getParameter("phone"));
-				} 									
+					session.removeAttribute(phone);
+				}
 			}else {
 				mv.addObject("msg","注册失败");
 			}

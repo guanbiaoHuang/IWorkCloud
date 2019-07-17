@@ -95,28 +95,34 @@
         function msg(){
             var $msg = $("#msg").text().trim();
             if($msg!="") {
-                if ($msg=="failed") {
-                    layer.msg("登陆失败");
-                } else if($msg=="success"){
+                if($msg=="success"){
                     layer.msg("登陆成功，即将跳转");
                     setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/index')},3000);
-                }else if($msg=="notLogin"){
-                    layer.msg("请登录");
                 }else if($msg=="notBind"){
                     bind();
-                }else if($msg=="bindFailed"){
-                    layer.msg("绑定失败，请确认工号无误重新绑定");
-                    bind();
+                }else {
+                    layer.msg($msg);
                 }
             }
         }
 
         function bind(){
-            layer.open({
-                type:1,
-                content:'127.0.0.1${pageContext.request.contextPath}/bind'
-                }
-            )
+            layer.prompt({title: '请输入输入工号绑定', formType: 1},function(val, index){
+                $.post(
+                    "${pageContext.request.contextPath}/bindStaff",
+                    {"staffID":val},
+                    function (result) {
+                        if(result=="success"){
+                            layer.msg("绑定成功，即将跳转");
+                            setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/index')},3000);
+                        }else {
+                            layer.msg(result);
+                        }
+
+                    }
+                )
+                layer.close(index);
+            });
         }
     
     </script>
