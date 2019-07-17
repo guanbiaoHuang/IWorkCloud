@@ -1,4 +1,4 @@
-package com.sample;
+package com.iworkcloud.pojo;
 
 
 public class Bill {

@@ -37,6 +37,9 @@
         <property name="dataSource" ref="dataSource"></property>
         <!--<property name="configLocation" value="classpath:conf.xml"></property>  -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
+
+        <!--设置别名-->
+        <property name="typeAliasesPackage" value="com.iworkcloud.pojo"></property>
     </bean>
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
@@ -45,6 +48,8 @@
         <property name="username" value="${userName}"></property>
         <property name="password" value="${password}"></property>
     </bean>
+
+
 
     <bean id="Mappers" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.iworkcloud.mapper"></property>
