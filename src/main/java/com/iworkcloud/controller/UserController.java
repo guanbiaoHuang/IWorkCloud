@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.iworkcloud.service.IStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,8 @@ import com.iworkcloud.utils.UploadUtils;
 public class UserController {
 	@Autowired
 	private IUserService userService;
+	@Autowired
+	private IStaffService staffService;
 
 	@ResponseBody
 	@RequestMapping("getIcon")
@@ -59,9 +62,16 @@ public class UserController {
 		ModelAndView mv = new ModelAndView("login");
 		boolean isloged = userService.login(phone, password);
 		if(isloged) {
-			session.setAttribute("userPhone", phone);
-			System.out.println(session.getAttribute("userPhone"));
-			mv.addObject("msg","success");
+			if(staffService.isBindStaff(phone)){
+				mv.addObject("msg","success");
+				session.setAttribute("staff",staffService.getStaffID(phone));
+				return mv;
+			}else{
+				mv.addObject("msg","notBind");
+				session.setAttribute("phone",phone);
+				return mv;
+			}
+
 		}else {
 			mv.addObject("msg","failed");
 		}

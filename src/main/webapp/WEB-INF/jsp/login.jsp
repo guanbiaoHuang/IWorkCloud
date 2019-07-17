@@ -102,8 +102,21 @@
                     setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/index')},3000);
                 }else if($msg=="notLogin"){
                     layer.msg("请登录");
+                }else if($msg=="notBind"){
+                    bind();
+                }else if($msg=="bindFailed"){
+                    layer.msg("绑定失败，请确认工号无误重新绑定");
+                    bind();
                 }
             }
+        }
+
+        function bind(){
+            layer.open({
+                type:1,
+                content:'127.0.0.1${pageContext.request.contextPath}/bind'
+                }
+            )
         }
     
     </script>

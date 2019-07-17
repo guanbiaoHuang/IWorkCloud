@@ -6,4 +6,7 @@
         select * from staff where phone = #{phone}
     </select>
 
+    <update id="updatePhoneById" parameterType="HashMap">
+        update staff set phone=#{phone} where id=#{id}
+    </update>
 </mapper>

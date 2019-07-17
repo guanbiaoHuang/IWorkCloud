@@ -13,9 +13,6 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class PageGet {
 
-    @Autowired
-    private StaffService staffService;
-
     @RequestMapping("register")
     public String toReigister() {
         return "register";
@@ -26,17 +23,20 @@ public class PageGet {
         return "login";
     }
 
+    @RequestMapping("bind")
+    public String bind(){
+        return "bind";
+    }
+
     @RequestMapping("index")
     public String toIndex(Model model, HttpSession session){
-        if(session.getAttribute("userPhone")==null){
+        if(session.getAttribute("staffID")==null){
             model.addAttribute("msg","notLogin");
             return "forward:login";
         }else{
-            if(staffService.isBindStaff((String)session.getAttribute("phone"))){
-                return "index";
-            }else {
-                return "bind";
-            }
+            return "index";
         }
     }
+
+
 }

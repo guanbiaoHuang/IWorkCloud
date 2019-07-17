@@ -53,7 +53,6 @@
                                 <span class="input-group-addon"><i class="fa fa-keyboard-o fa-fw"></i></span>
                                 <input type="text" id="verifyCode" class="form-control input-lg" placeholder="输入验证码" name="verifyCode"/>
                                 <span class="input-group-btn">
-                                
                                     <button type="button" class="btn btn-default btn-lg" id="getCode">获取验证码</button>
                                 </span> 
                             </div>       
