@@ -7,25 +7,25 @@
 <head>
 <meta charset="UTF-8">
 <link type="text/css" rel="styleSheet" href="${pageContext.request.contextPath}/css/index.css">
-<link type="text/css" rel="styleSheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+<link type="text/css" rel="styleSheet" href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.css">
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>登陆</title>
 </head>
 <body>
 
 	<div class="container">
-			<p style="display: none" id="msg">
+			<div style="display: none" id="msg">
 				<c:if test="${requestScope.msg!=null}">
 					${requestScope.msg}
 				</c:if>	
-			</p>	
-            <div class="row">
-                <img class="img-responsive center-block" id="iconImg" src="${pageContext.request.contextPath}/img/default.jpeg"/>
+			</div>
+            <div class="row" style="margin-top: 50px">
+                <img class="img-responsive m-auto" id="iconImg" src="${pageContext.request.contextPath}/img/default.jpeg"/>
             </div>
 
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4" style="margin-top: 20px">
+            <div class="row" style="margin-top: 20px">
+                <div class="col-md-4 m-auto">
                     <form method="post" action="${pageContext.request.contextPath}/log">
                         <div class="form-group has-feedback">
                             <label class="sr-only"></label>
@@ -33,7 +33,6 @@
                                 <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
                                 <input type="tel" id="loginPhone" class="form-control input-lg" name="phone" placeholder="手机号码"/>
                             </div>
-        					<p id="phoneAlert" class="help-block hidden">text</p>
                         </div>
 
         
@@ -46,14 +45,15 @@
                 
                         <div class="checkbox">
                             <label>
-                                <input type="checkbox" name="remember" value="yes">记住密码
+                                <input type="checkbox" name="remember" value="yes">
+                                <small>记住密码</small>
                             </label>
-                            <span><a class="pull-right" href="#">忘记密码？</a></span>
+                            <span><a class="pull-right" href="#"><small>忘记密码？</small></a></span>
 
                         </div>
                         <div class="form-group">
                             <label class="sr-only"></label>
-                            <button type="submit" class="btn btn-block btn-success btn-lg">登陆</button>
+                            <button type="submit" class="btn btn-block btn-success">登陆</button>
                         </div>
                         
         
@@ -62,15 +62,16 @@
             </div> 
             
             <div class="row">
-                    <div class="col-md-4 col-md-offset-4" style="margin-top: 20px">
-                        <p class="text-center">没有账号?<a href="${pageContext.request.contextPath}/register">创建账号</a></p>
+                    <div class="col-md-4 m-auto" style="margin-top: 20px">
+                        <p class="text-center">没有账号?<a href="${pageContext.request.contextPath}/page/register">创建账号</a></p>
                     </div>
             </div>
     
         </div>
 
-	<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.4.1.js" ></script>
-    <script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.js" ></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/vendor/jquery/jquery.js" ></script>
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.js" ></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/layer/layer.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/log.js"></script>
     <script type="text/javascript">
