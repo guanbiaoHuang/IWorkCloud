@@ -9,9 +9,9 @@ public interface OutMapper {
 
     int insertOut(Out out);
 
-    List<Out>queryOutByStuffId(String stuffId);
+    List<Out>queryOutByStaffId(String staffId);
 
-    int deleteOut(String stuffId);
+    int deleteOut(String staffId);
 
     int updateOutContent(HashMap<Object,Object>map);
 }

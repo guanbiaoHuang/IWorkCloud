@@ -6,11 +6,11 @@
         insert into idea (staff, title, time, content) VALUES (#{staff} ,#{title} ,#{time} ,#{content} )
     </insert>
 
-    <delete id="deleteIdeaByStuffId" parameterType="String">
+    <delete id="deleteIdeaByStaffId" parameterType="String">
         delete * from idea where staff = #{staffId}
     </delete>
 
-    <select id="queryIdeaByStuffId" parameterType="String" resultType="com.iworkcloud.pojo.Idea">
+    <select id="queryIdeaByStaffId" parameterType="String" resultType="com.iworkcloud.pojo.Idea">
         select * from idea where staff = #{staffId}
     </select>
 

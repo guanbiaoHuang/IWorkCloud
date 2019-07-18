@@ -9,9 +9,9 @@ public interface NoteMapper {
 
     int insertNote(Note note);
 
-    int deleteNoteByStuff(String stuffId);
+    int deleteNoteByStaff(String staffId);
 
     int updateNoteContent(HashMap<Object,Object>map);
 
-    List<Note> queryNoteByStuff(String stuffId);
+    List<Note> queryNoteByStaff(String staffId);
 }

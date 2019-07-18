@@ -8,9 +8,9 @@ import java.util.List;
 public interface HolidayMapper {
 
     int insertHoliday(Holiday holiday);
-    int deleteHolidayRecordByStuff(int stuffId);
+    int deleteHolidayRecordByStaff(int staffId);
 
-    List<Holiday> queryHolidayByStuffID(int stuffId);
+    List<Holiday> queryHolidayByStaffID(int staffId);
 
     int updateHolidayContent(HashMap<Object,Object>map);
 }

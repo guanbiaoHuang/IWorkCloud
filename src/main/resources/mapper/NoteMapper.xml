@@ -6,16 +6,16 @@
         insert into note (staff, title, time, content) VALUES (#{staff} ,#{title} ,#{time} ,#{content} )
     </insert>
 
-    <delete id="deleteNoteByStuff" parameterType="String">
-        delete * from note where staff = #{stuffId}
+    <delete id="deleteNoteByStaff" parameterType="String">
+        delete * from note where staff = #{staffId}
     </delete>
 
     <update id="updateNoteContent" parameterType="HashMap">
-        update note set title = #{title},content = #{content} where staff = #{stuffId}
+        update note set title = #{title},content = #{content} where staff = #{staffId}
     </update>
 
-    <select id="queryNoteByStuff" parameterType="String" resultType="com.iworkcloud.pojo.Note">
-        select * from note where staff = #{stuffId}
+    <select id="queryNoteByStaff" parameterType="String" resultType="com.iworkcloud.pojo.Note">
+        select * from note where staff = #{staffId}
     </select>
 
 </mapper>
