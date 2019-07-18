@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iworkcloud.mapper.BonusMapper">
+
+
+    <insert id="insertBonusRecord" parameterType="com.iworkcloud.pojo.Bonus">
+        insert into bonus (staff, BONUS, SUBSIDY, time) VALUES (#{staff} ,#{bonus} ,#{subsidy} ,#{time} )
+    </insert>
+
+
+    <select id="queryBonusRecordById" parameterType="int" resultType="com.iworkcloud.pojo.Bonus">
+        select * from bonus where ID = #{id}
+    </select>
+
+    <delete id="deleteBonusRecordById" parameterType="int">
+        delete * from bonus where ID = #{id}
+    </delete>
+
+    <update id="updateBonusContent" parameterType="HashMap">
+        update bonus set BONUS=#{bonus}, SUBSIDY=#{subsidy} where ID = #{id}
+    </update>
+
+</mapper>

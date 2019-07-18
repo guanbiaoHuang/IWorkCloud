@@ -3,6 +3,7 @@
 <mapper namespace="com.iworkcloud.mapper.AttendanceMapper">
 
 
+
     <insert id="insertAttendance" parameterType="com.iworkcloud.pojo.Attendance">
         insert into attendance (ID,STAFF,DATE) values (#{id},#{staff},#{date})
     </insert>
@@ -14,5 +15,11 @@
     <select id="queryAttendancesByDate" parameterType="java.util.Date" resultType="com.iworkcloud.pojo.Attendance">
         select * from attendance where date = #{date}
     </select>
+
+    <delete id="deleteAttendanceByDate" parameterType="java.util.Date">
+        delete * from attendance where id = #{id}
+    </delete>
+
+
 
 </mapper>

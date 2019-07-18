@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iworkcloud.mapper.HolidayMapper">
+
+    <insert id="insertHoliday" parameterType="com.iworkcloud.pojo.Holiday">
+        insert into holiday (staff, time_start, time_end, reason, ratified)
+        VALUES (#{staff} ,#{timeStart} ,#{timeEnd} ,#{}#{reason} ,#{ratified} )
+    </insert>
+    <delete id="deleteHolidayRecordByStuff" parameterType="String">
+        delete * from holiday where staff = #{stuffId}
+    </delete>
+
+    <select id="queryHolidayByStuffID" parameterType="String" resultType="com.iworkcloud.pojo.Holiday">
+        select * from holiday where staff = #{stuffId}
+    </select>
+
+    <update id="updateHolidayContent" parameterType="HashMap">
+        update holiday set time_start = #{time_start},time_end = #{time_end},reason = #{reason} where staff = #{stuffId}
+    </update>
+
+</mapper>

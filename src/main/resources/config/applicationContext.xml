@@ -38,6 +38,7 @@
         <!--<property name="configLocation" value="classpath:conf.xml"></property>  -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
 
+
     </bean>
 
     <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">

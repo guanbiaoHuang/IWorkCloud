@@ -3,18 +3,26 @@
 <mapper namespace="com.iworkcloud.mapper.ActivityMapper">
 
 
+    <insert id="insertActivity" parameterType="com.iworkcloud.pojo.Activity">
+        insert into activity(time, title, content, tag)
+            values (#{time},#{title},#{content},#{tag})
+    </insert>
+
     <select id="queryActivityById" parameterType="int" resultType="com.iworkcloud.pojo.Activity">
         select * from activity where id = #{id}
     </select>
-<!--
-    <select id="queryActivitiesByDate" parameterType="java.util.Date" resultType="com.iworkcloud.pojo.Activity">
-        select * from activity where date = #{date}
+
+    <select id="queryActivitiesByDate" parameterType="Date" resultType="com.iworkcloud.pojo.Activity">
+        select * from activity where time = #{date}
     </select>
--->
+
     <select id="queryActivitiesByTag" parameterType="String" resultType="com.iworkcloud.pojo.Activity">
         select * from activity where tag = #{tag}
     </select>
 
+    <update id="updateActivityById" parameterType="HashMap">
+        update activity set title = #{title},content = #{content} where id = #{id}
+    </update>
 
     <delete id="deleteActivityById" parameterType="int">
         delete * from activity where id = #{id}

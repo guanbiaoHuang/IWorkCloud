@@ -2,12 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iworkcloud.mapper.BillMapper">
 
+
     <insert id="insertBill" parameterType="com.iworkcloud.pojo.Bill">
-        insert into bill (id,time,mount,tag,details) values (#{id},#{time},#{mount},#{tag},#{details})
+        insert into bill (TIME,MOUNT,TAG,DETAILS) values (#{time},#{mount},#{tag},#{details})
     </insert>
 
     <update id="updateBillContent" parameterType="HashMap">
-        update bill set details = #{bill} where id = #{id}
+        update bill set mount = #{mount}, details = #{details} where id = #{id}
     </update>
 
     <select id="queryBillById" parameterType="int" resultType="com.iworkcloud.pojo.Bill">
@@ -15,7 +16,7 @@
     </select>
 
     <select id="queryBillsByTag" parameterType="String" resultType="com.iworkcloud.pojo.Bill">
-        select * from bill where tag = #{tag}
+        select * from bill where tag = #{tsg}
     </select>
 
     <delete id="deleteBillById" parameterType="int">
