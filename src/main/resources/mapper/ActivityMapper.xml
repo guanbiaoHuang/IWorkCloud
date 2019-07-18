@@ -2,35 +2,19 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iworkcloud.mapper.ActivityMapper">
 
-    <resultMap id="activities" type="activity">
-        <id column="id" property="id"/>
-        <result column="time" property="time"/>
-        <result column="title" property="title"/>
-        <result column="content" property="content"/>
-        <result column="tag" property="tag"/>
-    </resultMap>
 
-
-    <insert id="insertActivity" parameterType="activity">
-        insert into staff (ID,TIME,TITLE,CONTENT,TAG)
-            values (#{id},#{time},#{title},#{content},#{tag})
-    </insert>
-
-    <select id="queryActivityById" parameterType="int" resultType="activity">
+    <select id="queryActivityById" parameterType="int" resultType="com.iworkcloud.pojo.Activity">
         select * from activity where id = #{id}
     </select>
-
-    <select id="queryActivitiesByDate" parameterType="Java.util.Date" resultMap="activities">
-        select * from activiity where date = #{date}
+<!--
+    <select id="queryActivitiesByDate" parameterType="java.util.Date" resultType="com.iworkcloud.pojo.Activity">
+        select * from activity where date = #{date}
     </select>
-
-    <select id="queryActivitiesByTag" parameterType="String" resultMap="activities">
+-->
+    <select id="queryActivitiesByTag" parameterType="String" resultType="com.iworkcloud.pojo.Activity">
         select * from activity where tag = #{tag}
     </select>
 
-    <update id="updateActivityById" parameterType="HashMap">
-        update activity set activity = #{activity} where id = #{id}
-    </update>
 
     <delete id="deleteActivityById" parameterType="int">
         delete * from activity where id = #{id}

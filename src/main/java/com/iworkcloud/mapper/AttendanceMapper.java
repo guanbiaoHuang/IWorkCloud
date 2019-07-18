@@ -9,7 +9,6 @@ public interface AttendanceMapper {
     Attendance queryAttendanceById(int id);
     Attendance queryAttendancesByDate(Date date);
 
-    void deleteAnnendanceByDate(Date date);
 
 }
 

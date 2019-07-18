@@ -2,28 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iworkcloud.mapper.BillMapper">
 
-    <resultMap id="bills" type="bill">
-        <id column="id" property="id"/>
-        <result column="time" property="time"/>
-        <result column="mount" property="mount"/>
-        <result column="tag" property="tag"/>
-        <result column="details" property="details"/>
-    </resultMap>
-
-    <insert id="insertBill" parameterType="bill">
-        insert into bill (ID,TIME,MOUNT,TAG,DETAIL) values (#{id},#{time},#{mount},#{tag},#{detail})
+    <insert id="insertBill" parameterType="com.iworkcloud.pojo.Bill">
+        insert into bill (id,time,mount,tag,details) values (#{id},#{time},#{mount},#{tag},#{details})
     </insert>
 
     <update id="updateBillContent" parameterType="HashMap">
-        update bill set bill = #{bill} where id = #{id}
+        update bill set details = #{bill} where id = #{id}
     </update>
 
-    <select id="queryBillById" parameterType="int" resultType="bill">
+    <select id="queryBillById" parameterType="int" resultType="com.iworkcloud.pojo.Bill">
         select * from bill where id = #{id}
     </select>
 
-    <select id="queryBillsByTag" parameterType="String" resultMap="bills">
-        select * from bill where tag = #{tsg}
+    <select id="queryBillsByTag" parameterType="String" resultType="com.iworkcloud.pojo.Bill">
+        select * from bill where tag = #{tag}
     </select>
 
     <delete id="deleteBillById" parameterType="int">

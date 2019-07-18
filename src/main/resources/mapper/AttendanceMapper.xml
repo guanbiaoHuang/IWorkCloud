@@ -2,28 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iworkcloud.mapper.AttendanceMapper">
 
-    <resultMap id="attendances" type="attendance">
-        <id column="id" property="id"/>
-        <result column="stuff" property="stuff"/>
-        <result column="date" property="date"/>
-    </resultMap>
 
-    <insert id="insertAttendance" parameterType="attendance">
+    <insert id="insertAttendance" parameterType="com.iworkcloud.pojo.Attendance">
         insert into attendance (ID,STAFF,DATE) values (#{id},#{staff},#{date})
     </insert>
 
-    <select id="queryAttendanceById" parameterType="int" resultType="attendance">
+    <select id="queryAttendanceById" parameterType="int" resultType="com.iworkcloud.pojo.Attendance">
         select * from attendance where id = #{id}
     </select>
 
-    <select id="queryAttendancesByDate" parameterType="java.util.Date" resultMap="attendances">
+    <select id="queryAttendancesByDate" parameterType="java.util.Date" resultType="com.iworkcloud.pojo.Attendance">
         select * from attendance where date = #{date}
     </select>
-
-    <delete id="deleteAttendanceByDate" parameterType="java.util.Date">
-        delete * from attendance where id = #{id}
-    </delete>
-
-
 
 </mapper>
