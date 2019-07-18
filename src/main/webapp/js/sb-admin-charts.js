@@ -91,7 +91,7 @@ var myLineChart = new Chart(ctx, {
     },
     legend: {
       display: false
-    }
+    } 
   }
 });
 // -- Pie Chart Example
