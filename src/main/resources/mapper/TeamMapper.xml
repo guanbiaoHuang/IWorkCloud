@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iworkcloud.mapper.TeamMapper">
+
+    <insert id="insertTeam" parameterType="com.iworkcloud.pojo.Team">
+        insert into team (id, name, manager, project) VALUES (#{id} ,#{name} ,#{manager} ,#{project} )
+    </insert>
+
+    <delete id="deleteTeam" parameterType="String">
+        delete * from team where id = #{id}
+    </delete>
+
+    <update id="updateTeam" parameterType="HashMap">
+        update team set manager = #{manager},project = #{project} where id = #{id}
+    </update>
+
+    <select id="queryTeamById" parameterType="String" resultType="com.iworkcloud.pojo.Team">
+        select * from team where id = #{id}
+    </select>
+
+    <select id="queryTeamByName" parameterType="String" resultType="com.iworkcloud.pojo.Team">
+        select * from team where name = #{name}
+    </select>
+
+    <select id="queryTeamByManager" parameterType="String" resultType="com.iworkcloud.pojo.Team">
+        select * from team where manager = #{manager}
+    </select>
+
+    <select id="queryTeamByProject" parameterType="String" resultType="com.iworkcloud.pojo.Team">
+        select * from team where project = #{project}
+    </select>
+
+</mapper>
