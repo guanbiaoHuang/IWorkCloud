@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ActivityMapper {
 
-    Activity queryActivityById(int id);
+    List<Activity> queryActivityById(int id);
     List<Activity> queryActivitiesByDate(Date date);
     List<Activity> queryActivitiesByTag(String tag);
 

@@ -3,6 +3,7 @@ package com.iworkcloud.mapper;
 import com.iworkcloud.pojo.Bonus;
 
 import java.util.HashMap;
+import java.util.List;
 
 public interface BonusMapper {
     void insertBonusRecord(Bonus bonus);
@@ -11,6 +12,6 @@ public interface BonusMapper {
 
     void deleteBonusRecordById(int id);
 
-    Bonus queryBonusRecordById(int id);
+    List<Bonus> queryBonusRecordById(int id);
 
 }

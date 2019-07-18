@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iworkcloud.mapper.OutMapper">
+
+    <insert id="insertOut" parameterType="com.iworkcloud.pojo.Out">
+        insert into `out` (staff, date_start, date_end) VALUES (#{staff} ,#{dateStart} ,#{dateEnd} )
+    </insert>
+    <delete id="deleteOut" parameterType="String">
+        delete * from `out` where staff = #{stuffId}
+    </delete>
+
+    <update id="updateOutContent" parameterType="HashMap">
+        update `out` set date_start = #{date_start},date_end = #{date_end} where staff = #{stuffId}
+    </update>
+
+    <select id="queryOutByStuffId" parameterType="String" resultType="com.iworkcloud.pojo.Out">
+        select * from `out` where staff = #{stuffId}
+    </select>
+</mapper>

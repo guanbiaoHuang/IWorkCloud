@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.iworkcloud.mapper.IdeaMapper">
+
+    <insert id="insertIdea" parameterType="com.iworkcloud.pojo.Idea">
+        insert into idea (staff, title, time, content) VALUES (#{staff} ,#{title} ,#{time} ,#{content} )
+    </insert>
+
+    <delete id="deleteIdeaByStuffId" parameterType="String">
+        delete * from idea where staff = #{staffId}
+    </delete>
+
+    <select id="queryIdeaByStuffId" parameterType="String" resultType="com.iworkcloud.pojo.Idea">
+        select * from idea where staff = #{staffId}
+    </select>
+
+    <update id="updateIdeaContent" parameterType="HashMap">
+        update idea set title = #{time},content = #{content} where staff = #{staffid}
+    </update>
+
+</mapper>
