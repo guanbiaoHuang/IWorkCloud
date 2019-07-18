@@ -12,11 +12,11 @@ public interface ActivityMapper {
     List<Activity> queryActivitiesByDate(Date date);
     List<Activity> queryActivitiesByTag(String tag);
 
-    void updateActivityById(HashMap<Object,Object>map);
+    int updateActivityById(HashMap<Object,Object>map);
 
-    void deleteActivityById(int id);
+    int deleteActivityById(int id);
 
-    void insertActivity(Activity activity);
+    int insertActivity(Activity activity);
 
 
 }

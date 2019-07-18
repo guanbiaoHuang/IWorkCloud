@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface IdeaMapper {
 
-    void insertIdea(Idea idea);
+    int insertIdea(Idea idea);
 
-    void deleteIdeaByStuffId(String staffId);
+    int deleteIdeaByStuffId(String staffId);
 
     List<Idea> queryIdeaByStuffId(String staffId);
 
-    void updateIdeaContent(HashMap<Object,Object>map);
+    int updateIdeaContent(HashMap<Object,Object>map);
 }

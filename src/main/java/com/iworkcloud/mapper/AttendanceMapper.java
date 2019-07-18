@@ -6,11 +6,11 @@ import java.util.Date;
 import java.util.List;
 
 public interface AttendanceMapper {
-    void insertAttendance(Attendance attendance);
+    int insertAttendance(Attendance attendance);
     List<Attendance> queryAttendanceById(int id);
     List<Attendance> queryAttendancesByDate(Date date);
 
-    void deleteAttendanceByDate(Date date);
+    int deleteAttendanceByDate(Date date);
 
 }
 

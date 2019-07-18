@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface OutMapper {
 
-    void insertOut(Out out);
+    int insertOut(Out out);
 
     List<Out>queryOutByStuffId(String stuffId);
 
-    void deleteOut(String stuffId);
+    int deleteOut(String stuffId);
 
-    void updateOutContent(HashMap<Object,Object>map);
+    int updateOutContent(HashMap<Object,Object>map);
 }

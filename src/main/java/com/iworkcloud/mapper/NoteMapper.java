@@ -7,11 +7,11 @@ import java.util.List;
 
 public interface NoteMapper {
 
-    void insertNote(Note note);
+    int insertNote(Note note);
 
-    void deleteNoteByStuff(String stuffId);
+    int deleteNoteByStuff(String stuffId);
 
-    void updateNoteContent(HashMap<Object,Object>map);
+    int updateNoteContent(HashMap<Object,Object>map);
 
     List<Note> queryNoteByStuff(String stuffId);
 }

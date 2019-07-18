@@ -7,10 +7,10 @@ import java.util.List;
 
 public interface HolidayMapper {
 
-    void insertHoliday(Holiday holiday);
-    void deleteHolidayRecordByStuff(int stuffId);
+    int insertHoliday(Holiday holiday);
+    int deleteHolidayRecordByStuff(int stuffId);
 
     List<Holiday> queryHolidayByStuffID(int stuffId);
 
-    void updateHolidayContent(HashMap<Object,Object>map);
+    int updateHolidayContent(HashMap<Object,Object>map);
 }
