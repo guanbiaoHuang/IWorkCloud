@@ -16,7 +16,7 @@
     </select>
 
     <select id="queryBillsByTag" parameterType="String" resultType="com.iworkcloud.pojo.Bill">
-        select * from bill where tag = #{tsg}
+        select * from bill where tag = #{tag}
     </select>
 
     <delete id="deleteBillById" parameterType="int">

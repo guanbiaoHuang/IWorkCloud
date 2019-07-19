@@ -29,6 +29,10 @@
         <property name="staffMapper" ref="staffMapper"></property>
     </bean>
 
+    <bean id="noteService" class="com.iworkcloud.serviceImp.NoteService">
+        <property name="noteMapper" ref="noteMapper"></property>
+    </bean>
+
 
 
 
@@ -37,7 +41,6 @@
         <property name="dataSource" ref="dataSource"></property>
         <!--<property name="configLocation" value="classpath:conf.xml"></property>  -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"></property>
-
 
     </bean>
 

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -135,7 +136,7 @@
             <li class="breadcrumb-item">
                 <a href="${pageContext.request.contextPath}/index">首页</a>
             </li>
-            <li class="breadcrumb-item active">日程/记事本</li>
+            <li class="breadcrumb-item active">记事本</li>
         </ol>
         <div class="row">
             <div class="col-12">
@@ -147,10 +148,15 @@
                 <div class="card mb-3">
                     <div class="card-header"><i class="fa fa-bell-o"></i>记事</div>
                 </div>
-                <form action="addNote" method="post">
+                <form action="${pageContext.request.contextPath}/addNote" method="post">
                     <div class="form-group">
                         <label class="sr-only"></label>
-                        <textarea class="form-control" rows="6" name="comment"></textarea>
+                        <input type="text" class="form-control" name="title" placeholder="请输入标题"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="sr-only"></label>
+                        <textarea class="form-control" rows="6" name="content" placeholder="请输入内容"></textarea>
                     </div>
 
                     <div class="form-group">
@@ -158,26 +164,24 @@
                         <button type="submit" class="btn btn-block btn-success">添加记事</button>
                     </div>
                 </form>
-                <div class="card-footer small text-muted"></div>
             </div>
             <div class="col-6">
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fa fa-bell-o"></i>记事本</div>
                     <div class="list-group list-group-flush small">
-                        <c:forEach begin="0" end="3" step="1">
-                            <a class="list-group-item list-group-item-action" href="#">
-                                <div class="media">
-                                    <div class="media-body">
-                                        <strong>David Miller Website</strong>.
-                                        <div class="text-muted smaller">记事日期</div>
-                                    </div>
+                        <c:forEach var="note" items="${noteList}">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">${note.title}</h5>
+                                    <small><a href="${pageContext.request.contextPath}/deleteNote?noteId=${note.id}"><span class="badge badge-danger">删除</span></a></small>
                                 </div>
-                            </a>
+                                <p class="mb-1">${note.content}</p>
+                                <small>${note.time}</small>
+                            </li>
                         </c:forEach>
                         <a class="list-group-item list-group-item-action" href="#">查看所有记事</a>
                     </div>
-                    <div class="card-footer small text-muted"></div>
                 </div>
             </div>
         </div>

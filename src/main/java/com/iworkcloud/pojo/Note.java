@@ -2,6 +2,7 @@ package com.iworkcloud.pojo;
 
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Note implements Serializable {
 
@@ -56,4 +57,18 @@ public class Note implements Serializable {
     this.content = content;
   }
 
+  public Note(long id, String staff, String title, Timestamp time, String content) {
+    this.id = id;
+    this.staff = staff;
+    this.title = title;
+    this.time = time;
+    this.content = content;
+  }
+
+  public Note(String staff, String title, Timestamp time, String content) {
+    this.staff = staff;
+    this.title = title;
+    this.time = time;
+    this.content = content;
+  }
 }

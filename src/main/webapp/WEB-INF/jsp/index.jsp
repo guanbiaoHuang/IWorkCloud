@@ -50,7 +50,7 @@
                         <a href="${pageContext.request.contextPath}/page/schedule">日程&请假</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/note">记事本</a>
+                        <a href="${pageContext.request.contextPath}/note">记事本</a>
                     </li>
                 </ul>
             </li>

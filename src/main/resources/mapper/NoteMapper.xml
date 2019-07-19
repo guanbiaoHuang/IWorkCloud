@@ -10,6 +10,10 @@
         delete * from note where staff = #{staffId}
     </delete>
 
+    <delete id="deleteNoteById" parameterType="String">
+        delete from note where id = #{noteId}
+    </delete>
+
     <update id="updateNoteContent" parameterType="HashMap">
         update note set title = #{title},content = #{content} where staff = #{staffId}
     </update>
