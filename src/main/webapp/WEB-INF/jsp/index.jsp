@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -26,7 +27,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="首页">
                 <a class="nav-link" href="${pageContext.request.contextPath}/page/index">
@@ -110,13 +111,13 @@
                 <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="alertsDropdown">
                     <h6 class="dropdown-header">用户:</h6>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <div class="dropdown-item">
                         <small style="color: #868e96;">修改资料</small>
-                    </a>
+                    </div>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <div class="dropdown-item" id="logOut">
                         <small style="color: #868e96;">登出</small>
-                    </a>
+                    </div>
                 </div>
                 <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
@@ -124,7 +125,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </ul>
 </nav>
 <div class="content-wrapper">
     <div class="container-fluid">
@@ -272,6 +273,7 @@
     <!-- Bootstrap core JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="${pageContext.request.contextPath}/layer/layer.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/jquery-easing/jquery.easing.min.js"></script>
     <!-- Page level plugin JavaScript-->
@@ -283,6 +285,24 @@
     <!-- Custom scripts for this page-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $("#logOut").click(function(){
+                layer.confirm('确定注销登陆？', {
+                    btn: ['确定','取消'] //按钮
+                }, function(){
+                    layer.msg("已注销");
+                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/index')},2000);
+                    <c:remove var="staff" scope="session"></c:remove>
+                }, function(){
+                    layer.msg("取消",{icon:2})
+                });
+            })
+
+        })
+
+    </script>
 </div>
 </body>
 

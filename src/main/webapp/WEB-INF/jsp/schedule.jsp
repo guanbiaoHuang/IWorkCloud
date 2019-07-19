@@ -132,16 +132,43 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Dashboard</a>
+                <a href="index.html">个人中心</a>
             </li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">日程</li>
         </ol>
         <div class="row">
-            <div class="col-12">
-                <h1>Blank</h1>
-                <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+            <div class="col-md-6 col-sm-6 mb-3" id="scheduleBtn">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-calendar"></i>
+                        </div>
+                    </div>
+                    <li class="card-footer text-white clearfix small z-1">
+                        <span class="float-left">添加日程</span>
+                        <span class="float-right">
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </li>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 mb-3">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-list"></i>
+                        </div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="${pageContext.request.contextPath}/askForHoliday">
+                        <span class="float-left">请假</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
             </div>
         </div>
+
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

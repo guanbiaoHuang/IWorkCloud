@@ -32,7 +32,9 @@
         <property name="noteMapper" ref="noteMapper"></property>
     </bean>
 
-
+    <bean id="scheduleService" class="com.iworkcloud.serviceImp.ScheduleService">
+        <property name="scheduleMapper" ref="scheduleMapper"></property>
+    </bean>
 
 
 
