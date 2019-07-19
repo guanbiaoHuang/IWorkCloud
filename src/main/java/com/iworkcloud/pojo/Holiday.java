@@ -2,6 +2,7 @@ package com.iworkcloud.pojo;
 
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Holiday implements Serializable {
 
@@ -12,6 +13,18 @@ public class Holiday implements Serializable {
   private String reason;
   private String ratified;
 
+
+  public Holiday() {
+  }
+
+  public Holiday(long id, String staff, Timestamp timeStart, Timestamp timeEnd, String reason, String ratified) {
+    this.id = id;
+    this.staff = staff;
+    this.timeStart = timeStart;
+    this.timeEnd = timeEnd;
+    this.reason = reason;
+    this.ratified = ratified;
+  }
 
   public long getId() {
     return id;

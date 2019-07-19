@@ -10,6 +10,17 @@ public class Project implements Serializable {
   private String approved;
 
 
+  public Project() {
+  }
+
+
+  public Project(String id, String name, String tag, String approved) {
+    this.id = id;
+    this.name = name;
+    this.tag = tag;
+    this.approved = approved;
+  }
+
   public String getId() {
     return id;
   }

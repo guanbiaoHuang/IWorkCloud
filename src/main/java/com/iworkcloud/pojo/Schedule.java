@@ -2,6 +2,7 @@ package com.iworkcloud.pojo;
 
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Schedule implements Serializable {
 
@@ -9,6 +10,18 @@ public class Schedule implements Serializable {
   private String staff;
   private java.sql.Timestamp time;
   private String content;
+
+
+  public Schedule() {
+  }
+
+
+  public Schedule(long id, String staff, Timestamp time, String content) {
+    this.id = id;
+    this.staff = staff;
+    this.time = time;
+    this.content = content;
+  }
 
 
   public long getId() {

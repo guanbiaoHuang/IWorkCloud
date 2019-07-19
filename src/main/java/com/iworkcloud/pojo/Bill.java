@@ -1,6 +1,8 @@
 package com.iworkcloud.pojo;
 
 
+import java.sql.Timestamp;
+
 public class Bill {
 
   private String id;
@@ -9,6 +11,17 @@ public class Bill {
   private String tag;
   private String details;
 
+
+  public Bill() {
+  }
+
+  public Bill(String id, Timestamp time, double mount, String tag, String details) {
+    this.id = id;
+    this.time = time;
+    this.mount = mount;
+    this.tag = tag;
+    this.details = details;
+  }
 
   public String getId() {
     return id;

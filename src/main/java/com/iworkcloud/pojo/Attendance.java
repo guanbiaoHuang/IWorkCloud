@@ -2,6 +2,7 @@ package com.iworkcloud.pojo;
 
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Attendance implements Serializable {
 
@@ -9,6 +10,14 @@ public class Attendance implements Serializable {
   private String staff;
   private java.sql.Date date;
 
+  public Attendance() {
+  }
+
+  public Attendance(long id, String staff, Date date) {
+    this.id = id;
+    this.staff = staff;
+    this.date = date;
+  }
 
   public long getId() {
     return id;

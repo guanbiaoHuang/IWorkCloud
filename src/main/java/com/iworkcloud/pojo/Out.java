@@ -2,6 +2,7 @@ package com.iworkcloud.pojo;
 
 
 import java.io.Serializable;
+import java.sql.Date;
 
 public class Out implements Serializable {
 
@@ -10,6 +11,17 @@ public class Out implements Serializable {
   private java.sql.Date dateStart;
   private java.sql.Date dateEnd;
 
+
+  public Out() {
+  }
+
+
+  public Out(long id, String staff, Date dateStart, Date dateEnd) {
+    this.id = id;
+    this.staff = staff;
+    this.dateStart = dateStart;
+    this.dateEnd = dateEnd;
+  }
 
   public long getId() {
     return id;

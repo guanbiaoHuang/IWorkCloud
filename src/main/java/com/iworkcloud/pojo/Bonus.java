@@ -2,6 +2,7 @@ package com.iworkcloud.pojo;
 
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Bonus implements Serializable {
 
@@ -11,6 +12,16 @@ public class Bonus implements Serializable {
   private double subsidy;
   private java.sql.Timestamp time;
 
+  public Bonus() {
+  }
+
+  public Bonus(String id, String staff, double bonus, double subsidy, Timestamp time) {
+    this.id = id;
+    this.staff = staff;
+    this.bonus = bonus;
+    this.subsidy = subsidy;
+    this.time = time;
+  }
 
   public String getId() {
     return id;

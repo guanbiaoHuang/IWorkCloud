@@ -2,6 +2,7 @@ package com.iworkcloud.pojo;
 
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 
 public class Activity implements Serializable {
 
@@ -11,6 +12,17 @@ public class Activity implements Serializable {
   private String content;
   private String tag;
 
+  public Activity() {
+  }
+
+
+  public Activity(long id, Timestamp time, String title, String content, String tag) {
+    this.id = id;
+    this.time = time;
+    this.title = title;
+    this.content = content;
+    this.tag = tag;
+  }
 
   public long getId() {
     return id;

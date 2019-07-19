@@ -11,6 +11,16 @@ public class Team implements Serializable {
   private String project;
 
 
+  public Team() {
+  }
+
+
+  public Team(String id, String name, String manager, String project) {
+        this.id = id;
+        this.name = name;
+        this.manager = manager;
+        this.project = project;
+  }
   public String getId() {
     return id;
   }
