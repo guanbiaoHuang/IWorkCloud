@@ -1,3 +1,5 @@
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -168,7 +170,37 @@
                 </div>
             </div>
         </div>
-
+        <div class="row">
+            <div class="col-md-6 col-sm-6 mb-3" id="SchedulePanel">
+                <c:forEach begin="0" end="3" step="1">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-text">time</h4>
+                        <p class="card-text">body</p>
+                    </div>
+                </div>
+                </c:forEach>
+            </div>
+            <div class="col-md-6 col-sm-6 mb-3" id="MeetingPanel">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bell-o"></i>会议记录</div>
+                    <div class="list-group list-group-flush small">
+                        <c:forEach begin="0" end="3" step="1">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">标题</h5>
+                                    <small><a href="${pageContext.request.contextPath}/deleteNote?noteId=${note.id}"><span class="badge badge-success">new</span></a></small>
+                                </div>
+                                <p class="mb-1">内容</p>
+                                <small>时间</small>
+                            </li>
+                        </c:forEach>
+<%--                        <a class="list-group-item list-group-item-action" href="#">查看所有记事</a>--%>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
