@@ -26,6 +26,14 @@ public class Holiday implements Serializable {
     this.ratified = ratified;
   }
 
+  public Holiday(String staff, Timestamp timeStart, Timestamp timeEnd, String reason, String ratified) {
+    this.staff = staff;
+    this.timeStart = timeStart;
+    this.timeEnd = timeEnd;
+    this.reason = reason;
+    this.ratified = ratified;
+  }
+
   public long getId() {
     return id;
   }

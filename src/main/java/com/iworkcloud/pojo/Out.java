@@ -23,6 +23,12 @@ public class Out implements Serializable {
     this.dateEnd = dateEnd;
   }
 
+  public Out(String staff, Date dateStart, Date dateEnd) {
+    this.staff = staff;
+    this.dateStart = dateStart;
+    this.dateEnd = dateEnd;
+  }
+
   public long getId() {
     return id;
   }

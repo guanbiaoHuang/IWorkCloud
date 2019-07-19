@@ -19,6 +19,11 @@ public class Attendance implements Serializable {
     this.date = date;
   }
 
+  public Attendance(String staff, Date date) {
+    this.staff = staff;
+    this.date = date;
+  }
+
   public long getId() {
     return id;
   }

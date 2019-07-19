@@ -24,6 +24,13 @@ public class Activity implements Serializable {
     this.tag = tag;
   }
 
+  public Activity(Timestamp time, String title, String content, String tag) {
+    this.time = time;
+    this.title = title;
+    this.content = content;
+    this.tag = tag;
+  }
+
   public long getId() {
     return id;
   }

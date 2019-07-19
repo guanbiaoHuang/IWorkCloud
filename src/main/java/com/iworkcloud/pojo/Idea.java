@@ -24,6 +24,13 @@ public class Idea implements Serializable {
     this.content = content;
   }
 
+  public Idea(String staff, String title, Timestamp time, String content) {
+    this.staff = staff;
+    this.title = title;
+    this.time = time;
+    this.content = content;
+  }
+
   public long getId() {
     return id;
   }

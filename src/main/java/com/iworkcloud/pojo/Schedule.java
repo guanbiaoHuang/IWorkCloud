@@ -23,6 +23,11 @@ public class Schedule implements Serializable {
     this.content = content;
   }
 
+  public Schedule(String staff, Timestamp time, String content) {
+    this.staff = staff;
+    this.time = time;
+    this.content = content;
+  }
 
   public long getId() {
     return id;
