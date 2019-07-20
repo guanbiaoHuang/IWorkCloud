@@ -36,7 +36,41 @@
         <property name="scheduleMapper" ref="scheduleMapper"></property>
     </bean>
 
+    <bean id="outService" class="com.iworkcloud.serviceImp.OutService">
+        <property name="outMapper" ref="outMapper"></property>
+    </bean>
 
+    <bean id="ideaService"  class="com.iworkcloud.serviceImp.IdeaService">
+        <property name="ideaMapper" ref="ideaMapper"></property>
+    </bean>
+
+    <bean id="billService" class="com.iworkcloud.serviceImp.BillService">
+        <property name="billMapper" ref="billMapper"></property>
+    </bean>
+
+    <bean id="activityService" class="com.iworkcloud.serviceImp.ActivityService">
+        <property name="activityMapper" ref="activityMapper"></property>
+    </bean>
+
+    <bean id="bonusService" class="com.iworkcloud.serviceImp.BonusService">
+        <property name="bonusMapper" ref="bonusMapper"></property>
+    </bean>
+
+    <bean id="attendanceService" class="com.iworkcloud.serviceImp.AttendanceService">
+        <property name="attendanceMapper" ref="attendanceMapper"></property>
+    </bean>
+
+    <bean id="holidayService" class="com.iworkcloud.serviceImp.HolidayService">
+        <property name="holidayMapper" ref="holidayMapper"></property>
+    </bean>
+
+    <bean id="projectService" class="com.iworkcloud.serviceImp.ProjectService">
+        <property name="projectMapper" ref="projectMapper"></property>
+    </bean>
+
+    <bean id="teamService" class="com.iworkcloud.serviceImp.TeamService">
+        <property name="teamMapper" ref="teamMapper"></property>
+    </bean>
 
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"></property>

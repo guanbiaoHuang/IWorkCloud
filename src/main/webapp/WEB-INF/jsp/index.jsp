@@ -294,7 +294,6 @@
                 }, function(){
                     layer.msg("已注销");
                     setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/index')},2000);
-                    <c:remove var="staff" scope="session"></c:remove>
                 }, function(){
                     layer.msg("取消",{icon:2})
                 });

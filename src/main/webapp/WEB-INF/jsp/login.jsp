@@ -21,7 +21,7 @@
 				</c:if>	
 			</div>
             <div class="row" style="margin-top: 50px">
-                <img class="img-responsive m-auto" id="iconImg" src="${pageContext.request.contextPath}/img/faces/default.jpeg"/>
+                <img class="img-responsive m-auto" id="iconImg" src="${pageContext.request.contextPath}/img/default.jpeg"/>
             </div>
 
             <div class="row" style="margin-top: 20px">

@@ -20,7 +20,7 @@
 				</c:if>	
 			</div>
             <div class="row"  style="margin-top: 50px">
-                <img class="img-responsive m-auto" id="iconImg" src="${pageContext.request.contextPath}/img/faces/default.jpeg"/>
+                <img class="img-responsive m-auto" id="iconImg" src="${pageContext.request.contextPath}/img/default.jpeg"/>
             </div>
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 m-auto">
@@ -86,9 +86,9 @@
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/regist.js"></script>
     <script type="text/javascript">
     	$(document).ready(function(){
-    		
+
     		$("#getCode").click(function(){
-    			
+
     			var $phone = $("#registPhone").val();
     			if(!(/^1[3456789]\d{9}$/.test($phone))){
     	    		layer.msg("手机号非法");
@@ -102,13 +102,13 @@
                                 getCodeClick();
                                 layer.msg(result);
     	     				}
-    	     			); 
+    	     			);
     	    	 }
-    			
-    				
+
+
     		});
-    					
-    		
+
+
     	});
     
     

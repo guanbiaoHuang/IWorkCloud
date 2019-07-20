@@ -7,21 +7,36 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+import java.sql.Timestamp;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 @Controller
 public class ScheduleController {
     @Autowired
     private IScheduleService scheduleService;
 
     @RequestMapping("addSchedule")
-    public String addSchedule(){
-        scheduleService.addSchedule(new Schedule());
+    public String addSchedule(String time, String content, HttpSession session) throws ParseException {
+
+        time = time.replace('T',' ');
+        long timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(time).getTime();
+        Timestamp timestamp = new Timestamp(timeStamp);
+        scheduleService.addSchedule(new Schedule((String)session.getAttribute("staff"),timestamp,content));
         return "redirect:schedule";
     }
 
     @RequestMapping("schedule")
-    public String getSchedule(){
+    public String getSchedule(Timestamp time,String content){
 
-        return "";
+        return "schedule";
+    }
+
+    @RequestMapping("scheduleInfo")
+    public String fillInfo(){
+        return "scheduleInfo";
     }
 
 }

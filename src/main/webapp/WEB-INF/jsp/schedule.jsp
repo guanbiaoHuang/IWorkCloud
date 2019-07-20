@@ -146,7 +146,7 @@
                             <i class="fa fa-fw fa-calendar"></i>
                         </div>
                     </div>
-                    <li class="card-footer text-white clearfix small z-1">
+                    <li class="card-footer text-white clearfix small z-1" id="addSchedule">
                         <span class="float-left">添加日程</span>
                         <span class="float-right">
                             <i class="fa fa-angle-right"></i>
@@ -221,6 +221,7 @@
     <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="${pageContext.request.contextPath}/layer/layer.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/chart.js/Chart.min.js"></script>
     <script src="${pageContext.request.contextPath}/vendor/datatables/jquery.dataTables.js"></script>
@@ -230,7 +231,23 @@
     <!-- Custom scripts for this page-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#addSchedule").click(function () {
+                layer.open({
+                        type:2, title:'填写日程信息',area:['360px','300px'],scrollbar: false,offset: 'auto',
+                        content:'${pageContext.request.contextPath}/scheduleInfo',
+                }
+                )
+            })
+
+
+
+        })
+
+    </script>
 </div>
+
 </body>
 
 </html>
