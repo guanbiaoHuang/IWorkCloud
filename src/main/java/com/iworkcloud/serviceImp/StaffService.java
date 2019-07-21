@@ -29,5 +29,10 @@ public class StaffService implements IStaffService {
         return status==1?true:false;
     }
 
+    @Override
+    public boolean modifyInfo(String staffId) {
+        return false;
+    }
+
 
 }

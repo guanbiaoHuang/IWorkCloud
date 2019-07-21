@@ -21,17 +21,14 @@ public class UserService implements IUserService {
 	public String getIcon(String phone) {
 		User user = userMapper.queryUserByPhone(phone);
 		return null!=user?user.getIcon():"";
-		
 	}
 	@Override
 	public boolean isExist(String phone) {
 		return null!=userMapper.queryUserByPhone(phone)?true:false;
-		
 	}
 	@Override
 	public boolean login(String phone, String password) {
-		User user = new User();
-		user = userMapper.queryUserByPhone(phone);
+		User user = userMapper.queryUserByPhone(phone);
 		return (null!=user && user.getPassword().equals(password))?true:false;
 	}	
 	

@@ -3,6 +3,7 @@ package com.iworkcloud.controller;
 
 import com.iworkcloud.pojo.Schedule;
 import com.iworkcloud.service.IScheduleService;
+import com.iworkcloud.utils.Str2Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,7 +23,7 @@ public class ScheduleController {
     public String addSchedule(String time, String content, HttpSession session) throws ParseException {
 
         time = time.replace('T',' ');
-        long timeStamp = new SimpleDateFormat("yyyy-MM-dd HH:mm").parse(time).getTime();
+        long timeStamp = Str2Date.getTimeByStr(time);
         Timestamp timestamp = new Timestamp(timeStamp);
         scheduleService.addSchedule(new Schedule((String)session.getAttribute("staff"),timestamp,content));
         return "redirect:schedule";
