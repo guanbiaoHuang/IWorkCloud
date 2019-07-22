@@ -4,11 +4,11 @@
 
 
     <insert id="insertBill" parameterType="com.iworkcloud.pojo.Bill">
-        insert into bill (TIME,MOUNT,TAG,DETAILS) values (#{time},#{mount},#{tag},#{details})
+        insert into bill (ID, TIME,MOUNT,TAG,DETAILS) values (#{id} ,#{time},#{mount},#{tag},#{details})
     </insert>
 
     <update id="updateBillContent" parameterType="HashMap">
-        update bill set mount = #{mount}, details = #{details} where id = #{id}
+        update bill set time = #{time}, mount = #{mount}, tag = #{tag}, details = #{details} where id = #{id}
     </update>
 
     <select id="queryBillById" parameterType="int" resultType="com.iworkcloud.pojo.Bill">
@@ -19,9 +19,7 @@
         select * from bill where tag = #{tag}
     </select>
 
-    <delete id="deleteBillById" parameterType="int">
-        delete * from bill where id = #{id}
-    </delete>
+
 
 
 </mapper>

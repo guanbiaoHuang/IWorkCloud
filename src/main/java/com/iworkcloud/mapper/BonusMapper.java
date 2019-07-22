@@ -11,8 +11,6 @@ public interface BonusMapper {
 
     int updateBonusContent(HashMap<Object,Object>map);
 
-    int deleteBonusById(int id);
-
-    List<Bonus> queryAllBonus();
+    List<Bonus> queryAllBonus(String staffId);
 
 }

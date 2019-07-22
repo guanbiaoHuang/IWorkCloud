@@ -8,23 +8,14 @@
             values (#{time},#{title},#{content},#{tag})
     </insert>
 
-    <select id="queryActivityById" parameterType="int" resultType="com.iworkcloud.pojo.Activity">
-        select * from activity where id = #{id}
-    </select>
-
-    <select id="queryActivitiesByDate" parameterType="Date" resultType="com.iworkcloud.pojo.Activity">
-        select * from activity where time = #{date}
-    </select>
-
-    <select id="queryActivitiesByTag" parameterType="String" resultType="com.iworkcloud.pojo.Activity">
-        select * from activity where tag = #{tag}
+    <select id="queryActivitiesByDateAndTag" parameterType="HashMap" resultType="com.iworkcloud.pojo.Activity">
+        select * from activity where DATE_SUB(CURDATE(), INTERVAL #{days} DAY) &lt;= date(time) and tag = #{tag}
     </select>
 
     <update id="updateActivityById" parameterType="HashMap">
-        update activity set title = #{title},content = #{content} where id = #{id}
+        update activity set time = #{time}, title = #{title},content = #{content},
+                            tag = #{tag} where id = #{id}
     </update>
 
-    <delete id="deleteActivityById" parameterType="int">
-        delete * from activity where id = #{id}
-    </delete>
+
 </mapper>

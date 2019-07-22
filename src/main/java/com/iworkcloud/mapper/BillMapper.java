@@ -11,5 +11,5 @@ public interface BillMapper {
     int updateBillContent(HashMap<Object,Object>map);
     List<Bill> queryBillById(int id);
     List<Bill> queryBillsByTag(String tag);
-    int deleteBillById(int id);
+
 }
