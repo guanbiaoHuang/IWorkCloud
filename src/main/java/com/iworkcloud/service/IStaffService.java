@@ -9,4 +9,5 @@ public interface IStaffService {
     String getStaffID(String phone);
     boolean bindStaff(HashMap<String,Object> map);
     boolean modifyInfo(Staff staff);
+    Staff getStaffById(String id);
 }

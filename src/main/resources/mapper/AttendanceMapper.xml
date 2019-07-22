@@ -5,16 +5,10 @@
 
 
     <insert id="insertAttendance" parameterType="com.iworkcloud.pojo.Attendance">
-        insert into attendance (STAFF,DATE) values (#{staff},#{date})
+        insert into attendance (name,staff,time) values (#{name} ,#{staff},#{time})
     </insert>
 
-    <select id="queryAttendanceByStaff" parameterType="String" resultType="com.iworkcloud.pojo.Attendance">
-        select * from attendance where DATE_FORMAT(date,'%Y%m') = DATE_FORMAT(CURDATE(),'%Y%m') and staff = #{staffId}
-    </select>
 
-    <select id="queryAttendancesByDate" parameterType="java.util.Date" resultType="com.iworkcloud.pojo.Attendance">
-        select * from attendance where date = #{date}
-    </select>
 
 
 

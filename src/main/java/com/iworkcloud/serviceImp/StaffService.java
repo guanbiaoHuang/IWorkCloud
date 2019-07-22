@@ -35,5 +35,10 @@ public class StaffService implements IStaffService {
         return false;
     }
 
+    @Override
+    public Staff getStaffById(String id) {
+        return staffMapper.queryStaffById(id);
+    }
+
 
 }

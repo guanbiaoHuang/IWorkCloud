@@ -1,28 +1,15 @@
 package com.iworkcloud.pojo;
 
 
-import java.io.Serializable;
-import java.sql.Date;
+import java.sql.Timestamp;
 
-public class Attendance implements Serializable {
+public class Attendance {
 
   private long id;
+  private String name;
   private String staff;
-  private java.sql.Date date;
+  private java.sql.Timestamp time;
 
-  public Attendance() {
-  }
-
-  public Attendance(long id, String staff, Date date) {
-    this.id = id;
-    this.staff = staff;
-    this.date = date;
-  }
-
-  public Attendance(String staff, Date date) {
-    this.staff = staff;
-    this.date = date;
-  }
 
   public long getId() {
     return id;
@@ -30,6 +17,15 @@ public class Attendance implements Serializable {
 
   public void setId(long id) {
     this.id = id;
+  }
+
+
+  public String getName() {
+    return name;
+  }
+
+  public void setName(String name) {
+    this.name = name;
   }
 
 
@@ -42,12 +38,24 @@ public class Attendance implements Serializable {
   }
 
 
-  public java.sql.Date getDate() {
-    return date;
+  public java.sql.Timestamp getTime() {
+    return time;
   }
 
-  public void setDate(java.sql.Date date) {
-    this.date = date;
+  public void setTime(java.sql.Timestamp time) {
+    this.time = time;
   }
 
+  public Attendance(String name, String staff, Timestamp time) {
+    this.name = name;
+    this.staff = staff;
+    this.time = time;
+  }
+
+  public Attendance(long id, String name, String staff, Timestamp time) {
+    this.id = id;
+    this.name = name;
+    this.staff = staff;
+    this.time = time;
+  }
 }

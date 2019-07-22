@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -132,15 +133,59 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Dashboard</a>
+                <a href="index.html">个人中心</a>
             </li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">考勤统计</li>
         </ol>
         <div class="row">
-            <div class="col-12">
-                <h1>Blank</h1>
-                <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+            <div class="col-md-4 col-sm-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bar-chart"></i>签到统计</div>
+                    <div class="card-body">
+                        <canvas id="myBarChart" width="100" height="50"></canvas>
+                    </div>
+                    <div class="card-footer small text-muted">签到统计状况</div>
+                </div>
             </div>
+            <div class="col-md-8 col-sm-12">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-table"></i>签到记录</div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <thead>
+                                <tr>
+                                    <th>工号</th>
+                                    <th>姓名</th>
+                                    <th>签到时间</th>
+                                </tr>
+                                </thead>
+                                <tfoot>
+                                <tr>
+                                    <th>工号</th>
+                                    <th>姓名</th>
+                                    <th>签到时间</th>
+                                </tr>
+                                </tfoot>
+                                <tbody>
+                                <c:forEach var="attendance" items="${attendanceList}">
+                                    <tr>
+                                       <td>${attendance.staff}</td>
+                                        <td>${attendance.name}</td>
+                                        <td>${attendance.time}</td>
+                                    </tr>
+                                </c:forEach>
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="card-footer small text-muted">签到记录</div>
+                </div>
+            </div>
+
         </div>
     </div>
     <!-- /.container-fluid-->
@@ -171,6 +216,7 @@
     <!-- Custom scripts for this page-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
 </div>
 </body>
 

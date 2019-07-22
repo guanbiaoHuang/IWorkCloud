@@ -16,7 +16,7 @@ public class AttendanceService implements IAttendanceService {
 
     @Override
     public boolean addAttendance(Attendance attendance) {
-        return false;
+        return 1==attendanceMapper.insertAttendance(attendance)?true:false;
     }
 
     @Override

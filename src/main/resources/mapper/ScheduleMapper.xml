@@ -18,8 +18,5 @@
         select * from schedule where DATE_SUB(CURDATE(), INTERVAL #{days} DAY) &lt;= date(time) and staff = #{staffId}
     </select>
 
-    <select id="queryScheduleByTime" parameterType="HashMap" resultType="com.iworkcloud.pojo.Schedule">
-        select * from schedule where time > #{timeNow} and #{finalTime} > time and staff=#{staffId};
-    </select>
 
 </mapper>

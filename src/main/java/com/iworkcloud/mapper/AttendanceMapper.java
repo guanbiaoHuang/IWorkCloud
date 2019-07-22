@@ -7,8 +7,7 @@ import java.util.List;
 
 public interface AttendanceMapper {
     int insertAttendance(Attendance attendance);
-    List<Attendance> queryAttendanceByStaff(String staffId);
-    List<Attendance> queryAttendancesByDate(Date date);
+
 
 }
 

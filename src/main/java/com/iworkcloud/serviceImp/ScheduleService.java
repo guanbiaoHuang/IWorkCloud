@@ -33,12 +33,6 @@ public class ScheduleService implements IScheduleService {
 
     @Override
     public List<Schedule> getRecentSchedule(int recentDays, String staffId) {
-        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+08:00"));
-        calendar.add(Calendar.DATE,7);
-        HashMap<String,Object> map = new HashMap<>();
-        map.put("timeNow",new Timestamp(System.currentTimeMillis()));
-        map.put("finalTime",new Timestamp(calendar.getTimeInMillis()));
-        map.put("staffId",staffId);
-        return scheduleMapper.queryScheduleByTime(map);
+        return scheduleMapper.queryScheduleByDays(recentDays,staffId);
     }
 }
