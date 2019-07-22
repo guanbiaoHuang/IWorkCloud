@@ -8,6 +8,11 @@ import java.util.List;
 public interface AttendanceMapper {
     int insertAttendance(Attendance attendance);
 
+    List<Attendance> queryAttendanceToday(String staffId);
+
+    List<Attendance> queryAllAttendanceToday();
+
+    List<Attendance> getAttendanceMonth(String staffId);
 
 }
 

@@ -8,6 +8,17 @@
         insert into attendance (name,staff,time) values (#{name} ,#{staff},#{time})
     </insert>
 
+    <select id="queryAttendanceToday" parameterType="String" resultType="com.iworkcloud.pojo.Attendance">
+        select * from attendance where date(time) = curdate() and staff = #{staffId}
+    </select>
+
+    <select id="queryAllAttendanceToday" resultType="com.iworkcloud.pojo.Attendance">
+        select * from attendance where date(time) = curdate()
+    </select>
+
+    <select id="getAttendanceMonth" parameterType="String" resultType="com.iworkcloud.pojo.Attendance">
+        select * from attendance where month(time) = month(now())
+    </select>
 
 
 
