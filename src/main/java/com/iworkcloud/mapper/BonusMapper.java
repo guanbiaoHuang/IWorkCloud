@@ -6,12 +6,13 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface BonusMapper {
-    int insertBonusRecord(Bonus bonus);
+
+    int insertBonus(Bonus bonus);
 
     int updateBonusContent(HashMap<Object,Object>map);
 
-    int deleteBonusRecordById(int id);
+    int deleteBonusById(int id);
 
-    List<Bonus> queryBonusRecordById(int id);
+    List<Bonus> queryAllBonus();
 
 }

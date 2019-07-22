@@ -11,9 +11,9 @@ public interface ProjectMapper {
 
     int deleteProjectById(String id);
 
-    int updateProjectContent(HashMap<Object,Object>map);
+    int updateProjectStatus(HashMap<String,String>map);
 
-    List<Project> queryProjectById(String id);
+    Project queryProjectById(String id);
 
     List<Project> queryProjectByTag(String tag);
 }

@@ -11,8 +11,8 @@
         delete * from project where id = #{id}
     </delete>
 
-    <update id="updateProjectContent" parameterType="HashMap">
-        update project set name = #{name}, tag = #{tag},approved = #{approved} where id = #{id}
+    <update id="updateProjectStatus" parameterType="HashMap">
+        update project set approved = #{approved} where id = #{id}
     </update>
 
     <select id="queryProjectById" parameterType="String" resultType="com.iworkcloud.pojo.Project">

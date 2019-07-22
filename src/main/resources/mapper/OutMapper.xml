@@ -13,7 +13,7 @@
         update `out` set date_start = #{date_start},date_end = #{date_end} where staff = #{staffId}
     </update>
 
-    <select id="queryOutByStaffId" parameterType="String" resultType="com.iworkcloud.pojo.Out">
-        select * from `out` where staff = #{staffId}
+    <select id="queryOutByTime" parameterType="java.sql.Timestamp" resultType="com.iworkcloud.pojo.Out">
+        select * from `out` where #{time} > date_start and date_end > #{time}
     </select>
 </mapper>

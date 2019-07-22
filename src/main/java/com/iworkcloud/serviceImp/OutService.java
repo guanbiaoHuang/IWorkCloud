@@ -15,7 +15,7 @@ public class OutService implements IOutService {
 
     @Override
     public boolean addOut(Out out) {
-        return false;
+        return 1==outMapper.insertOut(out)?true:false;
     }
 
     @Override
