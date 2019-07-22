@@ -21,7 +21,7 @@ public class StaffService implements IStaffService {
 
     @Override
     public String getStaffID(String phone) {
-        return staffMapper.queryStaffByPhone(phone);
+        return staffMapper.queryStaffByPhone(phone).getId();
     }
 
     @Override
