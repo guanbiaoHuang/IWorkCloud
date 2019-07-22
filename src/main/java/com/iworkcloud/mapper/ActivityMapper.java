@@ -13,11 +13,11 @@ public interface ActivityMapper {
 
     List<Activity> queryActivitiesByDateAndTag(@Param("days") int days, @Param("tag")String tag);
 
-
     int updateActivityById(HashMap<Object,Object>map);
 
+    List<Activity> queryActivityByTag(String tag);
 
     int insertActivity(Activity activity);
 
-
+    int deleteActivityById(long id);
 }

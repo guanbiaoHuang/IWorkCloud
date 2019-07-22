@@ -21,4 +21,9 @@ public class BonusService implements IBonusService {
     public boolean modifyBonus(Bonus bonus) {
         return false;
     }
+
+    @Override
+    public boolean queryAllBonus(String staffId) {
+        return false;
+    }
 }

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -132,12 +133,12 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Dashboard</a>
+                <a href="index.html">个人中心</a>
             </li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">活动</li>
         </ol>
         <div class="row">
-            <div class="col-md-6 col-sm-6 mb-3" id="addActivity">
+            <div class="col-md-4 col-sm-4 mb-3" id="addActivity">
                 <div class="card text-white bg-primary o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
@@ -152,7 +153,7 @@
                     </li>
                 </div>
             </div>
-            <div class="col-md-6 col-sm-6 mb-3" id="addMeeting">
+            <div class="col-md-4 col-sm-4 mb-3" id="addMeeting">
                 <div class="card text-white bg-warning o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
@@ -167,6 +168,77 @@
                     </li>
                 </div>
             </div>
+            <div class="col-md-4 col-sm-4 mb-3" id="addWelfare">
+                <div class="card text-white bg-info o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-link"></i>
+                        </div>
+                    </div>
+                    <li class="card-footer text-white clearfix small z-1">
+                        <span class="float-left">添加员工福利</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </li>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4 mb-3">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bell-o"></i>活动管理</div>
+                    <div class="list-group list-group-flush small">
+                        <c:forEach var="activity" items="${activityList}">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">${activity.title}</h5>
+                                    <small><a href="${pageContext.request.contextPath}/deleteActivity?activityId=${activity.id}"><span class="badge badge-danger">删除</span></a></small>
+                                </div>
+                                <p class="mb-1">${activity.content}</p>
+                                <small>${activity.time}</small>
+                            </li>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mb-3">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bell-o"></i>会议通知管理</div>
+                    <div class="list-group list-group-flush small">
+                        <c:forEach var="meeting" items="${meetingList}">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">${meeting.title}</h5>
+                                    <small><a href="${pageContext.request.contextPath}/deleteActivity?activityId=${meeting.id}"><span class="badge badge-danger">删除</span></a></small>
+                                </div>
+                                <p class="mb-1">${meeting.content}</p>
+                                <small>${meeting.time}</small>
+                            </li>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4 mb-3">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bell-o"></i>福利管理</div>
+                    <div class="list-group list-group-flush small">
+                        <c:forEach var="welfare" items="${welfareList}">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">${welfare.title}</h5>
+                                    <small><a href="${pageContext.request.contextPath}/deleteActivity?activityId=${welfare.id}"><span class="badge badge-danger">删除</span></a></small>
+                                </div>
+                                <p class="mb-1">${welfare.content}</p>
+                                <small>${welfare.time}</small>
+                            </li>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- /.container-fluid-->
@@ -174,7 +246,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Nanchang University </small>
+                <small>Copyright © Nanchang University</small>
             </div>
         </div>
     </footer>
@@ -210,6 +282,12 @@
                 layer.open({
                     type: 2,title: '填写会议通知',area: ['500px','420px'],scrollbar: false,offset: 'auto',
                     content: '${pageContext.request.contextPath}/meetingInfo',
+                })
+            })
+            $("#addWelfare").click(function () {
+                layer.open({
+                    type: 2,title: '填写福利',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                    content: '${pageContext.request.contextPath}/welfareInfo',
                 })
             })
         })

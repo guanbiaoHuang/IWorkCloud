@@ -191,19 +191,18 @@
             <div class="col-md-6 col-sm-6 mb-3" id="MeetingPanel">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-bell-o"></i>会议记录</div>
+                        <i class="fa fa-bell-o"></i>近一周会议通知</div>
                     <div class="list-group list-group-flush small">
-                        <c:forEach begin="0" end="3" step="1">
+                        <c:forEach items="${meetingList}" var="meeting">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">标题</h5>
+                                    <h5 class="mb-1">${meeting.title}</h5>
                                     <c:if test="${requestScope.isNew!=null}">
                                         <small><span class="badge badge-success">new</span></small>
                                     </c:if>
-
                                 </div>
-                                <p class="mb-1">内容</p>
-                                <small>时间</small>
+                                <p class="mb-1">${meeting.content}</p>
+                                <small>${meeting.time}</small>
                             </li>
                         </c:forEach>
 <%--                        <a class="list-group-item list-group-item-action" href="#">查看所有记事</a>--%>

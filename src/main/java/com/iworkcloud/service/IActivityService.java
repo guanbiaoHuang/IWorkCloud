@@ -3,6 +3,7 @@ package com.iworkcloud.service;
 import com.iworkcloud.pojo.Activity;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 public interface IActivityService {
 
@@ -11,7 +12,9 @@ public interface IActivityService {
     //修改Activity，全部信息
     boolean modifyActivity(Activity activity);
     //获得近期的某类型的活动
-    boolean getActivitiesByTime(int recentDays,String tag);
+    List<Activity> getActivitiesByTime(int recentDays, String tag);
+    //
+    List<Activity> getActivityByTag(String tag);
 
-
+    boolean deleteActivityById(long id);
 }

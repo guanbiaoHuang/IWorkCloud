@@ -20,4 +20,14 @@ public class BillService implements IBillService {
     public boolean modifyBill(Bill bill) {
         return false;
     }
+
+    @Override
+    public boolean queryBillById(String id) {
+        return false;
+    }
+
+    @Override
+    public boolean queryBillByTag(String tag) {
+        return false;
+    }
 }

@@ -16,6 +16,12 @@
         update activity set time = #{time}, title = #{title},content = #{content},
                             tag = #{tag} where id = #{id}
     </update>
+    <select id="queryActivityByTag" resultType="com.iworkcloud.pojo.Activity" parameterType="String">
+        select * from activity where tag = #{tag}
+    </select>
+    <delete id="deleteActivityById" parameterType="long">
+        delete from activity where id = #{id}
+    </delete>
 
 
 </mapper>

@@ -4,6 +4,8 @@ import com.iworkcloud.mapper.ActivityMapper;
 import com.iworkcloud.pojo.Activity;
 import com.iworkcloud.service.IActivityService;
 
+import java.util.List;
+
 public class ActivityService implements IActivityService {
     private ActivityMapper activityMapper;
 
@@ -22,7 +24,17 @@ public class ActivityService implements IActivityService {
     }
 
     @Override
-    public boolean getActivitiesByTime(int recentDays, String tag) {
-        return false;
+    public List<Activity> getActivitiesByTime(int recentDays, String tag) {
+        return activityMapper.queryActivitiesByDateAndTag(recentDays,tag);
+    }
+
+    @Override
+    public List<Activity> getActivityByTag(String tag) {
+        return activityMapper.queryActivityByTag(tag);
+    }
+
+    @Override
+    public boolean deleteActivityById(long id) {
+        return 1==activityMapper.deleteActivityById(id)?true:false;
     }
 }
