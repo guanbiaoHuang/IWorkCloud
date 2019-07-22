@@ -31,20 +31,12 @@ public class ScheduleController {
         return "redirect:schedule";
     }
 
-//    @RequestMapping("schedule")
-//    public String getSchedule(Timestamp time,String content){
-//
-//        return "schedule";
-//    }
-
     @RequestMapping("schedule")
-    public String getSchedule(Model model, HttpSession session){
-        List<Schedule> scheduleList = scheduleService.getRecentSchedule(7,"8000116106"/*session.getAttribute("staff").toString()*/);
+    public String getSchedule(Model model,HttpSession session){
+        List<Schedule> scheduleList = scheduleService.getRecentSchedule(7,(String)session.getAttribute("staff"));
         model.addAttribute("scheduleList",scheduleList);
         return "schedule";
-
     }
-
 
     @RequestMapping("scheduleInfo")
     public String fillInfo(){

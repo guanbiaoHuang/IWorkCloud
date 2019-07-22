@@ -24,13 +24,13 @@
     <div class="row" style="margin-top: 20px">
         <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/askForHoliday">
             <div class="form-group">
-                <label class="sr-only"></label>
-                <input type="datetime-local" class="form-control" name="time" placeholder="选择开始日期">
+                <label>请假开始日期：</label>
+                <input type="datetime-local" class="form-control" name="timeStart">
             </div>
 
             <div class="form-group">
-                <label class="sr-only"></label>
-                <input type="datetime-local" class="form-control" name="time" placeholder="选择结束日期">
+                <label>请假结束日期：</label>
+                <input type="datetime-local" class="form-control" name="timeEnd">
             </div>
 
 

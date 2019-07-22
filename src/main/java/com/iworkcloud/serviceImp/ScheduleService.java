@@ -5,7 +5,8 @@ import com.iworkcloud.pojo.Schedule;
 import com.iworkcloud.service.IScheduleService;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.List;
+import java.sql.Timestamp;
+import java.util.*;
 
 public class ScheduleService implements IScheduleService {
 
@@ -32,6 +33,12 @@ public class ScheduleService implements IScheduleService {
 
     @Override
     public List<Schedule> getRecentSchedule(int recentDays, String staffId) {
-        return null;
+        Calendar calendar = Calendar.getInstance(TimeZone.getTimeZone("GMT+08:00"));
+        calendar.add(Calendar.DATE,7);
+        HashMap<String,Object> map = new HashMap<>();
+        map.put("timeNow",new Timestamp(System.currentTimeMillis()));
+        map.put("finalTime",new Timestamp(calendar.getTimeInMillis()));
+        map.put("staffId",staffId);
+        return scheduleMapper.queryScheduleByTime(map);
     }
 }

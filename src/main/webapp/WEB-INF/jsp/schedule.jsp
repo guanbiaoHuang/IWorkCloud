@@ -1,4 +1,4 @@
-<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -160,25 +160,33 @@
                             <i class="fa fa-fw fa-list"></i>
                         </div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" id="askForHoliday">
+                    <li class="card-footer text-white clearfix small z-1" id="askForHoliday">
                         <span class="float-left">请假</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
-                    </a>
+                    </li>
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 col-sm-6 mb-3" id="SchedulePanel">
-                <c:forEach var="schedule" items="${requestScope.scheduleList}" >
-                <div class="card">
-                    <div class="card-body">
-                        <h4 class="card-text">${schedule.time}</h4>
-                        <p class="card-text">${schedule.content}</p>
+            <div class="col-md-6 col-sm-6 mb-3">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bell-o"></i>近一周日程</div>
+                    <div class="list-group list-group-flush small">
+                        <c:forEach items="${requestScope.scheduleList}" var="schedule">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">${schedule.content}</h5>
+                                    <small><a href="#"><span class="badge badge-danger">删除</span></a></small>
+                                </div>
+                                <p class="mb-1">${schedule.time}</p>
+                            </li>
+                        </c:forEach>
+                        <%--                        <a class="list-group-item list-group-item-action" href="#">查看所有记事</a>--%>
                     </div>
                 </div>
-                </c:forEach>
             </div>
             <div class="col-md-6 col-sm-6 mb-3" id="MeetingPanel">
                 <div class="card mb-3">
@@ -189,7 +197,10 @@
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">标题</h5>
-                                    <small><a href="${pageContext.request.contextPath}/deleteNote?noteId=${note.id}"><span class="badge badge-success">new</span></a></small>
+                                    <c:if test="${requestScope.isNew!=null}">
+                                        <small><span class="badge badge-success">new</span></small>
+                                    </c:if>
+
                                 </div>
                                 <p class="mb-1">内容</p>
                                 <small>时间</small>
@@ -240,18 +251,18 @@
                 )
             })
 
+        })
 
-
-        });
         $(document).ready(function () {
             $("#askForHoliday").click(function () {
                 layer.open({
-                    type: 2,title: '填写请假信息',area: ['360px','300px'],scrollbar: false,offset: 'auto',
+                    type: 2,title: '填写请假信息',area: ['500px','420px'],scrollbar: false,offset: 'auto',
                     content: '${pageContext.request.contextPath}/holidayInfo',
                 })
             })
 
         });
+
 
     </script>
 </div>
