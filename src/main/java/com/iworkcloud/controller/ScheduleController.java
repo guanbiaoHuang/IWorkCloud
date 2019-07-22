@@ -23,10 +23,8 @@ public class ScheduleController {
 
     @RequestMapping("addSchedule")
     public String addSchedule(String time, String content, HttpSession session) throws ParseException {
-
         time = time.replace('T',' ');
-        long timeStamp = Str2Date.getTimeByStr(time);
-        Timestamp timestamp = new Timestamp(timeStamp);
+        Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
         scheduleService.addSchedule(new Schedule((String)session.getAttribute("staff"),timestamp,content));
         return "redirect:schedule";
     }

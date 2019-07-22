@@ -13,7 +13,7 @@ public class ActivityService implements IActivityService {
 
     @Override
     public boolean addActivity(Activity activity) {
-        return false;
+        return 1==activityMapper.insertActivity(activity)?true:false;
     }
 
     @Override

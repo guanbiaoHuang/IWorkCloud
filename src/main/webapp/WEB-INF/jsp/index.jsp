@@ -293,14 +293,13 @@
                     btn: ['确定','取消'] //按钮
                 }, function(){
                     layer.msg("已注销");
-                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/index')},2000);
+                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/invalidateSession')},2000);
                 }, function(){
                     layer.msg("取消",{icon:2})
                 });
             })
 
         })
-
     </script>
 </div>
 </body>

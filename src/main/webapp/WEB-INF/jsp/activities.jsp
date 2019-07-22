@@ -137,9 +137,35 @@
             <li class="breadcrumb-item active">Blank Page</li>
         </ol>
         <div class="row">
-            <div class="col-12">
-                <h1>Blank</h1>
-                <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+            <div class="col-md-6 col-sm-6 mb-3" id="addActivity">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-child"></i>
+                        </div>
+                    </div>
+                    <li class="card-footer text-white clearfix small z-1">
+                        <span class="float-left">添加活动</span>
+                        <span class="float-right">
+                            <i class="fa fa-angle-right"></i>
+                        </span>
+                    </li>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 mb-3" id="addMeeting">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-link"></i>
+                        </div>
+                    </div>
+                    <li class="card-footer text-white clearfix small z-1">
+                        <span class="float-left">撰写会议通知</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </li>
+                </div>
             </div>
         </div>
     </div>
@@ -162,6 +188,7 @@
     <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="${pageContext.request.contextPath}/layer/layer.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/chart.js/Chart.min.js"></script>
     <script src="${pageContext.request.contextPath}/vendor/datatables/jquery.dataTables.js"></script>
@@ -171,6 +198,22 @@
     <!-- Custom scripts for this page-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#addActivity").click(function () {
+                layer.open({
+                    type: 2,title: '填写活动信息',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                    content: '${pageContext.request.contextPath}/activityInfo',
+                })
+            });
+            $("#addMeeting").click(function () {
+                layer.open({
+                    type: 2,title: '填写会议通知',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                    content: '${pageContext.request.contextPath}/meetingInfo',
+                })
+            })
+        })
+    </script>
 </div>
 </body>
 

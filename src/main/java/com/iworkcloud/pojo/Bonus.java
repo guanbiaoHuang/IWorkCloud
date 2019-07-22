@@ -5,6 +5,7 @@ public class Bonus {
 
   private String id;
   private String staff;
+  private double mount;
   private java.sql.Timestamp time;
   private String tag;
 
@@ -27,6 +28,15 @@ public class Bonus {
   }
 
 
+  public double getMount() {
+    return mount;
+  }
+
+  public void setMount(double mount) {
+    this.mount = mount;
+  }
+
+
   public java.sql.Timestamp getTime() {
     return time;
   }
@@ -43,5 +53,7 @@ public class Bonus {
   public void setTag(String tag) {
     this.tag = tag;
   }
+
+
 
 }

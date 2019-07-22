@@ -36,4 +36,10 @@ public class StaffController {
         }
 
     }
+
+    @RequestMapping("invalidateSession")
+    public String invalidateSession(HttpSession session){
+        session.removeAttribute("staff");
+        return "redirect:index";
+    }
 }
