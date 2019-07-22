@@ -7,4 +7,6 @@ public interface IBonusService {
     boolean addBonus(Bonus bonus);
     //修改奖金或补贴
     boolean modifyBonus(Bonus bonus);
+    //查询某员工所有奖金记录
+    boolean queryAllBonus(String staffId);
 }

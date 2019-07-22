@@ -4,20 +4,17 @@
 
 
     <insert id="insertBonus" parameterType="com.iworkcloud.pojo.Bonus">
-        insert into bonus (staff, BONUS, SUBSIDY, time) VALUES (#{staff} ,#{bonus} ,#{subsidy} ,#{time} )
+        insert into bonus (id, staff, mount, tag, time) VALUES (#{id}, #{staff} ,#{mount} ,#{tag} ,#{time})
     </insert>
 
 
-    <select id="queryAllBonus" resultType="com.iworkcloud.pojo.Bonus">
-        select * from bonus
+    <select id="queryAllBonus" parameterType="String" resultType="com.iworkcloud.pojo.Bonus">
+        select * from bonus where staff = #{staffId}
     </select>
 
-    <delete id="deleteBonusById" parameterType="int">
-        delete * from bonus where ID = #{id}
-    </delete>
 
-    <update id="updateBonusContent" parameterType="HashMap">
-        update bonus set BONUS=#{bonus}, SUBSIDY=#{subsidy} where ID = #{id}
+    <update id="updateBonusContent" parameterType="com.iworkcloud.pojo.Bonus">
+        update bonus set staff=#{staff}, mount=#{mount},tag = #{tag},time = #{time} where ID = #{id}
     </update>
 
 </mapper>
