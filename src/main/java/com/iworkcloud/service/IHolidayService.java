@@ -7,7 +7,7 @@ import java.util.List;
 public interface IHolidayService {
 
     boolean addHoliday(Holiday holiday);
-    boolean ratifyHoliday(long id);
+    boolean ratifyHoliday(String staffId);
     List<Holiday> getHolidayWaitedRatified();
     List<Holiday> getHolidayWaitedByStaff(String staffId);
 

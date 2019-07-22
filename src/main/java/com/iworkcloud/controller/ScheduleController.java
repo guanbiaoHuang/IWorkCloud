@@ -6,6 +6,7 @@ import com.iworkcloud.service.IScheduleService;
 import com.iworkcloud.utils.Str2Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
@@ -13,6 +14,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 @Controller
 public class ScheduleController {
@@ -29,11 +31,20 @@ public class ScheduleController {
         return "redirect:schedule";
     }
 
-    @RequestMapping("schedule")
-    public String getSchedule(Timestamp time,String content){
+//    @RequestMapping("schedule")
+//    public String getSchedule(Timestamp time,String content){
+//
+//        return "schedule";
+//    }
 
+    @RequestMapping("schedule")
+    public String getSchedule(Model model, HttpSession session){
+        List<Schedule> scheduleList = scheduleService.getRecentSchedule(7,"8000116106"/*session.getAttribute("staff").toString()*/);
+        model.addAttribute("scheduleList",scheduleList);
         return "schedule";
+
     }
+
 
     @RequestMapping("scheduleInfo")
     public String fillInfo(){

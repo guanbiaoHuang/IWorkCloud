@@ -16,21 +16,21 @@ public class HolidayService implements IHolidayService {
 
     @Override
     public boolean addHoliday(Holiday holiday) {
-        return false;
+        return 1==holidayMapper.insertHoliday(holiday)? true:false;
     }
 
     @Override
-    public boolean ratifyHoliday(long id) {
-        return false;
+    public boolean ratifyHoliday(String staffId) {
+        return 1==holidayMapper.refuseHoliday(staffId)?true:false;
     }
 
     @Override
     public List<Holiday> getHolidayWaitedRatified() {
-        return null;
+        return holidayMapper.queryHolidayByRatifyStatus();
     }
 
     @Override
     public List<Holiday> getHolidayWaitedByStaff(String staffId) {
-        return null;
+        return holidayMapper.queryHolidayByStaffID(staffId);
     }
 }

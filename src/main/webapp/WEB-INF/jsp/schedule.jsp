@@ -1,5 +1,4 @@
 <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -161,7 +160,7 @@
                             <i class="fa fa-fw fa-list"></i>
                         </div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="${pageContext.request.contextPath}/askForHoliday">
+                    <a class="card-footer text-white clearfix small z-1" id="askForHoliday">
                         <span class="float-left">请假</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -172,11 +171,11 @@
         </div>
         <div class="row">
             <div class="col-md-6 col-sm-6 mb-3" id="SchedulePanel">
-                <c:forEach begin="0" end="3" step="1">
+                <c:forEach var="schedule" items="${requestScope.scheduleList}" >
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-text">time</h4>
-                        <p class="card-text">body</p>
+                        <h4 class="card-text">${schedule.time}</h4>
+                        <p class="card-text">${schedule.content}</p>
                     </div>
                 </div>
                 </c:forEach>
@@ -243,7 +242,16 @@
 
 
 
-        })
+        });
+        $(document).ready(function () {
+            $("#askForHoliday").click(function () {
+                layer.open({
+                    type: 2,title: '填写请假信息',area: ['360px','300px'],scrollbar: false,offset: 'auto',
+                    content: '${pageContext.request.contextPath}/holidayInfo',
+                })
+            })
+
+        });
 
     </script>
 </div>
