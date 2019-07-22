@@ -1,14 +1,12 @@
 package com.iworkcloud.pojo;
-
-
 import java.sql.Timestamp;
 
 public class Bonus {
 
   private String id;
   private String staff;
+  private double mount;
   private java.sql.Timestamp time;
-  private float mount;
   private String tag;
 
   public Bonus() {
@@ -21,13 +19,7 @@ public class Bonus {
     this.tag = tag;
   }
 
-  public float getMount() {
-    return mount;
-  }
 
-  public void setMount(float mount) {
-    this.mount = mount;
-  }
   public String getId() {
     return id;
   }
@@ -43,6 +35,15 @@ public class Bonus {
 
   public void setStaff(String staff) {
     this.staff = staff;
+  }
+
+
+  public double getMount() {
+    return mount;
+  }
+
+  public void setMount(double mount) {
+    this.mount = mount;
   }
 
 
@@ -62,5 +63,7 @@ public class Bonus {
   public void setTag(String tag) {
     this.tag = tag;
   }
+
+
 
 }

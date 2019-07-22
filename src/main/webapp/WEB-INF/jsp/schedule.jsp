@@ -249,11 +249,7 @@
                         content:'${pageContext.request.contextPath}/scheduleInfo',
                 }
                 )
-            })
-
-        })
-
-        $(document).ready(function () {
+            });
             $("#askForHoliday").click(function () {
                 layer.open({
                     type: 2,title: '填写请假信息',area: ['500px','420px'],scrollbar: false,offset: 'auto',
@@ -261,8 +257,7 @@
                 })
             })
 
-        });
-
+        })
 
     </script>
 </div>
