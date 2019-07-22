@@ -1,6 +1,7 @@
 package com.iworkcloud.serviceImp;
 
 import com.iworkcloud.mapper.StaffMapper;
+import com.iworkcloud.pojo.Staff;
 import com.iworkcloud.service.IStaffService;
 
 import java.util.HashMap;
@@ -20,7 +21,7 @@ public class StaffService implements IStaffService {
 
     @Override
     public String getStaffID(String phone) {
-        return staffMapper.queryStaffByPhone(phone).getId();
+        return staffMapper.queryStaffByPhone(phone);
     }
 
     @Override
@@ -30,7 +31,7 @@ public class StaffService implements IStaffService {
     }
 
     @Override
-    public boolean modifyInfo(String staffId) {
+    public boolean modifyInfo(Staff staff) {
         return false;
     }
 

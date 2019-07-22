@@ -18,6 +18,6 @@ public interface ScheduleMapper {
 
     List<Schedule>queryScheduleByDays(@Param("days")int days,@Param("staffId")String staffId);
 
-    List<Schedule>queryScheduleByTime(HashMap<Object,Object>map);
+    List<Schedule>queryScheduleByTime(HashMap<String,Object>map);
 
 }

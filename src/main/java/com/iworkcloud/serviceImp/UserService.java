@@ -30,6 +30,10 @@ public class UserService implements IUserService {
 	public boolean login(String phone, String password) {
 		User user = userMapper.queryUserByPhone(phone);
 		return (null!=user && user.getPassword().equals(password))?true:false;
-	}	
-	
+	}
+
+	@Override
+	public int updatePassword(String phone, String password) {
+		return 0;
+	}
 }

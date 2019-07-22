@@ -7,7 +7,7 @@
         insert into staff (NAME,TEAM,SEX,PHONE,department) values(#{name},#{team},#{sex},#{phone},#{department} )
     </insert>
 
-    <select id="queryStaffIdByPhone" resultType="String" parameterType="String">
+    <select id="queryStaffByPhone" resultType="String" parameterType="String">
         select staff.id from staff where phone = #{phone}
     </select>
 

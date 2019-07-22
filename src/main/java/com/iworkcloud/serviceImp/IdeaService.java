@@ -25,7 +25,7 @@ public class IdeaService implements IIdeaService {
     }
 
     @Override
-    public boolean deleteIdea(Idea idea) {
+    public boolean deleteIdea(long id) {
         return false;
     }
 
