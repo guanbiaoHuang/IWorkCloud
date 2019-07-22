@@ -9,9 +9,9 @@ public interface IdeaMapper {
 
     int insertIdea(Idea idea);
 
-    int deleteIdeaByStaffId(String staffId);
+    int deleteIdeaByStaffId(long id);
 
-    List<Idea> queryIdeaByStaffId(String staffId);
+    List<Idea> queryAllIdea();
 
     int updateIdeaContent(HashMap<Object,Object>map);
 }

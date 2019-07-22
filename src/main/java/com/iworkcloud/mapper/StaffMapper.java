@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public interface StaffMapper {
     int insertStaff(Staff staff);
-    Staff queryStaffByPhone(String phone);
+    String queryStaffIdByPhone(String phone);
     int updatePhoneById(HashMap<String,Object> map);
-    int deleteStaffById(int id);
+
 }

@@ -1,6 +1,7 @@
 package com.iworkcloud.mapper;
 
 import com.iworkcloud.pojo.Team;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.HashMap;
 import java.util.List;
@@ -9,12 +10,9 @@ public interface TeamMapper {
 
     int insertTeam(Team team);
 
-    int deleteTeam(String id);
+    int updateTeamProject(HashMap<Object,Object>map);
 
-    int updateTeam(HashMap<Object,Object>map);
+    int updateTeamForManager(@Param("id")String id,@Param("managerId")String managerId);
 
-    List<Team>queryTeamById(String id);
-    List<Team>queryTeamByName(String name);
-    List<Team>queryTeamByManager(String manager);
-    List<Team>queryTeamByProject(String project);
+
 }

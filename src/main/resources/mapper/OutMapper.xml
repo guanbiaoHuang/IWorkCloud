@@ -5,15 +5,12 @@
     <insert id="insertOut" parameterType="com.iworkcloud.pojo.Out">
         insert into `out` (staff, date_start, date_end) VALUES (#{staff} ,#{dateStart} ,#{dateEnd} )
     </insert>
-    <delete id="deleteOut" parameterType="String">
-        delete * from `out` where staff = #{staffId}
-    </delete>
-
-    <update id="updateOutContent" parameterType="HashMap">
-        update `out` set date_start = #{date_start},date_end = #{date_end} where staff = #{staffId}
-    </update>
 
     <select id="queryOutByTime" parameterType="java.sql.Timestamp" resultType="com.iworkcloud.pojo.Out">
         select * from `out` where #{time} > date_start and date_end > #{time}
+    </select>
+
+    <select id="queryOutToday" resultType="com.iworkcloud.pojo.Out">
+        select * from `out` where date(date_start) = CURDATE();
     </select>
 </mapper>

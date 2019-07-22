@@ -10,8 +10,8 @@
         delete * from idea where staff = #{staffId}
     </delete>
 
-    <select id="queryIdeaByStaffId" parameterType="String" resultType="com.iworkcloud.pojo.Idea">
-        select * from idea where staff = #{staffId}
+    <select id="queryAllIdea" resultType="com.iworkcloud.pojo.Idea">
+        select * from idea
     </select>
 
     <update id="updateIdeaContent" parameterType="HashMap">

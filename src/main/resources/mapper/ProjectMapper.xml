@@ -7,20 +7,13 @@
         insert into project (id, name, tag, approved) VALUES (#{id} ,#{name} ,#{tag} ,#{approved} )
     </insert>
 
-    <delete id="deleteProjectById" parameterType="String">
-        delete * from project where id = #{id}
-    </delete>
-
     <update id="updateProjectStatus" parameterType="HashMap">
-        update project set approved = #{approved} where id = #{id}
+        update project set approved = #{approved}  where id = #{projectId}
     </update>
 
     <select id="queryProjectById" parameterType="String" resultType="com.iworkcloud.pojo.Project">
         select * from project where id = #{id}
     </select>
 
-    <select id="queryProjectByTag" parameterType="String" resultType="com.iworkcloud.pojo.Project">
-        select * from project where tag = #{tag}
-    </select>
 
 </mapper>

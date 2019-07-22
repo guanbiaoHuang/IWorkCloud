@@ -13,7 +13,5 @@ public interface NoteMapper {
 
     int deleteNoteById(String noteId);
 
-    int updateNoteContent(HashMap<Object,Object>map);
-
     List<Note> queryNoteByStaff(String staffId);
 }

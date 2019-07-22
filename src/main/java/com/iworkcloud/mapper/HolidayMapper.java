@@ -13,7 +13,5 @@ public interface HolidayMapper {
 
     List<Holiday> queryHolidayByRatifyStatus();
 
-    int updateHolidayContent(HashMap<Object,Object>map);
-
     int refuseHoliday(String staffID);
 }

@@ -10,4 +10,8 @@
 	<insert id="addUser" parameterType="com.iworkcloud.pojo.User">
 		insert into user values(#{phone},#{password},#{icon})
 	</insert>
+
+	<update id="updatePassword">
+		update user set password = #{password} where phone = #{phone}
+	</update>
 </mapper>

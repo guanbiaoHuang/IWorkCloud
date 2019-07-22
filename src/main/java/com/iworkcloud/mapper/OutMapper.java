@@ -12,7 +12,5 @@ public interface OutMapper {
 
     List<Out> queryOutByTime(Timestamp time);
 
-    int deleteOut(String staffId);
-
-    int updateOutContent(HashMap<Object,Object>map);
+    Out queryOutToday();
 }

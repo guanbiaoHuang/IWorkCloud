@@ -7,15 +7,12 @@
         insert into staff (NAME,TEAM,SEX,PHONE,department) values(#{name},#{team},#{sex},#{phone},#{department} )
     </insert>
 
-    <select id="queryStaffByPhone" resultType="com.iworkcloud.pojo.Staff" parameterType="String">
-        select * from staff where phone = #{phone}
+    <select id="queryStaffIdByPhone" resultType="String" parameterType="String">
+        select staff.id from staff where phone = #{phone}
     </select>
 
     <update id="updatePhoneById" parameterType="HashMap">
-        update staff set phone=#{phone} where id=#{id}
+        update staff set name = #{name}, team = #{team}, sex = #{sex}, department = #{department}, phone=#{phone} where id=#{id}
     </update>
 
-    <delete id="deleteStaffById" parameterType="int">
-        delete * from staff where id =#{id}
-    </delete>
 </mapper>

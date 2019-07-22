@@ -1,6 +1,7 @@
 package com.iworkcloud.service;
 
 import com.iworkcloud.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 public interface IUserService {
 
@@ -9,4 +10,5 @@ public interface IUserService {
     boolean isExist(String phone);
     boolean login(String phone, String password);
 
+    int updatePassword(String phone,String password);
 }
