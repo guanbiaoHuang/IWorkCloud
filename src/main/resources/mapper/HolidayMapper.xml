@@ -12,7 +12,7 @@
     </select>
 
     <select id="queryHolidayByRatifyStatus" resultType="com.iworkcloud.pojo.Holiday">
-        select * from holiday where ratified = 'WAITED'
+        select * from holiday where ratified = 'waited'
     </select>
 
 

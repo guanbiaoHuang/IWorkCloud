@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -143,7 +144,7 @@
                     <caption>请假批示</caption>
                     <thead>
                     <tr>
-                        <th>姓名</th>
+                        <th>工号</th>
                         <th>开始日期</th>
                         <th>结束日期</th>
                         <th>理由</th>
@@ -151,12 +152,12 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach begin="0" end="20" step="1">
+                    <c:forEach var="holiday" items="${holidayList}">
                     <tr>
-                        <td>张大彪</td>
-                        <td>2019-07-22</td>
-                        <td>2019-07-25</td>
-                        <td>生病</td>
+                        <td>${holiday.staff}</td>
+                        <td><fmt:formatDate value="${holiday.timeStart}" dateStyle="default"/> </td>
+                        <td>${holiday.timeEnd}</td>
+                        <td>${holiday.reason}</td>
                         <td>
                             <div class="row">
                                 <div class="col-12 m-auto">

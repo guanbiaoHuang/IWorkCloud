@@ -1,6 +1,8 @@
 package com.iworkcloud.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.sql.Timestamp;
 
@@ -8,7 +10,9 @@ public class Holiday implements Serializable {
 
   private long id;
   private String staff;
+  @JsonFormat(pattern = "yy-MM-dd")
   private java.sql.Timestamp timeStart;
+  @JsonFormat(pattern = "yy-MM-dd")
   private java.sql.Timestamp timeEnd;
   private String reason;
   private String ratified;
@@ -52,6 +56,7 @@ public class Holiday implements Serializable {
   }
 
 
+  @JsonFormat(pattern = "yy-MM-dd")
   public java.sql.Timestamp getTimeStart() {
     return timeStart;
   }
@@ -61,6 +66,7 @@ public class Holiday implements Serializable {
   }
 
 
+  @JsonFormat(pattern = "yy-MM-dd")
   public java.sql.Timestamp getTimeEnd() {
     return timeEnd;
   }

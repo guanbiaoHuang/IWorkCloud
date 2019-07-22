@@ -6,11 +6,13 @@ import com.iworkcloud.utils.Str2Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.text.ParseException;
+import java.util.List;
 
 @Controller
 public class HolidayController {
@@ -36,6 +38,17 @@ public class HolidayController {
     @RequestMapping("holidayInfo")
     public String holidayInfo(){
         return "holidayInfo";
+    }
+
+
+    @RequestMapping("excellentStaff")
+    public String holidayWaited(Model model){
+        List<Holiday> holidays = holidayService.getHolidayWaitedRatified();
+        model.addAttribute("holidayList",holidays);
+        System.out.println("--------------------------------");
+        System.out.println(holidays.size());
+        System.out.println("--------------------------------");
+        return "excellentStaff";
     }
 
 }

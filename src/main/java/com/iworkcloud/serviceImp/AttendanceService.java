@@ -20,9 +20,11 @@ public class AttendanceService implements IAttendanceService {
     }
 
     @Override
-    public boolean getAbsenceByDay(Date date) {
+    public boolean getAbsenceByDay() {
         return false;
     }
+
+
 
     @Override
     public boolean getAttendanceByStaff(String staffId) {
