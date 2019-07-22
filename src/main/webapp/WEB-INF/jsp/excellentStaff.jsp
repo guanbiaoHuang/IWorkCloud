@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -138,8 +139,36 @@
         </ol>
         <div class="row">
             <div class="col-12">
-                <h1>Blank</h1>
-                <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+                <table class="table table-bordered table-hover" id="dataTable">
+                    <caption>请假批示</caption>
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>开始日期</th>
+                        <th>结束日期</th>
+                        <th>理由</th>
+                        <th>是否批准</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach begin="0" end="20" step="1">
+                    <tr>
+                        <td>张大彪</td>
+                        <td>2019-07-22</td>
+                        <td>2019-07-25</td>
+                        <td>生病</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-12 m-auto">
+                                    <a class="btn btn-success col-5" href="#">允许</a>
+                                    <a class="btn btn-danger col-5" href="#">拒绝</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
