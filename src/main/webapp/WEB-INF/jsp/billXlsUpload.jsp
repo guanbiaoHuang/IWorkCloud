@@ -36,7 +36,7 @@
 
             <div class="form-group" style="margin-top: 80px">
                 <label class="sr-only"></label>
-                <button type="submit" id="submit" class="btn btn-block btn-success">添加账单</button>
+                <button type="submit" id="submit" class="btn btn-block btn-success">添加公司账单</button>
             </div>
 
         </form>
