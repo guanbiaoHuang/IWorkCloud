@@ -86,4 +86,9 @@ public class StaffService implements IStaffService {
         }
         return true;
     }
+
+    @Override
+    public boolean delleteStaff(String id) {
+        return 1==staffMapper.deleteStaff(id)?true:false;
+    }
 }

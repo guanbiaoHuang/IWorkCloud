@@ -15,5 +15,6 @@ public interface StaffMapper {
     Staff queryStaffById(String id);
     List<Staff> queryAllStaff();
 
+    int deleteStaff(String id);
 
 }

@@ -16,4 +16,5 @@ public interface IStaffService {
     Staff getStaffById(String id);
     boolean addStaff(Staff staff);
     boolean addStaffByExcel(MultipartFile file);
+    boolean delleteStaff(String id);
 }
