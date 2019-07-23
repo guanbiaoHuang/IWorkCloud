@@ -155,7 +155,7 @@
                     <c:forEach var="holiday" items="${holidayList}">
                     <tr>
                         <td>${holiday.staff}</td>
-                        <td><fmt:formatDate value="${holiday.timeStart}" dateStyle="default"/> </td>
+                        <td>${holiday.timeStart}</td>
                         <td>${holiday.timeEnd}</td>
                         <td>${holiday.reason}</td>
                         <td>

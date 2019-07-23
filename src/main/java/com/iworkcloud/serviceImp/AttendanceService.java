@@ -2,9 +2,11 @@ package com.iworkcloud.serviceImp;
 
 import com.iworkcloud.mapper.AttendanceMapper;
 import com.iworkcloud.pojo.Attendance;
+import com.iworkcloud.pojo.Staff;
 import com.iworkcloud.service.IAttendanceService;
 
 import java.sql.Date;
+import java.util.List;
 
 public class AttendanceService implements IAttendanceService {
 
@@ -30,4 +32,10 @@ public class AttendanceService implements IAttendanceService {
     public boolean getAttendanceByStaff(String staffId) {
         return false;
     }
+
+    @Override
+    public List<Attendance> getAttendanceToday() {
+        return attendanceMapper.queryAllAttendanceToday();
+    }
+
 }

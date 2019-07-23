@@ -162,13 +162,6 @@
                                     <th>签到时间</th>
                                 </tr>
                                 </thead>
-                                <tfoot>
-                                <tr>
-                                    <th>工号</th>
-                                    <th>姓名</th>
-                                    <th>签到时间</th>
-                                </tr>
-                                </tfoot>
                                 <tbody>
                                 <c:forEach var="attendance" items="${attendanceList}">
                                     <tr>
@@ -177,7 +170,6 @@
                                         <td>${attendance.time}</td>
                                     </tr>
                                 </c:forEach>
-
                                 </tbody>
                             </table>
                         </div>
@@ -201,7 +193,6 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
-
     <!-- Bootstrap core JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

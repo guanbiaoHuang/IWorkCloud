@@ -63,7 +63,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/sheet">考勤统计</a>
+                        <a href="${pageContext.request.contextPath}/page/attendance">考勤统计</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/page/excellentStaff">请假批示&优秀员工</a>
@@ -142,7 +142,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-hand-paper-o"></i>
                         </div>
-                        <div class="mr-5">签到</div>
+                        <a class="mr-5" href="${pageContext.request.contextPath}/attend">签到</a>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="#">
                         <span class="float-left">查看签到情况</span>

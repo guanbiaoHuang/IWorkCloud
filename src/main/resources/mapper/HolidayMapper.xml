@@ -7,11 +7,11 @@
         VALUES (#{staff} ,#{timeStart} ,#{timeEnd} ,#{reason} ,#{ratified} )
     </insert>
 
-    <select id="queryHolidayByStaffID" parameterType="String" resultType="com.iworkcloud.pojo.Holiday">
+    <select id="queryHolidayByStaffID" parameterType="String" resultMap="holidayMap">
         select * from holiday where staff = #{staffId}
     </select>
 
-    <select id="queryHolidayByRatifyStatus" resultType="com.iworkcloud.pojo.Holiday">
+    <select id="queryHolidayByRatifyStatus" resultMap="holidayMap">
         select * from holiday where ratified = 'waited'
     </select>
 
@@ -19,5 +19,14 @@
     <update id="refuseHoliday" parameterType="String">
         update holiday set ratified = 'refuse' where staff = #{staffID}
     </update>
+    
+    <resultMap id="holidayMap" type="com.iworkcloud.pojo.Holiday">
+        <id column="id"  property="id"></id>
+        <result column="staff" property="staff"></result>
+        <result column="time_start" property="timeStart"></result>
+        <result column="time_end" property="timeEnd"></result>
+        <result column="reason" property="reason"></result>
+        <result column="ratified" property="ratified"></result>
+    </resultMap>
 
 </mapper>

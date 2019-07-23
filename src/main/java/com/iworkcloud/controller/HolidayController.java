@@ -20,13 +20,15 @@ public class HolidayController {
     private IHolidayService holidayService;
 
     @RequestMapping("askForHoliday")
-    public String addHoliday(String time, String content, HttpSession session) throws ParseException {
-        time = time.replace('T',' ');
-        long timeStamp = Str2Date.getTimeByStr(time);
-        Timestamp timestampStart = new Timestamp(timeStamp);
-        Timestamp timestampEnd = new Timestamp(timeStamp);
-        holidayService.addHoliday(new Holiday(session.getAttribute("staff").toString(),timestampStart,timestampEnd,content,"waited"));
-        return "redirect:holiday";
+    public String addHoliday(String timeStart, String timeEnd, String content, HttpSession session) throws ParseException {
+        System.out.println(timeEnd+"----"+timeStart);
+        timeStart = timeStart.replace('T',' ');
+        timeEnd = timeEnd.replace('T',' ');
+        holidayService.addHoliday(new Holiday(session.getAttribute("staff").toString(),
+                new Timestamp(Str2Date.getTimeByStr(timeStart)),
+                new Timestamp(Str2Date.getTimeByStr(timeEnd)),
+                content,"waited"));
+        return "redirect:schedule";
     }
 
     @RequestMapping("verifyHoliday")
@@ -45,9 +47,9 @@ public class HolidayController {
     public String holidayWaited(Model model){
         List<Holiday> holidays = holidayService.getHolidayWaitedRatified();
         model.addAttribute("holidayList",holidays);
-        System.out.println("--------------------------------");
-        System.out.println(holidays.size());
-        System.out.println("--------------------------------");
+        for (Holiday holiday:holidays){
+            System.out.println(holiday.getStaff()+"------"+holiday.getTimeEnd()+"---------"+holiday.getTimeStart());
+        }
         return "excellentStaff";
     }
 
