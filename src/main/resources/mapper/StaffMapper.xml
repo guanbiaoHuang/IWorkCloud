@@ -17,5 +17,8 @@
     <select id="queryStaffById" parameterType="String" resultType="com.iworkcloud.pojo.Staff">
         select * from staff where id = #{id};
     </select>
+    <select id="queryAllStaff" resultType="com.iworkcloud.pojo.Staff">
+        select * from staff
+    </select>
 
 </mapper>

@@ -5,6 +5,7 @@ import com.iworkcloud.pojo.Staff;
 import com.iworkcloud.service.IStaffService;
 
 import java.util.HashMap;
+import java.util.List;
 
 public class StaffService implements IStaffService {
 
@@ -12,6 +13,11 @@ public class StaffService implements IStaffService {
 
     public void setStaffMapper(StaffMapper staffMapper) {
         this.staffMapper = staffMapper;
+    }
+
+    @Override
+    public List<Staff> getAllStaff() {
+        return staffMapper.queryAllStaff();
     }
 
     @Override

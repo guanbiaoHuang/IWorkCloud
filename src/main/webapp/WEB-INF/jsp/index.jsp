@@ -77,11 +77,21 @@
                     <span class="nav-link-text">活动</span>
                 </a>
             </li>
+
+
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="项目">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/project">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">项目</span>
                 </a>
+                <ul class="sidenav-second-level collapse" id="collapseProjects">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/page/projects">项目</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
@@ -145,7 +155,7 @@
                         <a class="mr-5 text-white" href="${pageContext.request.contextPath}/attend">签到</a>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="#">
-                        <span class="float-left">查看签到情况</span>
+                        <span class="float-left">查看个人签到情况</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -153,15 +163,15 @@
                 </div>
             </div>
             <div class="col-xl-6 col-sm-6 mb-3">
-                <div class="card text-white bg-warning o-hidden h-100">
+                <div class="card text-white bg-warning o-hidden h-100" onclick="addIdea()">
                     <div class="card-body">
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-list"></i>
                         </div>
-                        <div class="mr-5"></div>
+                        <div class="mr-5">意见</div>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="#">
-                        <span class="float-left">View Details</span>
+                        <span class="float-left">意见或想法</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -268,6 +278,13 @@
             })
 
         })
+
+        function addIdea(){
+            layer.open({
+                type: 2,title: '填写您的建议',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/iframe/ideaAdd',
+            })
+        }
     </script>
 </div>
 </body>

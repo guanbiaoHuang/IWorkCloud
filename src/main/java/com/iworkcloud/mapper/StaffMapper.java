@@ -4,6 +4,7 @@ package com.iworkcloud.mapper;
 import com.iworkcloud.pojo.Staff;
 
 import java.util.HashMap;
+import java.util.List;
 
 
 public interface StaffMapper {
@@ -11,6 +12,7 @@ public interface StaffMapper {
     Staff queryStaffByPhone(String phone);
     int updatePhoneById(HashMap<String,Object> map);
     Staff queryStaffById(String id);
+    List<Staff> queryAllStaff();
 
 
 }

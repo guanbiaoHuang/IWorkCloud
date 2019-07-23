@@ -101,7 +101,7 @@ var myPieChart = new Chart(ctx, {
   data: {
     labels: ["请假", "未签到", "迟到", "已签到"],
     datasets: [{
-      data: [5, 5, 10, 80],
+      data: [55, 65, 102, 80],
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },

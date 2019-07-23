@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -77,11 +78,21 @@
                     <span class="nav-link-text">活动</span>
                 </a>
             </li>
+
+
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="项目">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/project">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">项目</span>
                 </a>
+                <ul class="sidenav-second-level collapse" id="collapseProjects">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/page/projects">项目</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
@@ -132,16 +143,72 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Dashboard</a>
+                <a href="index.html">个人中心</a>
             </li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">员工管理</li>
         </ol>
         <div class="row">
-            <div class="col-12">
-                <h1>Blank</h1>
-                <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+            <div class="col-12 mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body" onclick="staffAdd()">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-list"></i>
+                        </div>
+                        <a class="mr-5 text-white" href="#">导入员工</a>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#" onclick="staffXlsAdd()">
+                        <span class="float-left">批量导入</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">员工名单</div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover" id="dataTable">
+                            <thead>
+                            <tr>
+                                <th>工号</th>
+                                <th>姓名</th>
+                                <th>性别</th>
+                                <th>团队</th>
+                                <th>手机号</th>
+                                <th>部门</th>
+                                <th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="staff" items="${staffList}">
+                                <tr>
+                                    <td>${staff.id}</td>
+                                    <td>${staff.name}</td>
+                                    <td>${staff.sex}</td>
+                                    <td>${staff.team}</td>
+                                    <td>${staff.phone}</td>
+                                    <td>${staff.department}</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-12 m-auto">
+                                                <a class="btn btn-warning col-5" href="#" onclick="">调动</a>
+                                                <a class="btn btn-danger col-5" href="${pageContext.request.contextPath}/deleteStaff?id=${staff.id}">删除</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer"></div>
+                </div>
+            </div>
+        </div>
+
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -162,6 +229,7 @@
     <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="${pageContext.request.contextPath}/layer/layer.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/chart.js/Chart.min.js"></script>
     <script src="${pageContext.request.contextPath}/vendor/datatables/jquery.dataTables.js"></script>
@@ -185,6 +253,19 @@
             })
 
         })
+
+        function staffAdd() {
+            layer.open({
+                type: 2,title: '添加奖金或补贴',area: ['500px','480px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/iframe/staffAdd',
+            })
+        }
+        function staffXlsAdd() {
+            layer.open({
+                type: 2,title: '导入奖金补贴报表',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/iframe/staffXlsUpload',
+            })
+        }
     </script>
 </div>
 </body>

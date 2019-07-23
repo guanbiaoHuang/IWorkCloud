@@ -78,11 +78,21 @@
                     <span class="nav-link-text">活动</span>
                 </a>
             </li>
+
+
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="项目">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/project">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">项目</span>
                 </a>
+                <ul class="sidenav-second-level collapse" id="collapseProjects">
+                    <li>
+                        <a href="${pageContext.request.contextPath}/page/projects">项目</a>
+                    </li>
+                    <li>
+                        <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">

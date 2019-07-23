@@ -55,9 +55,6 @@ public class HolidayController {
         List<Out> outs = outService.outToday();
         model.addAttribute("outList",outs);
         System.out.println(outs.size());
-        for (Out out:outs){
-            System.out.println("OUT"+out.getStaff()+"------"+out.getDateStart()+"---------"+out.getDateEnd());
-        }
         return "excellentStaff";
     }
 
