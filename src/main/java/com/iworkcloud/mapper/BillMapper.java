@@ -12,4 +12,5 @@ public interface BillMapper {
     List<Bill> queryBillById(String id);
     List<Bill> queryBillsByTag(String tag);
 
+    List<Bill> queryBillNumOrderByMonth(String tag);
 }

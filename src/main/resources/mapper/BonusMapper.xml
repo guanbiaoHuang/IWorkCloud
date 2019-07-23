@@ -2,6 +2,13 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iworkcloud.mapper.BonusMapper">
 
+    <resultMap id="monthBonus" type="com.iworkcloud.pojo.Bonus">
+        <id column="staff" property="staff"/>
+        <result column="time" property="time"/>
+        <result column="mount" property="mount"/>
+        <result column="tag" property="tag"/>
+    </resultMap>
+
 
     <insert id="insertBonus" parameterType="com.iworkcloud.pojo.Bonus">
         insert into bonus (id, staff, mount, tag, time) VALUES (#{id}, #{staff} ,#{mount} ,#{tag} ,#{time})
@@ -16,5 +23,12 @@
     <update id="updateBonusContent" parameterType="com.iworkcloud.pojo.Bonus">
         update bonus set staff=#{staff}, mount=#{mount},tag = #{tag},time = #{time} where ID = #{id}
     </update>
+
+    <select id="queryBonusNumOrderByMonth" parameterType="String" resultMap="monthBonus">
+        select staff, date_format(time,'%Y-%m') as '月份', sum(mount)as '月总计',tag
+        from bonus
+        where staff = #{staff} group by (date_format(time,'%Y-%m'))
+    </select>
+
 
 </mapper>

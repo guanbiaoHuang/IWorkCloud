@@ -13,4 +13,5 @@ public interface IBonusService {
     List<Bonus> queryAllBonus(String staffId);
     boolean addBonusByExcel(MultipartFile file);
 
+    List<Bonus> queryBonusNumOrderByMonth(String staff);
 }

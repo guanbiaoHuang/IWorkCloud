@@ -13,4 +13,6 @@ public interface BonusMapper {
 
     List<Bonus> queryAllBonus(String staffId);
 
+    List<Bonus> queryBonusNumOrderByMonth(String staff);
+
 }

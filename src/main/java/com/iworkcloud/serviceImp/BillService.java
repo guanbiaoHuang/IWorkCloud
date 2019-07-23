@@ -65,4 +65,9 @@ public class BillService implements IBillService {
         }
         return true;
     }
+
+    @Override
+    public List<Bill> queryBillNumOrderByMonth(String tag) {
+        return billMapper.queryBillNumOrderByMonth(tag);
+    }
 }

@@ -3,6 +3,12 @@
 <mapper namespace="com.iworkcloud.mapper.BillMapper">
 
 
+    <resultMap id="monthBill" type="com.iworkcloud.pojo.Bill">
+        <id column="time" property="time"/>
+        <result column="mount" property="mount"/>
+        <result column="tag" property="tag"/>
+    </resultMap>
+
     <insert id="insertBill" parameterType="com.iworkcloud.pojo.Bill">
         insert into bill (ID,TIME,MOUNT,TAG,DETAILS) values (#{id},#{time},#{mount},#{tag},#{details})
     </insert>
@@ -19,6 +25,9 @@
         select * from bill where tag = #{tag}
     </select>
 
+    <select id="queryBillNumOrderByMonth" parameterType="String" resultMap="monthBill">
+        select date_format(time,'%Y-%m') as '月份', sum(bill.mount)as '月总计',tag from bill where tag = #{tag} group by (date_format(time,'%Y-%m'))
+    </select>
 
 
 
