@@ -9,7 +9,7 @@ public interface BillMapper {
 
     int insertBill(Bill bill);
     int updateBillContent(HashMap<Object,Object>map);
-    List<Bill> queryBillById(int id);
+    List<Bill> queryBillById(String id);
     List<Bill> queryBillsByTag(String tag);
 
 }

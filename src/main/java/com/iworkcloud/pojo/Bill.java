@@ -1,6 +1,8 @@
 package com.iworkcloud.pojo;
 
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.sql.Timestamp;
 
 public class Bill {
@@ -67,4 +69,15 @@ public class Bill {
     this.details = details;
   }
 
+
+  @Override
+  public String toString() {
+    return "Bill{" +
+            "id='" + id + '\'' +
+            ", time=" + time +
+            ", mount=" + mount +
+            ", tag='" + tag + '\'' +
+            ", details='" + details + '\'' +
+            '}';
+  }
 }

@@ -12,10 +12,11 @@ public class Bonus {
   public Bonus() {
   }
 
-  public Bonus(String id, String staff, Timestamp time, String tag) {
+  public Bonus(String id, String staff, Timestamp time, double mount,String tag) {
     this.id = id;
     this.staff = staff;
     this.time = time;
+    this.mount = mount;
     this.tag = tag;
   }
 

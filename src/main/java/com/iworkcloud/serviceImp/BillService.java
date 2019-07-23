@@ -4,6 +4,8 @@ import com.iworkcloud.mapper.BillMapper;
 import com.iworkcloud.pojo.Bill;
 import com.iworkcloud.service.IBillService;
 
+import java.util.List;
+
 public class BillService implements IBillService {
     private BillMapper billMapper;
 
@@ -13,21 +15,17 @@ public class BillService implements IBillService {
 
     @Override
     public boolean addBill(Bill bill) {
-        return false;
+        return 1==billMapper.insertBill(bill)?true:false;
+    }
+
+
+    @Override
+    public List<Bill> queryBillById(String id) {
+        return billMapper.queryBillById(id);
     }
 
     @Override
-    public boolean modifyBill(Bill bill) {
-        return false;
-    }
-
-    @Override
-    public boolean queryBillById(String id) {
-        return false;
-    }
-
-    @Override
-    public boolean queryBillByTag(String tag) {
-        return false;
+    public List<Bill> queryBillByTag(String tag) {
+        return queryBillByTag(tag);
     }
 }

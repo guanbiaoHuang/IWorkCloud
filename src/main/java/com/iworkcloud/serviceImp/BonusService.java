@@ -14,7 +14,7 @@ public class BonusService implements IBonusService {
 
     @Override
     public boolean addBonus(Bonus bonus) {
-        return false;
+        return 1==bonusMapper.insertBonus(bonus)?true:false;
     }
 
     @Override
