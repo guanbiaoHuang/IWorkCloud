@@ -2,15 +2,22 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org/DTD Mapper 3.0" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.iworkcloud.mapper.OutMapper">
 
+
+    <resultMap id="outMap" type="com.iworkcloud.pojo.Out">
+        <id column="id" property="id"/>
+        <result column="staff" property="staff"/>
+        <result column="date_start" property="dateStart"/>
+        <result column="date_end" property="dateEnd"/>
+    </resultMap>
     <insert id="insertOut" parameterType="com.iworkcloud.pojo.Out">
         insert into `out` (staff, date_start, date_end) VALUES (#{staff} ,#{dateStart} ,#{dateEnd} )
     </insert>
 
-    <select id="queryOutByTime" parameterType="java.sql.Timestamp" resultType="com.iworkcloud.pojo.Out">
+    <select id="queryOutByTime" parameterType="java.sql.Date" resultMap="outMap">
         select * from `out` where #{time} > date_start and date_end > #{time}
     </select>
 
-    <select id="queryOutToday" resultType="com.iworkcloud.pojo.Out">
+    <select id="queryOutToday" resultMap="outMap">
         select * from `out` where date(date_start) = CURDATE();
     </select>
 </mapper>

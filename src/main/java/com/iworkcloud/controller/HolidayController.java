@@ -1,7 +1,9 @@
 package com.iworkcloud.controller;
 
 import com.iworkcloud.pojo.Holiday;
+import com.iworkcloud.pojo.Out;
 import com.iworkcloud.service.IHolidayService;
+import com.iworkcloud.service.IOutService;
 import com.iworkcloud.utils.Str2Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -18,6 +20,9 @@ import java.util.List;
 public class HolidayController {
     @Autowired
     private IHolidayService holidayService;
+
+    @Autowired
+    private IOutService outService;
 
     @RequestMapping("askForHoliday")
     public String addHoliday(String timeStart, String timeEnd, String content, HttpSession session) throws ParseException {
@@ -47,8 +52,11 @@ public class HolidayController {
     public String holidayWaited(Model model){
         List<Holiday> holidays = holidayService.getHolidayWaitedRatified();
         model.addAttribute("holidayList",holidays);
-        for (Holiday holiday:holidays){
-            System.out.println(holiday.getStaff()+"------"+holiday.getTimeEnd()+"---------"+holiday.getTimeStart());
+        List<Out> outs = outService.outToday();
+        model.addAttribute("outList",outs);
+        System.out.println(outs.size());
+        for (Out out:outs){
+            System.out.println("OUT"+out.getStaff()+"------"+out.getDateStart()+"---------"+out.getDateEnd());
         }
         return "excellentStaff";
     }

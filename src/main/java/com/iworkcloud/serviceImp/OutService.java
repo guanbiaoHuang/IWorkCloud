@@ -20,6 +20,6 @@ public class OutService implements IOutService {
 
     @Override
     public List<Out> outToday() {
-        return null;
+        return outMapper.queryOutToday();
     }
 }

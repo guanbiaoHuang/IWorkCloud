@@ -12,5 +12,5 @@ public interface OutMapper {
 
     List<Out> queryOutByTime(Timestamp time);
 
-    Out queryOutToday();
+    List<Out> queryOutToday();
 }

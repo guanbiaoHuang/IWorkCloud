@@ -136,12 +136,48 @@
             <li class="breadcrumb-item">
                 <a href="index.html">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">优秀员工展示及出差状况</li>
         </ol>
         <div class="row">
+            <div class="col-xl-6 col-sm-6 mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-hand-paper-o"></i>
+                        </div>
+                        <a class="mr-5" href="${pageContext.request.contextPath}/attend">评选</a>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">评选优秀员工</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-sm-6 mb-3">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-list"></i>
+                        </div>
+                        <div class="mr-5"></div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">新增出差计划</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-12">
-                <table class="table table-bordered table-hover" id="dataTable">
-                    <caption>请假批示</caption>
+                <div class="card">
+                    <div class="card-header">请假批示名单</div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover" id="dataTable">
                     <thead>
                     <tr>
                         <th>工号</th>
@@ -170,6 +206,35 @@
                     </c:forEach>
                     </tbody>
                 </table>
+                    </div>
+                    <div class="card-footer"></div>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">最近一周出差计划</div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover" id="OutTable">
+                            <thead>
+                            <tr>
+                                <th>工号</th>
+                                <th>开始日期</th>
+                                <th>结束日期</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="out" items="${outList}">
+                                <tr>
+                                    <td>${out.staff}</td>
+                                    <td>${out.dateStart}</td>
+                                    <td>${out.dateEnd}</td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="card-footer"></div>
+                </div>
             </div>
         </div>
     </div>
