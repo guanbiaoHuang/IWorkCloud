@@ -68,7 +68,7 @@ public class Staff implements Serializable {
     this.department = department;
   }
 
-  public Staff(String id, String name, String team, String sex, String phone, String department) {
+  public Staff(String id, String name, String team, String department,String phone,String sex) {
     this.id = id;
     this.name = name;
     this.team = team;

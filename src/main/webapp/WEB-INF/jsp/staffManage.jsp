@@ -256,13 +256,13 @@
 
         function staffAdd() {
             layer.open({
-                type: 2,title: '添加奖金或补贴',area: ['500px','480px'],scrollbar: false,offset: 'auto',
+                type: 2,title: '添加员工信息',area: ['500px','480px'],scrollbar: false,offset: 'auto',
                 content: '${pageContext.request.contextPath}/iframe/staffAdd',
             })
         }
         function staffXlsAdd() {
             layer.open({
-                type: 2,title: '导入奖金补贴报表',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2,title: '导入员工信息表',area: ['500px','420px'],scrollbar: false,offset: 'auto',
                 content: '${pageContext.request.contextPath}/iframe/staffXlsUpload',
             })
         }

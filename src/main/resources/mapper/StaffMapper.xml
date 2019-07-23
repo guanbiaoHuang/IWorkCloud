@@ -4,7 +4,7 @@
 <mapper namespace="com.iworkcloud.mapper.StaffMapper">
 
     <insert id="insertStaff" parameterType="com.iworkcloud.pojo.Staff">
-        insert into staff (NAME,TEAM,SEX,PHONE,department) values(#{name},#{team},#{sex},#{phone},#{department} )
+        insert into staff (id, NAME,TEAM,SEX,PHONE,department) values(#{id} ,#{name},#{team},#{sex},#{phone},#{department} )
     </insert>
 
     <select id="queryStaffByPhone" resultType="com.iworkcloud.pojo.Staff" parameterType="String">

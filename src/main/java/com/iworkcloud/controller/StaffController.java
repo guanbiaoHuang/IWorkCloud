@@ -54,4 +54,14 @@ public class StaffController {
         }
         return "staffManage";
     }
+
+
+    @RequestMapping("addStaff")
+    public String addStaff(String id,String name,String team,String department,String phone,String sex){
+        Staff staff = new Staff(id,name,team,department,phone,sex);
+
+        staffService.addStaff(staff);
+
+        return "staffManage";
+    }
 }

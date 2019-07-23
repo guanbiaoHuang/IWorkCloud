@@ -46,5 +46,8 @@ public class StaffService implements IStaffService {
         return staffMapper.queryStaffById(id);
     }
 
-
+    @Override
+    public boolean addStaff(Staff staff) {
+        return 1==staffMapper.insertStaff(staff)?true:false;
+    }
 }

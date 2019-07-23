@@ -14,7 +14,7 @@ public class ProjectService implements IProjectService {
 
     @Override
     public boolean addProject(Project project) {
-        return false;
+        return 1==projectMapper.insertProject(project)?true:false;
     }
 
     @Override

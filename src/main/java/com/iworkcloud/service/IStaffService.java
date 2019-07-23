@@ -12,4 +12,5 @@ public interface IStaffService {
     boolean bindStaff(HashMap<String,Object> map);
     boolean modifyInfo(Staff staff);
     Staff getStaffById(String id);
+    boolean addStaff(Staff staff);
 }

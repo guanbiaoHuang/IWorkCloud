@@ -20,7 +20,7 @@
 <body>
 <div class="container">
     <div class="row" style="margin-top: 20px">
-        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/addBill">
+        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/addStaff">
             <div class="form-group">
                 <label class="sr-only"></label>
                 <input type="text" class="form-control" name="id" placeholder="请输入工号">
@@ -33,17 +33,17 @@
 
             <div class="form-group">
                 <label class="sr-only"></label>
-                <input type="text" class="form-control" name="mount" placeholder="请输入所在团队">
+                <input type="text" class="form-control" name="team" placeholder="请输入所在团队">
             </div>
 
             <div class="form-group">
                 <label class="sr-only"></label>
-                <input type="text" class="form-control" name="details" placeholder="请输入部门">
+                <input type="text" class="form-control" name="department" placeholder="请输入部门">
             </div>
 
             <div class="form-group">
                 <label class="sr-only"></label>
-                <input type="text" class="form-control" name="details" placeholder="请输入手机号，非必须">
+                <input type="text" class="form-control" name="phone" placeholder="请输入手机号，非必须">
             </div>
 
 
@@ -57,7 +57,7 @@
 
             <div class="form-group">
                 <label class="sr-only"></label>
-                <button type="submit" id="submit" class="btn btn-block btn-success">员工</button>
+                <button type="submit" id="submit" class="btn btn-block btn-success">添加</button>
             </div>
 
         </form>
