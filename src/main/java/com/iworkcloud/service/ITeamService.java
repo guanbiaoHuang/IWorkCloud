@@ -2,9 +2,11 @@ package com.iworkcloud.service;
 
 import com.iworkcloud.pojo.Team;
 
+import java.util.HashMap;
+
 public interface ITeamService {
     boolean addTeam(Team team);
     boolean modifyManager(String id, String ManagerId);
-    boolean decideProject(String projectId);
+    boolean decideProject(HashMap<Object,Object>map);
 
 }

@@ -19,6 +19,11 @@ public class ProjectService implements IProjectService {
 
     @Override
     public boolean approveProject(String projectId) {
-        return false;
+        return 1==projectMapper.updateProjectStatus(projectId,"审批通过")?true:false;
+    }
+
+    @Override
+    public boolean rejectProject(String projectId) {
+        return 1==projectMapper.updateProjectStatus(projectId,"审批不通过")?true:false;
     }
 }

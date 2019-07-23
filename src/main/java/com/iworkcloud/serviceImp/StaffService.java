@@ -42,7 +42,7 @@ public class StaffService implements IStaffService {
 
     @Override
     public boolean modifyInfo(Staff staff) {
-        return false;
+        return 1==staffMapper.updateAllById(staff)?true:false;
     }
 
     @Override

@@ -16,21 +16,17 @@ public class IdeaService implements IIdeaService {
 
     @Override
     public boolean addIdea(Idea idea) {
-        return false;
+        return 1==ideaMapper.insertIdea(idea)?true:false;
     }
 
-    @Override
-    public boolean modifyIdea(Idea idea) {
-        return false;
-    }
 
     @Override
     public boolean deleteIdea(long id) {
-        return false;
+        return 1==ideaMapper.deleteIdeaByStaffId(id)?true:false;
     }
 
     @Override
     public List<Idea> getAllIdeas() {
-        return null;
+        return ideaMapper.queryAllIdea();
     }
 }

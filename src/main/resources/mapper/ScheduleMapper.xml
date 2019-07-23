@@ -11,7 +11,7 @@
     </delete>
 
     <update id="updateScheduleContent" parameterType="HashMap">
-        update schedule set content = #{content} where staff = #{staffId}
+        update schedule set time = #{time}, content = #{content} where staff = #{staff}
     </update>
 
     <select id="queryScheduleByDays" resultType="com.iworkcloud.pojo.Schedule">

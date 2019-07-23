@@ -23,12 +23,12 @@ public class ScheduleService implements IScheduleService {
 
     @Override
     public boolean emptyPastSchedule(String staffId) {
-        return false;
+        return 1==scheduleMapper.deleteScheduleByStaffId(staffId)?true:false;
     }
 
     @Override
     public boolean modifySchedule(Schedule schedule) {
-        return false;
+        return 1==scheduleMapper.updateScheduleContent(schedule)?true:false;
     }
 
     @Override

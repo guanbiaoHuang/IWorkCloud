@@ -12,8 +12,13 @@
     </select>
 
     <update id="updatePhoneById" parameterType="HashMap">
+        update staff set phone = #{phone} where id = #{id}
+    </update>
+
+    <update id="updateAllById" parameterType="com.iworkcloud.pojo.Staff">
         update staff set name = #{name}, team = #{team}, sex = #{sex}, department = #{department}, phone=#{phone} where id=#{id}
     </update>
+
     <select id="queryStaffById" parameterType="String" resultType="com.iworkcloud.pojo.Staff">
         select * from staff where id = #{id};
     </select>

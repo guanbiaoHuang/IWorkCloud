@@ -4,6 +4,8 @@ import com.iworkcloud.mapper.TeamMapper;
 import com.iworkcloud.pojo.Team;
 import com.iworkcloud.service.ITeamService;
 
+import java.util.HashMap;
+
 public class TeamService implements ITeamService {
     private TeamMapper teamMapper;
 
@@ -13,16 +15,16 @@ public class TeamService implements ITeamService {
 
     @Override
     public boolean addTeam(Team team) {
-        return false;
+        return 1==teamMapper.insertTeam(team)?true:false;
     }
 
     @Override
     public boolean modifyManager(String id, String ManagerId) {
-        return false;
+        return 1==teamMapper.updateTeamForManager(id,ManagerId)?true:false;
     }
 
     @Override
-    public boolean decideProject(String projectId) {
-        return false;
+    public boolean decideProject(HashMap<Object,Object>map) {
+        return 1==teamMapper.updateTeamProject(map)?true:false;
     }
 }

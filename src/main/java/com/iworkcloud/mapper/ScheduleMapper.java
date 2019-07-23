@@ -14,7 +14,7 @@ public interface ScheduleMapper {
 
     int deleteScheduleByStaffId(String staffId);
 
-    int updateScheduleContent(HashMap<Object,Object>map);
+    int updateScheduleContent(Schedule schedule);
 
     List<Schedule>queryScheduleByDays(@Param("days")int days,@Param("staffId")String staffId);
 

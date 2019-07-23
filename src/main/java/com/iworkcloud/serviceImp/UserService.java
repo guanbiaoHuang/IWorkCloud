@@ -34,7 +34,7 @@ public class UserService implements IUserService {
 
 	@Override
 	public int updatePassword(String phone, String password) {
-		return 0;
+		return userMapper.updatePassword(phone,password);
 	}
 
 }

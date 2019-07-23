@@ -4,11 +4,13 @@ import com.iworkcloud.mapper.AttendanceMapper;
 import com.iworkcloud.pojo.Attendance;
 import com.iworkcloud.pojo.Staff;
 import com.iworkcloud.service.IAttendanceService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Date;
 import java.util.List;
 
 public class AttendanceService implements IAttendanceService {
+
 
     private AttendanceMapper attendanceMapper;
 
@@ -22,15 +24,15 @@ public class AttendanceService implements IAttendanceService {
     }
 
     @Override
-    public boolean getAbsenceByDay() {
-        return false;
+    public List<Attendance> getAbsenceByDay() {
+        return attendanceMapper.queryAllAttendanceToday();
     }
 
 
 
     @Override
-    public boolean getAttendanceByStaff(String staffId) {
-        return false;
+    public List<Attendance> getAttendanceByStaff(String staffId) {
+        return attendanceMapper.getAttendanceMonth(staffId);
     }
 
     @Override
