@@ -20,7 +20,7 @@
 <body>
 <div class="container">
     <div class="row" style="margin-top: 20px">
-        <form class="col-10 m-auto" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/addBillXls">
+        <form class="col-10 m-auto" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/addBonusXls">
             <div class="form-group" style="display: none;">
                 <label class="sr-only"></label>
                 <input type="file" class="form-control" name="file" id="file">

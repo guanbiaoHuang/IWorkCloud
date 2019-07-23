@@ -6,6 +6,8 @@ import com.iworkcloud.utils.Str2Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
@@ -23,7 +25,14 @@ public class BonusController {
 
         bonusService.addBonus(new Bonus(id,staff,timestamp,Double.parseDouble(mount),bonusType));
 
-        return "bill";
+        return "redirect:bill";
+    }
+
+    @RequestMapping("addBonusXls")
+    public String addBonusByExcel(@RequestParam("file") MultipartFile file){
+        bonusService.addBonusByExcel(file);
+        return "redirect:bill";
+
     }
 
 }

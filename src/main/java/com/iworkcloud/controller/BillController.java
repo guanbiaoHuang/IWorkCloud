@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -24,10 +25,15 @@ public class BillController {
 
         time = time.replace('T',' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
-
         Bill bill = new Bill(id,timestamp,Double.parseDouble(mount),billType,details);
         billService.addBill(bill);
-
         return "bill";
+    }
+
+    @RequestMapping("addBillXls")
+    public String billAddByExcel(@RequestParam("file") MultipartFile file){
+        billService.addBillByExcel(file);
+        return "redirect:bill";
+
     }
 }

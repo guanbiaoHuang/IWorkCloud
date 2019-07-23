@@ -4,7 +4,7 @@
 
 
     <insert id="insertBill" parameterType="com.iworkcloud.pojo.Bill">
-        insert into bill (ID, TIME,MOUNT,TAG,DETAILS) values (#{id} ,#{time},#{mount},#{tag},#{details})
+        insert into bill (ID,TIME,MOUNT,TAG,DETAILS) values (#{id},#{time},#{mount},#{tag},#{details})
     </insert>
 
     <update id="updateBillContent" parameterType="HashMap">
