@@ -207,8 +207,8 @@
                         <td>
                             <div class="row">
                                 <div class="col-12 m-auto">
-                                    <a class="btn btn-success col-5" href="#">允许</a>
-                                    <a class="btn btn-danger col-5" href="#">拒绝</a>
+                                    <a class="btn btn-success col-5" href="${pageContext.request.contextPath}/ratifyHoliday">允许</a>
+                                    <a class="btn btn-danger col-5" href="${pageContext.request.contextPath}/refuseHoliday">拒绝</a>
                                 </div>
                             </div>
                         </td>

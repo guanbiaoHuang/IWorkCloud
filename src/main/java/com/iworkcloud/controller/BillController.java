@@ -36,4 +36,9 @@ public class BillController {
         return "redirect:bill";
 
     }
+
+    @RequestMapping("bill")
+    public String bill(){
+        return "bill";
+    }
 }

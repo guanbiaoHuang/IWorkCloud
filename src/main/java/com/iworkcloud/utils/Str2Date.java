@@ -27,4 +27,14 @@ public class Str2Date {
             return 0;
         }
     }
+
+    public static long getDateByStr(String dateStr){
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return dateFormat.parse(dateStr).getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return  0;
+        }
+    }
 }

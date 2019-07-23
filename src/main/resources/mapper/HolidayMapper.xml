@@ -15,9 +15,12 @@
         select * from holiday where ratified = 'waited'
     </select>
 
-
     <update id="refuseHoliday" parameterType="String">
-        update holiday set ratified = 'refuse' where staff = #{staffID}
+        update holiday set ratified = 'refused' where staff = #{staffID}
+    </update>
+
+    <update id="ratifyHoliday" parameterType="String">
+        update holiday set ratified = 'ratified' where staff = #{staffID}
     </update>
     
     <resultMap id="holidayMap" type="com.iworkcloud.pojo.Holiday">

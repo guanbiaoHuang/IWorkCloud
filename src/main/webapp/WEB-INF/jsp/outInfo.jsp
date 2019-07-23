@@ -20,23 +20,23 @@
 <body>
 <div class="container">
     <div class="row" style="margin-top: 20px">
-        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/addSchedule">
+        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/addOut">
             <div class="form-group">
                 <label class="sr-only"></label>
-                <input type="datetime-local" class="form-control" name="time" placeholder="选择开始日期">
+                <input type="text" class="form-control" name="staff" placeholder="输入出差员工号">
             </div>
             <div class="form-group">
                 <label class="sr-only"></label>
-                <input type="datetime-local" class="form-control" name="time" placeholder="选择结束日期">
+                <input type="date" class="form-control" name="dateStart" placeholder="选择开始日期">
             </div>
             <div class="form-group">
                 <label class="sr-only"></label>
-                <textarea class="form-control" rows="3" name="content" placeholder="请输入出差目的"></textarea>
+                <input type="date" class="form-control" name="dateEnd" placeholder="选择结束日期">
             </div>
 
             <div class="form-group">
                 <label class="sr-only"></label>
-                <button type="submit" id="submit" class="btn btn-block btn-success">添加日程</button>
+                <button type="submit" id="submit" class="btn btn-block btn-success">添加出差</button>
             </div>
 
         </form>

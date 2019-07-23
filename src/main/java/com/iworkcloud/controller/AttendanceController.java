@@ -24,7 +24,7 @@ public class AttendanceController {
     @RequestMapping("attend")
     public String attend(HttpSession session){
         String staffId = (String)session.getAttribute("staff");
-        String name = staffService.getStaffById(staffId).getName();
+         String name = staffService.getStaffById(staffId).getName();
         Attendance attendance = new Attendance(name,staffId,new Timestamp(System.currentTimeMillis()));
         attendanceService.addAttendance(attendance);
         return "redirect:index";

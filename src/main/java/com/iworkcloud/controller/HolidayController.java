@@ -35,10 +35,16 @@ public class HolidayController {
         return "redirect:schedule";
     }
 
-    @RequestMapping("verifyHoliday")
-    public String refuse(HttpSession session){
-        holidayService.ratifyHoliday(session.getAttribute("staff").toString());
-        return "redirect:ratify";
+    @RequestMapping("ratifyHoliday")
+    public String ratify(String id){
+        holidayService.ratifyHoliday(id);
+        return "redirect:excellentStaff";
+    }
+
+    @RequestMapping("refuseHoliday")
+    public String refuse(String id){
+        holidayService.refuseHoliday(id);
+        return "redirect:excellentStaff";
     }
 
     @RequestMapping("holidayInfo")
@@ -53,7 +59,6 @@ public class HolidayController {
         model.addAttribute("holidayList",holidays);
         List<Out> outs = outService.outToday();
         model.addAttribute("outList",outs);
-        System.out.println(outs.size());
         return "excellentStaff";
     }
 

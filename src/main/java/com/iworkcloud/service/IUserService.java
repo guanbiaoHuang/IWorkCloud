@@ -10,5 +10,5 @@ public interface IUserService {
     boolean isExist(String phone);
     boolean login(String phone, String password);
 
-    int updatePassword(String phone,String password);
+    boolean updatePassword(String phone,String password);
 }

@@ -56,7 +56,19 @@ public class UserController {
 			session.setAttribute(phone, code);
 		return code.length()>0?"获取验证码成功，注意查收":"获取验证码失败，请重试";
 	}
-	
+
+	@RequestMapping("updatePassword")
+	public String modifyPassword(String oldPassword,String newPassword,HttpSession session){
+		String phone = staffService.getPhoneByStaffId(session.getAttribute("staff").toString());
+		if(userService.login(phone,oldPassword)){
+			boolean isSuccess = userService.updatePassword(phone,newPassword);
+			return "redirect:login";
+		}else {
+			return "redirect:index";
+		}
+
+	}
+
 	@RequestMapping("log")
 	public ModelAndView login(String phone, String password,HttpServletRequest request,HttpSession session) {
 		ModelAndView mv = new ModelAndView("login");

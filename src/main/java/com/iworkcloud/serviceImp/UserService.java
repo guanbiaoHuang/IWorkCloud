@@ -33,8 +33,8 @@ public class UserService implements IUserService {
 	}
 
 	@Override
-	public int updatePassword(String phone, String password) {
-		return userMapper.updatePassword(phone,password);
+	public boolean updatePassword(String phone, String password) {
+		return 1==userMapper.updatePassword(phone,password)?true:false;
 	}
 
 }
