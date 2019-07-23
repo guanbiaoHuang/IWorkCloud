@@ -1,7 +1,9 @@
 package com.iworkcloud.service;
 
 import com.iworkcloud.pojo.Staff;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,4 +15,5 @@ public interface IStaffService {
     boolean modifyInfo(Staff staff);
     Staff getStaffById(String id);
     boolean addStaff(Staff staff);
+    boolean addStaffByExcel(MultipartFile file);
 }

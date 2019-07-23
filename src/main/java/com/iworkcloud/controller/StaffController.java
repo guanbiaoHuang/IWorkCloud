@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
@@ -63,5 +64,11 @@ public class StaffController {
         staffService.addStaff(staff);
 
         return "staffManage";
+    }
+
+    @RequestMapping("addStaffXls")
+    public String addStaffXls(@RequestParam("file") MultipartFile file){
+        staffService.addStaffByExcel(file);
+        return "redirect:staffManage";
     }
 }

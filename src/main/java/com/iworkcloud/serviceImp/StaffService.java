@@ -3,7 +3,11 @@ package com.iworkcloud.serviceImp;
 import com.iworkcloud.mapper.StaffMapper;
 import com.iworkcloud.pojo.Staff;
 import com.iworkcloud.service.IStaffService;
+import com.iworkcloud.utils.ExcelUtil;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.List;
 
@@ -49,5 +53,37 @@ public class StaffService implements IStaffService {
     @Override
     public boolean addStaff(Staff staff) {
         return 1==staffMapper.insertStaff(staff)?true:false;
+    }
+
+    @Override
+    public boolean addStaffByExcel(MultipartFile file) {
+        InputStream inputStream = null;
+        List<List<Object>> lists = null;
+        try {
+            inputStream = file.getInputStream();
+            lists = new ExcelUtil().getBankListByExcel(inputStream,file.getOriginalFilename());
+            for (int i = 0; i<lists.size();i++){
+                List<Object> list = lists.get(i);
+                Staff staff = new Staff(String.valueOf(list.get(0)),
+                        String.valueOf(list.get(1)),
+                        String.valueOf(list.get(2)),
+                        String.valueOf(list.get(3)),
+                        String.valueOf(list.get(4)),
+                        String.valueOf(list.get(5)));
+                System.out.println(staff);
+                staffMapper.insertStaff(staff);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            if (inputStream!=null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return true;
     }
 }

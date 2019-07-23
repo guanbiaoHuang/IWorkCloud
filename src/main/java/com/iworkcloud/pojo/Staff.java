@@ -68,7 +68,7 @@ public class Staff implements Serializable {
     this.department = department;
   }
 
-  public Staff(String id, String name, String team, String department,String phone,String sex) {
+  public Staff(String id, String name, String team, String sex, String phone, String department) {
     this.id = id;
     this.name = name;
     this.team = team;
@@ -78,5 +78,17 @@ public class Staff implements Serializable {
   }
 
   public Staff() {
+  }
+
+  @Override
+  public String toString() {
+    return "Staff{" +
+            "id='" + id + '\'' +
+            ", name='" + name + '\'' +
+            ", team='" + team + '\'' +
+            ", sex='" + sex + '\'' +
+            ", phone='" + phone + '\'' +
+            ", department='" + department + '\'' +
+            '}';
   }
 }
