@@ -1,9 +1,8 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
-  Date: 2019/7/16
-  Time: 10:12
+  Date: 2019/7/18
+  Time: 10:20
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -22,6 +21,7 @@
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="#">IWorkCloud</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -121,8 +121,8 @@
                 <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="alertsDropdown">
                     <h6 class="dropdown-header">用户:</h6>
                     <div class="dropdown-divider"></div>
-                    <div class="dropdown-item" onclick="modifyPassword()">
-                        <small style="color: #868e96;">修改密码</small>
+                    <div class="dropdown-item">
+                        <small style="color: #868e96;">修改资料</small>
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-item" id="logOut">
@@ -139,23 +139,24 @@
 </nav>
 <div class="content-wrapper">
     <div class="container-fluid">
+        <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
+                <a href="index.html">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">My Dashboard</li>
+            <li class="breadcrumb-item active">Blank Page</li>
         </ol>
         <div class="row">
             <div class="col-xl-6 col-sm-6 mb-3">
-                <div class="card text-white bg-primary o-hidden h-100">
+                <div class="card text-white bg-primary o-hidden h-100" onclick="projectAdd()">
                     <div class="card-body">
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-hand-paper-o"></i>
                         </div>
-                        <a class="mr-5 text-white" href="${pageContext.request.contextPath}/attend">签到</a>
+                        <a class="mr-5 text-white" href="#">项目</a>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="#">
-                        <span class="float-left">查看个人签到情况</span>
+                        <span class="float-left">添加项目</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -163,15 +164,15 @@
                 </div>
             </div>
             <div class="col-xl-6 col-sm-6 mb-3">
-                <div class="card text-white bg-warning o-hidden h-100" onclick="addIdea()">
+                <div class="card text-white bg-warning o-hidden h-100">
                     <div class="card-body">
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-list"></i>
                         </div>
-                        <div class="mr-5">意见</div>
+                        <a class="mr-5 text-white" href="${pageContext.request.contextPath}/getUnapprovedProjects">待审批</a>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="#">
-                        <span class="float-left">意见或想法</span>
+                        <span class="float-left">待审批项目</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
               </span>
@@ -180,65 +181,43 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12 col-sm-12 mb-3">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fa fa-bell-o"></i>意见墙</div>
-                    <div class="list-group list-group-flush small">
-                        <c:forEach var="idea" items="${ideaList}">
-                            <li class="list-group-item list-group-item-action flex-column align-items-start">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">${idea.title}</h5>
-                                </div>
-                                <p class="mb-1">${idea.content}</p>
-                                <small>${idea.time}</small>
-                            </li>
-                        </c:forEach>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">项目列表</div>
+                    <div class="card-body">
+                        <table class="table table-bordered table-hover" id="dataTable">
+                            <thead>
+                            <tr>
+                                <th>项目编号</th>
+                                <th>名称</th>
+                                <th>标签</th>
+                                <th>状态</th>
+                                <td>删除</td>
+                                <th>审核</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="project" items="${projectList}">
+                                <tr>
+                                    <td>${project.id}</td>
+                                    <td>${project.name}</td>
+                                    <td>${project.tag}</td>
+                                    <td>${project.approved}</td>
+                                    <td>
+                                        <a class="btn btn-danger col-6 m-auto" href="${pageContext.request.contextPath}/deleteProject?id=${project.id}">删除</a>
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success col-6 m-auto" href="${pageContext.request.contextPath}/approveProject?id=${project.id}">通过</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-sm-12 mb-3">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fa fa-bell-o"></i>近期活动</div>
-                    <div class="list-group list-group-flush small">
-                        <c:forEach var="activity" items="${activityList}">
-                            <li class="list-group-item list-group-item-action flex-column align-items-start" onclick="updateActivity(${activity.id})">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">${activity.title}</h5>
-                                    <small><a href="${pageContext.request.contextPath}/deleteActivity?activityId=${activity.id}"><span class="badge badge-danger">删除</span></a></small>
-                                </div>
-                                <p class="mb-1">${activity.content}</p>
-                                <small>${activity.time}</small>
-                            </li>
-                        </c:forEach>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-sm-12 mb-3">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fa fa-bell-o"></i>福利</div>
-                    <div class="list-group list-group-flush small">
-                        <c:forEach var="welfare" items="${welfareList}">
-                            <li class="list-group-item list-group-item-action flex-column align-items-start">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">${welfare.title}</h5>
-                                    <small><a href="${pageContext.request.contextPath}/deleteActivity?activityId=${welfare.id}"><span class="badge badge-danger">删除</span></a></small>
-                                </div>
-                                <p class="mb-1">${welfare.content}</p>
-                                <small>${welfare.time}</small>
-                            </li>
-                        </c:forEach>
-                    </div>
+                    <div class="card-footer"></div>
                 </div>
             </div>
         </div>
-        <!-- Example DataTables Card-->
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -253,12 +232,13 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fa fa-angle-up"></i>
     </a>
+
     <!-- Bootstrap core JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/jquery/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="${pageContext.request.contextPath}/layer/layer.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="${pageContext.request.contextPath}/layer/layer.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/chart.js/Chart.min.js"></script>
     <script src="${pageContext.request.contextPath}/vendor/datatables/jquery.dataTables.js"></script>
@@ -268,7 +248,6 @@
     <!-- Custom scripts for this page-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.min.js"></script>
-
     <script>
         $(document).ready(function(){
             $("#logOut").click(function(){
@@ -284,17 +263,10 @@
 
         })
 
-        function addIdea(){
+        function projectAdd() {
             layer.open({
-                type: 2,title: '填写您的建议',area: ['500px','420px'],scrollbar: false,offset: 'auto',
-                content: '${pageContext.request.contextPath}/iframe/ideaAdd',
-            })
-        }
-        
-        function modifyPassword() {
-            layer.open({
-                type: 2,title: '修改密码',area: ['500px','420px'],scrollbar: false,offset: 'auto',
-                content: '${pageContext.request.contextPath}/iframe/modifyPassword',
+                type: 2,title: '添加项目',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/iframe/projectAdd',
             })
         }
     </script>

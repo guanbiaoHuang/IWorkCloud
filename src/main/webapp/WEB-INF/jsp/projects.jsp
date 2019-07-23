@@ -148,9 +148,19 @@
         </ol>
         <div class="row">
             <div class="col-12">
-                <h1>Blank</h1>
-                <p>This is an example of a blank page that you can use as a starting point for creating new ones.</p>
+                <div class="card text-center">
+                    <div class="card-header">
+                        正在进行的项目
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">项目标题</h3>
+                        <p class="card-text">项目组成员</p>
+                        <a href="#" class="btn btn-primary disabled">项目状态</a>
+                    </div>
+                </div>
+
             </div>
+
         </div>
     </div>
     <!-- /.container-fluid-->
