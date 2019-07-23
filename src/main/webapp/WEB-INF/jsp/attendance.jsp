@@ -208,6 +208,21 @@
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#logOut").click(function(){
+                layer.confirm('确定注销登陆？', {
+                    btn: ['确定','取消'] //按钮
+                }, function(){
+                    layer.msg("已注销");
+                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/invalidateSession')},2000);
+                }, function(){
+                    layer.msg("取消",{icon:2})
+                });
+            })
+
+        })
+    </script>
 </div>
 </body>
 
