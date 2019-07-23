@@ -21,12 +21,20 @@
 <div class="container">
     <div class="row" style="margin-top: 20px">
         <form class="col-10 m-auto" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/addBillXls">
-            <div class="form-group">
+            <div class="form-group" style="display: none;">
                 <label class="sr-only"></label>
-                <input type="text" class="form-control" name="id" placeholder="请输流水号">
+                <input type="file" class="form-control" name="file" id="file">
             </div>
 
+            <div class="alert alert-success" role="alert" id="fileName">
+                这里是文件名
+            </div>
             <div class="form-group">
+                <label class="sr-only"></label>
+                <input type="button" id="fileBtn" class="form-control btn btn-block btn-info" value="点击选择Xls文件">
+            </div>
+
+            <div class="form-group" style="margin-top: 80px">
                 <label class="sr-only"></label>
                 <button type="submit" id="submit" class="btn btn-block btn-success">添加账单</button>
             </div>
@@ -46,7 +54,20 @@
         $('#submit').on('click', function(){
             parent.layer.close(index); //执行关闭
         });
+        
+        
+        $("#fileBtn").click(function () {
+            $("#file").click();
+        })
+
+        $("#file").change(function (e) {
+            var files = e.currentTarget.files;
+            $("#fileName").text(files[0].name);
+        })
+
     })
+
+
 
 </script>
 </body>
