@@ -210,6 +210,9 @@
                     <div class="card-footer"></div>
                 </div>
             </div>
+
+        </div>
+        <div class="row">
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">最近一周出差计划</div>
@@ -237,6 +240,7 @@
                 </div>
             </div>
         </div>
+
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

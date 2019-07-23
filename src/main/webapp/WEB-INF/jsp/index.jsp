@@ -142,7 +142,7 @@
                         <div class="card-body-icon">
                             <i class="fa fa-fw fa-hand-paper-o"></i>
                         </div>
-                        <a class="mr-5" href="${pageContext.request.contextPath}/attend">签到</a>
+                        <a class="mr-5 text-white" href="${pageContext.request.contextPath}/attend">签到</a>
                     </div>
                     <a class="card-footer text-white clearfix small z-1" href="#">
                         <span class="float-left">查看签到情况</span>
