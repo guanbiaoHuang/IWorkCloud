@@ -63,7 +63,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/sheet">考勤统计</a>
+                        <a href="${pageContext.request.contextPath}/page/attendance">考勤统计</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/page/excellentStaff">请假批示&优秀员工</a>
@@ -111,18 +111,18 @@
                 <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="alertsDropdown">
                     <h6 class="dropdown-header">用户:</h6>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <div class="dropdown-item">
                         <small style="color: #868e96;">修改资料</small>
-                    </a>
+                    </div>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">
+                    <div class="dropdown-item" id="logOut">
                         <small style="color: #868e96;">登出</small>
-                    </a>
+                    </div>
                 </div>
-                <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="d-lg-none">用户</span>
-                </a>
+                </div>
             </li>
         </ul>
     </div>
