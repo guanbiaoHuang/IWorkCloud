@@ -132,10 +132,44 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
+                <a href="#">个人中心</a>
             </li>
-            <li class="breadcrumb-item active">Charts</li>
+            <li class="breadcrumb-item active">财务统计</li>
         </ol>
+        <div class="row">
+            <div class="col-xl-6 col-sm-6 mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body" onclick="billXlsAdd()">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-hand-paper-o"></i>
+                        </div>
+                        <a class="mr-5" href="#">导入财务报表</a>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#" onclick="billAdd()">
+                        <span class="float-left">单笔添加</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-6 col-sm-6 mb-3">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body" onclick="bonusXlsAdd()">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-list"></i>
+                        </div>
+                        <div class="mr-5">导入奖金补贴报表</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#" onclick="bonusAdd()">
+                        <span class="float-left">单笔添加</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+        </div>
         <!-- Area Chart Example-->
         <div class="card mb-3">
             <div class="card-header">
@@ -189,6 +223,7 @@
     <script src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Core plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="${pageContext.request.contextPath}/layer/layer.js"></script>
     <!-- Page level plugin JavaScript-->
     <script src="${pageContext.request.contextPath}/vendor/chart.js/Chart.min.js"></script>
     <script src="${pageContext.request.contextPath}/vendor/datatables/jquery.dataTables.js"></script>
@@ -198,6 +233,32 @@
     <!-- Custom scripts for this page-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
+    <script>
+        function bonusAdd() {
+            layer.open({
+                type: 2,title: '添加奖金或补贴',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/iframe/bonusAdd',
+            })
+        }
+        function bonusXlsAdd() {
+            layer.open({
+                type: 2,title: '导入奖金补贴报表',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/iframe/bonusXlsUpload',
+            })
+        }
+        function billAdd() {
+            layer.open({
+                type: 2,title: '添加公司账单',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/iframe/billAdd',
+            })
+        }
+        function billXlsAdd() {
+            layer.open({
+                type: 2,title: '导入账单报表',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/iframe/billXlsUpload',
+            })
+        }
+    </script>
 </div>
 </body>
 

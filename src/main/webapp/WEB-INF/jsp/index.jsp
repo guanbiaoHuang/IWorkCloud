@@ -27,7 +27,7 @@
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <ul class="collapse navbar-collapse" id="navbarResponsive">
+    <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="首页">
                 <a class="nav-link" href="${pageContext.request.contextPath}/page/index">
@@ -51,7 +51,7 @@
                         <a href="${pageContext.request.contextPath}/page/schedule">日程&请假</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/note">记事本</a>
+                        <a href="${pageContext.request.contextPath}/page/note">记事本</a>
                     </li>
                 </ul>
             </li>
@@ -63,7 +63,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/attendance">考勤统计</a>
+                        <a href="${pageContext.request.contextPath}/page/sheet">考勤统计</a>
                     </li>
                     <li>
                         <a href="${pageContext.request.contextPath}/page/excellentStaff">请假批示&优秀员工</a>
@@ -111,7 +111,7 @@
                 <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="alertsDropdown">
                     <h6 class="dropdown-header">用户:</h6>
                     <div class="dropdown-divider"></div>
-                    <div class="dropdown-item">
+                    <div class="dropdown-item" href="#">
                         <small style="color: #868e96;">修改资料</small>
                     </div>
                     <div class="dropdown-divider"></div>
@@ -119,13 +119,13 @@
                         <small style="color: #868e96;">登出</small>
                     </div>
                 </div>
-                <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="d-lg-none">用户</span>
-                </a>
+                </div>
             </li>
         </ul>
-    </ul>
+    </div>
 </nav>
 <div class="content-wrapper">
     <div class="container-fluid">

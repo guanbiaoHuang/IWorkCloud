@@ -1,6 +1,7 @@
 package com.iworkcloud.controller;
 
 import com.iworkcloud.serviceImp.StaffService;
+import com.iworkcloud.utils.Str2Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -18,6 +19,11 @@ public class PageGet {
     @RequestMapping("page/{pageName}")
     public String DispatchView(@PathVariable("pageName") String pageName){
         return pageName;
+    }
+
+    @RequestMapping("iframe/{iframeName}")
+    public String getIframe(@PathVariable("iframeName") String iframe){
+        return iframe;
     }
 
     @RequestMapping("register")
