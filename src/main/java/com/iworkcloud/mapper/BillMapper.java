@@ -1,6 +1,7 @@
 package com.iworkcloud.mapper;
 
 import com.iworkcloud.pojo.Bill;
+import com.iworkcloud.pojo.BillMonthCount;
 
 import java.util.HashMap;
 import java.util.List;
@@ -12,5 +13,5 @@ public interface BillMapper {
     List<Bill> queryBillById(String id);
     List<Bill> queryBillsByTag(String tag);
 
-    List<Bill> queryBillNumOrderByMonth(String tag);
+    List<BillMonthCount> queryBillNumOrderByMonth(String tag);
 }

@@ -43,7 +43,7 @@ public class AttendanceService implements IAttendanceService {
 
     @Override
     public int getAttendanceNum() {
-        return attendanceMapper.queryAttendanceNum();
+        return attendanceMapper.getLatedStaffNum();
     }
 
 }

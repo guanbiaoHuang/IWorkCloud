@@ -1,6 +1,7 @@
 package com.iworkcloud.controller;
 
 import com.iworkcloud.pojo.Bill;
+import com.iworkcloud.pojo.BillMonthCount;
 import com.iworkcloud.pojo.Bonus;
 import com.iworkcloud.serviceImp.BillService;
 import com.iworkcloud.serviceImp.BonusService;
@@ -16,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 import java.util.List;
+import java.util.stream.Collectors;
+
 
 @RequestMapping("page")
 @Controller
@@ -46,15 +49,24 @@ public class BillController {
     public String bill(Model model){
         List<Bonus> bonuses = bonusService.queryBonusNumOrderByMonth("奖金");
         List<Bonus> subsidies = bonusService.queryBonusNumOrderByMonth("补贴");
-        List<Bill> expense = billService.queryBillNumOrderByMonth("支出");
-        List<Bill> income = billService.queryBillNumOrderByMonth("收入");
+        List<BillMonthCount> expense = billService.queryBillNumOrderByMonth("支出");
+        List<BillMonthCount> income = billService.queryBillNumOrderByMonth("收入");
 
-        for (Bill bill:income){
-            System.out.println(bill.getMount());
-        }
-        for (Bill bill:expense){
-            System.out.println(bill.getMount());
-        }
+        System.out.println("-----------------------");
+        double num = expense.stream().mapToDouble(BillMonthCount::getMonthCount).sum();
+        System.out.println(num);
+        System.out.println("-----------------------");
+
+//        for (BillMonthCount bill:income){
+//            System.out.println("-----------");
+//            System.out.println(bill.getMonthCount());
+//            System.out.println(bill);
+//        }
+//        for (BillMonthCount bill:expense){
+//            System.out.println("+++++++++++");
+//            System.out.println(bill.getMonth());
+//            System.out.println(bill);
+//        }
         model.addAttribute("bonuses",bonuses);
         model.addAttribute("subsidies",subsidies);
         model.addAttribute("expense",expense);

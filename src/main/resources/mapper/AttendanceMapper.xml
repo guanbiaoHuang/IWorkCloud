@@ -19,9 +19,15 @@
     <select id="getAttendanceMonth" parameterType="String" resultType="com.iworkcloud.pojo.Attendance">
         select * from attendance where month(time) = month(now())
     </select>
-    <select id="queryAttendanceNum" resultType="int">
-        select count(*) from attendance where date(time) = curdate();
+
+
+    <select id="getLatedStaffNum" resultType="int">
+        select count(*) as '今日迟到人数' from attendance where timediff(time(time),'08:00:00') &gt; 0 and date (time) = curdate()
+<!--            group by (date(time) = curdate())-->
     </select>
+
+
+
 
 
 </mapper>

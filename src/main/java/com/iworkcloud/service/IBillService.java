@@ -1,6 +1,7 @@
 package com.iworkcloud.service;
 
 import com.iworkcloud.pojo.Bill;
+import com.iworkcloud.pojo.BillMonthCount;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;
@@ -18,5 +19,5 @@ public interface IBillService {
 
 
     //根据tag查询每月的总数据
-    List<Bill> queryBillNumOrderByMonth(String tag);
+    List<BillMonthCount> queryBillNumOrderByMonth(String tag);
 }
