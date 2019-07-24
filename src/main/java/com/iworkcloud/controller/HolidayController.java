@@ -33,19 +33,19 @@ public class HolidayController {
                 new Timestamp(Str2Date.getTimeByStr(timeStart)),
                 new Timestamp(Str2Date.getTimeByStr(timeEnd)),
                 content,"waited"));
-        return "redirect:page/schedule";
+        return "redirect:schedule";
     }
 
     @RequestMapping("/ratifyHoliday")
     public String ratify(String holidayId){
         holidayService.ratifyHoliday(holidayId);
-        return "redirect:page/excellentStaff";
+        return "redirect:excellentStaff";
     }
 
     @RequestMapping("/refuseHoliday")
     public String refuse(String holidayId){
         holidayService.refuseHoliday(holidayId);
-        return "redirect:page/excellentStaff";
+        return "redirect:excellentStaff";
     }
 
     @RequestMapping("/excellentStaff")

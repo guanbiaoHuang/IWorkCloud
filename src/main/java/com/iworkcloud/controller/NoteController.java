@@ -25,13 +25,13 @@ public class NoteController {
         System.out.println(request.getCharacterEncoding());
         Note note = new Note((String)session.getAttribute("staff"),title,new Timestamp(System.currentTimeMillis()),content);
         boolean isAdded = noteService.addNote(note);
-        return "redirect:page/note";
+        return "redirect:note";
     }
 
     @RequestMapping("/deleteNote")
     public String deleteNote(String noteId){
         noteService.deleteNote(noteId);
-        return "redirect:page/note";
+        return "redirect:note";
     }
 
     @RequestMapping("/note")

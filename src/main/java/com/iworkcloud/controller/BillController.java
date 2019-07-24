@@ -32,13 +32,13 @@ public class BillController {
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
         Bill bill = new Bill(id,timestamp,Double.parseDouble(mount),billType,details);
         billService.addBill(bill);
-        return "redirect:page/bill";
+        return "redirect:bill";
     }
 
     @RequestMapping("/addBillXls")
     public String billAddByExcel(@RequestParam("file") MultipartFile file){
         billService.addBillByExcel(file);
-        return "redirect:page/bill";
+        return "redirect:bill";
 
     }
 

@@ -21,7 +21,7 @@ public class OutController {
 
         Out out = new Out(staff,new Date(Str2Date.getDateByStr(dateStart)),new Date(Str2Date.getDateByStr(dateEnd)));
         boolean isSuccess = outService.addOut(out);
-        return "redirect:page/excellentStaff";
+        return "redirect:excellentStaff";
     }
 
 

@@ -2,6 +2,7 @@ package com.iworkcloud.controller;
 
 import com.iworkcloud.pojo.Staff;
 import com.iworkcloud.service.IStaffService;
+import com.iworkcloud.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,13 +19,25 @@ import java.util.List;
 public class StaffController {
     @Autowired
     private IStaffService staffService;
+    @Autowired
+    private IUserService userService;
 
+    @RequestMapping("/updatePassword")
+    public String modifyPassword(Model model,String oldPassword, String newPassword, HttpSession session){
+
+        String phone = staffService.getPhoneByStaffId(session.getAttribute("staff").toString());
+        if(userService.login(phone,oldPassword)){
+            boolean isSuccess = userService.updatePassword(phone,newPassword);
+            return "redirect:index";
+        }
+        return "redirect:index";
+    }
 
 
     @RequestMapping("/invalidateSession")
     public String invalidateSession(HttpSession session){
         session.removeAttribute("staff");
-        return "redirect:page/index";
+        return "redirect:index";
     }
 
     @RequestMapping("/staffManage")
@@ -40,7 +53,7 @@ public class StaffController {
     @RequestMapping("/deleteStaff")
     public String deleteStaff(String id){
         staffService.deleteStaff(id);
-        return "redirect:page/staffManage";
+        return "redirect:staffManage";
     }
 
 
@@ -50,12 +63,12 @@ public class StaffController {
 
         staffService.addStaff(staff);
 
-        return "redirect:page/staffManage";
+        return "redirect:staffManage";
     }
 
-    @RequestMapping("/SaddStaffXls")
+    @RequestMapping("/addStaffXls")
     public String addStaffXls(@RequestParam("file") MultipartFile file){
         staffService.addStaffByExcel(file);
-        return "redirect:page/staffManage";
+        return "redirect:staffManage";
     }
 }

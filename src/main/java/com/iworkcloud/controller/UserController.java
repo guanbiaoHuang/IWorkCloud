@@ -38,7 +38,7 @@ public class UserController {
 	}
 
 	@ResponseBody
-	@RequestMapping("bindStaff")
+	@RequestMapping("/bindStaff")
 	public String bindStaff(HttpSession session, @RequestParam("staffID") String staffID){
 		if(session.getAttribute("phone")!=null){
 			HashMap<String,Object> map= new HashMap<>();
@@ -90,21 +90,7 @@ public class UserController {
 		return code.length()>0?"获取验证码成功，注意查收":"获取验证码失败，请重试";
 	}
 
-	@RequestMapping("/updatePassword")
-	public String modifyPassword(Model model,String oldPassword, String newPassword, HttpSession session){
-		if(session.getAttribute("staff")!=null){
-			String phone = staffService.getPhoneByStaffId(session.getAttribute("staff").toString());
-			if(userService.login(phone,oldPassword)){
-				boolean isSuccess = userService.updatePassword(phone,newPassword);
-				return "redirect:login";
-			}else {
-				return "redirect:index";
-			}
-		}
-		model.addAttribute("msg","会话，请重新登陆");
-		return "forward:login";
 
-	}
 
 	@RequestMapping("/log")
 	public ModelAndView login(String phone, String password,HttpServletRequest request,HttpSession session) {
@@ -163,10 +149,15 @@ public class UserController {
 	}
 
 
-	@RequestMapping("/findPassword")
+	@RequestMapping("/modifyPassword")
     public String newPassword(String newPhone,String password){
 	    userService.updatePassword(newPhone,password);
-	    return "redirect:user/login";
+	    return "redirect:login";
     }
+
+    @RequestMapping("/findPassword")
+	public String findPassword(){
+		return "findPassword";
+	}
 
 }

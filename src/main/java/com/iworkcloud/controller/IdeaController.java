@@ -24,6 +24,6 @@ public class IdeaController {
         Idea idea = new Idea(session.getAttribute("staff").toString(),title,timestamp,content);
 
         ideaService.addIdea(idea);
-        return "redirect:page/index";
+        return "redirect:index";
     }
 }

@@ -25,13 +25,13 @@ public class BonusController {
 
         bonusService.addBonus(new Bonus(id,staff,timestamp,Double.parseDouble(mount),bonusType));
 
-        return "redirect:page/bill";
+        return "redirect:bill";
     }
 
     @RequestMapping("/addBonusXls")
     public String addBonusByExcel(@RequestParam("file") MultipartFile file){
         bonusService.addBonusByExcel(file);
-        return "redirect:page/bill";
+        return "redirect:bill";
 
     }
 

@@ -37,7 +37,6 @@ public class PageGet {
 
     @RequestMapping("/index")
     public String toIndex(Model model, HttpSession session){
-
         List<Idea> ideas = ideaService.getAllIdeas();
         List<Activity> welfare = activityService.getActivityByTag("welfare");
         List<Activity> activities = activityService.getActivityByTag("activity");

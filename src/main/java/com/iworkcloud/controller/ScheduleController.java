@@ -36,7 +36,7 @@ public class ScheduleController {
         time = time.replace('T',' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
         scheduleService.addSchedule(new Schedule((String)session.getAttribute("staff"),timestamp,content));
-        return "redirect:page/schedule";
+        return "redirect:schedule";
     }
 
     @RequestMapping("/schedule")
@@ -53,7 +53,7 @@ public class ScheduleController {
     @RequestMapping("/deleteSchedule")
     public String deleteSchedule(String scheduleId){
         scheduleService.deleteSchedule(scheduleId);
-        return "redirect:page/schedule";
+        return "redirect:schedule";
 
     }
 
