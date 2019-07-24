@@ -25,9 +25,9 @@
     </update>
 
     <select id="queryBonusNumOrderByMonth" parameterType="String" resultMap="monthBonus">
-        select staff, date_format(time,'%Y-%m') as '月份', sum(mount)as '月总计',tag
+        select date_format(time,'%Y-%m') as '月份', sum(mount)as '月总计',tag
         from bonus
-        where staff = #{staff} group by (date_format(time,'%Y-%m'))
+        where tag = #{tag} group by (date_format(time,'%Y-%m'))
     </select>
 
 
