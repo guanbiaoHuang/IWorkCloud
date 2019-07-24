@@ -13,4 +13,6 @@ public interface IScheduleService {
     boolean modifySchedule(Schedule schedule);
 
     List<Schedule> getRecentSchedule(int recentDays, String staffId);
+
+    boolean deleteSchedule(String id);
 }

@@ -3,8 +3,7 @@
 <mapper namespace="com.iworkcloud.mapper.BonusMapper">
 
     <resultMap id="monthBonus" type="com.iworkcloud.pojo.Bonus">
-        <id column="staff" property="staff"/>
-        <result column="time" property="time"/>
+        <id column="time" property="time"/>
         <result column="mount" property="mount"/>
         <result column="tag" property="tag"/>
     </resultMap>

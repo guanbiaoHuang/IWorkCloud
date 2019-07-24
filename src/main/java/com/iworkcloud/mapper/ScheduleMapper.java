@@ -19,4 +19,8 @@ public interface ScheduleMapper {
     List<Schedule>queryScheduleByDays(@Param("days")int days,@Param("staffId")String staffId);
 
 
+    int deleteSchedule(String id);
+
+
+
 }

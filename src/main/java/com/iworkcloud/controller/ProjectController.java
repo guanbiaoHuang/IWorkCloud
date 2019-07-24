@@ -56,7 +56,7 @@ public class ProjectController {
         String staffId = session.getAttribute("staff").toString();
         String team = staffService.getStaffById(staffId).getTeam();
         String projectId = teamService.getProject(team);
-        if(projectId.length()>0){
+        if(null!=projectId&&projectId.length()>0){
             Project project = projectService.getMyProject(projectId);
             model.addAttribute("project",project);
             return "projects";

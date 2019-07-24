@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: jason
@@ -185,7 +186,7 @@
                 <div class="card">
                     <div class="card-header">项目列表</div>
                     <div class="card-body">
-                        <table class="table table-bordered table-hover" id="dataTable">
+                        <table class="table table-bordered table-hover" id="projectTable">
                             <thead>
                             <tr>
                                 <th>项目编号</th>
@@ -246,8 +247,8 @@
     <!-- Custom scripts for all pages-->
     <script src="${pageContext.request.contextPath}/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
-    <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/sb-admin-charts.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
     <script>
         $(document).ready(function(){
             $("#logOut").click(function(){

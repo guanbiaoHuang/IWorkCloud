@@ -56,6 +56,12 @@ public class StaffController {
         return "staffManage";
     }
 
+    @RequestMapping("deleteStaff")
+    public String deleteStaff(String id){
+        staffService.deleteStaff(id);
+        return "redirect:staffManage";
+    }
+
 
     @RequestMapping("addStaff")
     public String addStaff(String id,String name,String team,String department,String phone,String sex){

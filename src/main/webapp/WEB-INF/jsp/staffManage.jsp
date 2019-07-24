@@ -170,7 +170,7 @@
                 <div class="card">
                     <div class="card-header">员工名单</div>
                     <div class="card-body">
-                        <table class="table table-bordered table-hover" id="dataTable">
+                        <table class="table table-bordered table-hover" id="staffTable">
                             <thead>
                             <tr>
                                 <th>工号</th>

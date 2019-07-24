@@ -28,7 +28,7 @@
 
 
     <delete id="deleteStaff" parameterType="String">
-        delete * from staff where id = #{id}
+        delete from staff where id = #{id}
     </delete>
     <select id="queryPhoneById" resultType="java.lang.String" parameterType="java.lang.String">
         select phone from staff where id = #{id}
