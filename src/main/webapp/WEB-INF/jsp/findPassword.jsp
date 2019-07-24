@@ -46,7 +46,6 @@
                         <span class="input-group-addon"><i class="fa fa-key fa-fw"></i> </span>
                         <input type="password" class="form-control input-lg" name="checkPassword" id="pas2" placeholder="请再次确认密码">
                     </div>
-                    <span id="errorpwd" style="display:none";>两次输入密码不一致</span>
                 </div>
 
                 <div class="form-group has-feedback">
@@ -103,11 +102,10 @@
         $("#pas2").blur(function () {
             if ($("#pas2").val() !== $("#pas1").val())
             {
-                $("#errorpwd").attr("style","display:block");
-                $("#errorpwd").attr("style","color:red")
+
             }
             else {
-                $("#errorpwd").hide();
+
             }
         });
 
