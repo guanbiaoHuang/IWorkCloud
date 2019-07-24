@@ -26,7 +26,7 @@
     </select>
 
     <select id="queryBillNumOrderByMonth" parameterType="String" resultMap="monthBill">
-        select date_format(time,'%Y-%m') as '月份', sum(bill.mount)as '月总计',tag from bill where tag = #{tag} group by (date_format(time,'%Y-%m'))
+        select time as '月份', sum(bill.mount)as '月总计',tag from bill where tag = #{tag} group by (date_format(time,'%Y-%m'))
     </select>
 
 

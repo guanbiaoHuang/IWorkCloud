@@ -19,4 +19,5 @@ public interface IStaffService {
     boolean deleteStaff(String id);
     String getPhoneByStaffId(String id);
     int getStaffCount();
+    String getStaffDepartment(String staffId);
 }

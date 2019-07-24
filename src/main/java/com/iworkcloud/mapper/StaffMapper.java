@@ -17,5 +17,6 @@ public interface StaffMapper {
     String queryPhoneById(String id);
     int deleteStaff(String id);
     int queryStaffNum();
+    String queryDepartmentById(String staffId);
 
 }

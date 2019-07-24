@@ -102,4 +102,9 @@ public class StaffService implements IStaffService {
         return staffMapper.queryStaffNum();
     }
 
+    @Override
+    public String getStaffDepartment(String staffId) {
+        return staffMapper.queryDepartmentById(staffId);
+    }
+
 }

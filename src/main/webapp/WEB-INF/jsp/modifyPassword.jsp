@@ -56,6 +56,14 @@
         $('#submit').on('click', function(){
             parent.layer.close(index); //执行关闭
         });
+
+        $('#passwordSec').blur(function () {
+            var $ps1 = $("#password").val();
+            var $ps2 = $(this).val();
+            if($ps1!=$ps2){
+                layer.msg("两次密码不相同");
+            }
+        })
     })
 
 </script>

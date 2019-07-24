@@ -99,7 +99,9 @@ public class UserController {
 		if(isloged) {
 			if(staffService.isBindStaff(phone)){
 				mv.addObject("msg","success");
-				session.setAttribute("staff",staffService.getStaffID(phone));
+				String staffId = staffService.getStaffID(phone);
+				session.setAttribute("staff",staffId);
+				session.setAttribute("department",staffService.getStaffDepartment(staffId));
 				return mv;
 			}else{
 				mv.addObject("msg","notBind");

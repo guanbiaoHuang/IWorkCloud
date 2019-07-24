@@ -36,5 +36,9 @@
     <select id="queryStaffNum" resultType="int">
         select count(*) from staff
     </select>
+    <select id="queryDepartmentById" resultType="java.lang.String" parameterType="String">
+        select department from staff where id = #{staffId}
+    </select>
+
 
 </mapper>

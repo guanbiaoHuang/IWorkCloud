@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,12 +36,16 @@
                     <span class="nav-link-text">首页</span>
                 </a>
             </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="财务">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/bill">
-                    <i class="fa fa-fw fa-area-chart"></i>
-                    <span class="nav-link-text">财务</span>
-                </a>
-            </li>
+
+            <c:if test="${sessionScope.department eq 'Finance'}">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="财务">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/page/bill">
+                        <i class="fa fa-fw fa-area-chart"></i>
+                        <span class="nav-link-text">财务</span>
+                    </a>
+                </li>
+            </c:if>
+
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="日程">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSchedule" data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-calendar"></i>
@@ -55,28 +60,32 @@
                     </li>
                 </ul>
             </li>
+            <c:if test="${sessionScope.department eq 'Manager'}">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-male"></i>
+                        <span class="nav-link-text">考勤</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="collapseComponents">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/page/attendance">考勤统计</a>
+                        </li>
+                        <li>
+                            <a href="${pageContext.request.contextPath}/page/excellentStaff">请假批示&优秀员工</a>
+                        </li>
+                    </ul>
+                </li>
+            </c:if>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-male"></i>
-                    <span class="nav-link-text">考勤</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseComponents">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/page/attendance">考勤统计</a>
-                    </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/page/excellentStaff">请假批示&优秀员工</a>
-                    </li>
-                </ul>
-            </li>
+            <c:if test="${sessionScope.department eq 'Manager'}">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="活动">
+                    <a class="nav-link" href="${pageContext.request.contextPath}/page/activities">
+                        <i class="fa fa-fw fa-child"></i>
+                        <span class="nav-link-text">活动</span>
+                    </a>
+                </li>
+            </c:if>
 
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="活动">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/activities">
-                    <i class="fa fa-fw fa-child"></i>
-                    <span class="nav-link-text">活动</span>
-                </a>
-            </li>
 
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="项目">
@@ -88,24 +97,26 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/page/projects">项目</a>
                     </li>
-                    <li>
-                        <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
-                    </li>
+                    <c:if test="${sessionScope.department eq 'projectManager'}">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
+                        </li>
+                    </c:if>
                 </ul>
             </li>
-
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
-                    <i class="fa fa-fw fa-sitemap"></i>
-                    <span class="nav-link-text">部门管理</span>
-                </a>
-                <ul class="sidenav-second-level collapse" id="collapseMulti">
-                    <li>
-                        <a href="${pageContext.request.contextPath}/page/staffManage">人员变动</a>
-                    </li>
-                </ul>
-
-            </li>
+            <c:if test="${sessionScope.department eq 'Personel'}">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                        <i class="fa fa-fw fa-sitemap"></i>
+                        <span class="nav-link-text">部门管理</span>
+                    </a>
+                    <ul class="sidenav-second-level collapse" id="collapseMulti">
+                        <li>
+                            <a href="${pageContext.request.contextPath}/page/staffManage">人员变动</a>
+                        </li>
+                    </ul>
+                </li>
+            </c:if>
 
         </ul>
 
@@ -152,7 +163,7 @@
                     <div class="card-header">
                         正在进行的项目
                     </div>
-                    <c:if test="${Emptyproject}">
+                    <c:if test="${project==null}">
                         <div class="card-body">
                             <a href="#" class="btn btn-primary btn-lg disabled">没有正在进行的项目</a>
                         </div>
