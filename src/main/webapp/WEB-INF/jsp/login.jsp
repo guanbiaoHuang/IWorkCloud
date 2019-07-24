@@ -48,7 +48,7 @@
                                 <input type="checkbox" name="remember" value="yes">
                                 <small>记住密码</small>
                             </label>
-                            <span><a class="pull-right" href="#"><small>忘记密码？</small></a></span>
+                            <span><a class="pull-right" href="${pageContext.request.contextPath}/page/findPassword"><small>忘记密码？</small></a></span>
 
                         </div>
                         <div class="form-group">
@@ -92,7 +92,7 @@
     		});
     		msg();
 
-    	})
+    	});
         function msg(){
             var $msg = $("#msg").text().trim();
             if($msg!="") {
@@ -121,7 +121,7 @@
                         }
 
                     }
-                )
+                );
                 layer.close(index);
             });
         }
