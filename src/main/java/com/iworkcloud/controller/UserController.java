@@ -127,8 +127,8 @@ public class UserController {
 
 
 	@RequestMapping("findPassword")
-    public String newPassword(String phone,String password){
-	    userService.updatePassword(phone,password);
+    public String newPassword(String newPhone,String password){
+	    userService.updatePassword(newPhone,password);
 	    return "login";
     }
 

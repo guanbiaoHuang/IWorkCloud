@@ -30,7 +30,7 @@
                     <label class="sr-only"></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-                        <input type="tel" id="phone" class="form-control input-lg" name="phone" placeholder="请输入手机号码"/>
+                        <input type="tel" id="newPhone" class="form-control input-lg" name="newPhone" placeholder="请输入手机号码"/>
                     </div>
                 </div>
 
@@ -79,13 +79,13 @@
     $(document).ready(function(){
 
         $("#getCode").click(function(){
-            var $phone = $("#registPhone").val();
-            if(!(/^1[3456789]\d{9}$/.test($phone))){
+            var $newPhone = $("#loginPhone").val();
+            if(!(/^1[3456789]\d{9}$/.test($newPhone))){
                 layer.msg("手机号非法");
             }else{
                 $.post(
                     "${pageContext.request.contextPath}/checkCode",
-                    {"phone":$phone},
+                    {"newPhone":$newPhone},
                     function(result){
                         getCodeClick();
                         layer.msg(result);
@@ -96,12 +96,12 @@
     });
 
     function checkWhenFindPassword() {
-        var $phone = $("#phone").val();
+        var $newPhone = $("#newPhone").val();
         var $password = $("#pas1").val();
         var $passwordSec = $("#pas2").val();
         var $verifyCode = $("#verifyCode").val();
 
-        if(!(/^1[3456789]\d{9}$/.test($phone))){
+        if(!(/^1[3456789]\d{9}$/.test($newPhone))){
             layer.msg("手机号非法");
             return false;
         }
