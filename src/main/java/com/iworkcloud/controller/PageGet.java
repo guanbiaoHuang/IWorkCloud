@@ -34,19 +34,15 @@ public class PageGet {
     }
 
 
-
     @RequestMapping("/index")
     public String toIndex(Model model, HttpSession session){
         List<Idea> ideas = ideaService.getAllIdeas();
-        List<Activity> welfare = activityService.getActivityByTag("welfare");
-        List<Activity> activities = activityService.getActivityByTag("activity");
+        List<Activity> welfare = activityService.getActivitiesByTime(7,"welfare");
+        List<Activity> activities = activityService.getActivitiesByTime(7,"activity");
         model.addAttribute("ideaList",ideas);
         model.addAttribute("welfareList",welfare);
         model.addAttribute("activityList",activities);
-
         return "index";
-
     }
-
 
 }
