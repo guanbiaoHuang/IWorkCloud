@@ -53,4 +53,11 @@ public class ScheduleController {
         return "scheduleInfo";
     }
 
+    @RequestMapping("deleteSchedule")
+    public String deleteSchedule(String scheduleId){
+        scheduleService.deleteSchedule(scheduleId);
+        return "redirect:schedule";
+
+    }
+
 }

@@ -35,4 +35,9 @@ public class ScheduleService implements IScheduleService {
     public List<Schedule> getRecentSchedule(int recentDays, String staffId) {
         return scheduleMapper.queryScheduleByDays(recentDays,staffId);
     }
+
+    @Override
+    public boolean deleteSchedule(String id) {
+        return 1==scheduleMapper.deleteSchedule(id);
+    }
 }

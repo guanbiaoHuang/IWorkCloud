@@ -157,7 +157,7 @@
                             <a href="#" class="btn btn-primary btn-lg disabled">没有正在进行的项目</a>
                         </div>
                     </c:if>
-                    <c:if test="${project!=null}">
+                    <c:if test="${project}">
                         <div class="card-body">
                             <h3 class="card-title">${project.name}</h3>
                             <p class="card-text">项目组成员</p>

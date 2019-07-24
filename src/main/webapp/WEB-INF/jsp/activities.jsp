@@ -204,7 +204,7 @@
                         <i class="fa fa-bell-o"></i>活动管理</div>
                     <div class="list-group list-group-flush small">
                         <c:forEach var="activity" items="${activityList}">
-                            <li class="list-group-item list-group-item-action flex-column align-items-start" onclick="updateActivity(${activity.id})">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">${activity.title}</h5>
                                     <small><a href="${pageContext.request.contextPath}/deleteActivity?activityId=${activity.id}"><span class="badge badge-danger">删除</span></a></small>
@@ -305,12 +305,6 @@
             })
         })
 
-        function updateActivity(info) {
-            layer.open({
-                type: 2,title: '填写活动信息',area: ['500px','420px'],scrollbar: false,offset: 'auto',
-                content: '${pageContext.request.contextPath}/activityInfo?id=${info}',
-            })
-        }
     </script>
     <script>
         $(document).ready(function(){

@@ -1,10 +1,13 @@
 package com.iworkcloud.controller;
 
 import com.iworkcloud.pojo.Bill;
+import com.iworkcloud.pojo.Bonus;
 import com.iworkcloud.serviceImp.BillService;
+import com.iworkcloud.serviceImp.BonusService;
 import com.iworkcloud.utils.Str2Date;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,7 +21,8 @@ import java.util.List;
 public class BillController {
     @Autowired
     private BillService billService;
-
+    @Autowired
+    private BonusService bonusService;
 
     @RequestMapping("addBill")
     public String billAdd(String id,String time,String mount,String details,String billType){
@@ -38,7 +42,15 @@ public class BillController {
     }
 
     @RequestMapping("bill")
-    public String bill(){
+    public String bill(Model model){
+        List<Bonus> bonuses = bonusService.queryBonusNumOrderByMonth("奖金");
+        List<Bonus> subsidies = bonusService.queryBonusNumOrderByMonth("补贴");
+        List<Bill> expense = billService.queryBillNumOrderByMonth("支出");
+        List<Bill> income = billService.queryBillNumOrderByMonth("收入");
+        model.addAttribute("bonuses",bonuses);
+        model.addAttribute("subsidies",subsidies);
+        model.addAttribute("expense",expense);
+        model.addAttribute("income",income);
         return "bill";
     }
 }

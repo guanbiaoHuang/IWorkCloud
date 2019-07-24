@@ -213,7 +213,7 @@
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">${schedule.content}</h5>
-                                    <small><a href="${pageContext.request.contextPath}/deleteActivity?activityId=${schedule.id}"><span class="badge badge-danger">删除</span></a></small>
+                                    <small><a href="${pageContext.request.contextPath}/deleteSchedule?scheduleId=${schedule.id}"><span class="badge badge-danger">删除</span></a></small>
                                 </div>
                                 <p class="mb-1">${schedule.time}</p>
                             </li>
