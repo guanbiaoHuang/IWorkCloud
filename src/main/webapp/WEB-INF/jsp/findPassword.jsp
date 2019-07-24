@@ -25,12 +25,12 @@
 
     <div class="row" style="margin-top: 80px">
         <div class="col-md-4 m-auto">
-            <form method="post" action="${pageContext.request.contextPath}/findPassword">
+            <form method="post" action="${pageContext.request.contextPath}/findPassword" onsubmit="return checkWhenFindPassword()">
                 <div class="form-group has-feedback">
                     <label class="sr-only"></label>
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-user fa-fw"></i></span>
-                        <input type="tel" id="loginPhone" class="form-control input-lg" name="phone" placeholder="请输入手机号码"/>
+                        <input type="tel" id="phone" class="form-control input-lg" name="phone" placeholder="请输入手机号码"/>
                     </div>
                 </div>
 
@@ -44,7 +44,7 @@
                 <div class="form-group has-feedback">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="fa fa-key fa-fw"></i> </span>
-                        <input type="password" class="form-control input-lg" name="checkPassword" id="pas2" placeholder="请再次确认密码">
+                        <input type="password" class="form-control input-lg" id="pas2" placeholder="请再次确认密码">
                     </div>
                 </div>
 
@@ -79,39 +79,46 @@
     $(document).ready(function(){
 
         $("#getCode").click(function(){
-
             var $phone = $("#registPhone").val();
             if(!(/^1[3456789]\d{9}$/.test($phone))){
                 layer.msg("手机号非法");
             }else{
-
                 $.post(
                     "${pageContext.request.contextPath}/checkCode",
                     {"phone":$phone},
                     function(result){
-
                         getCodeClick();
                         layer.msg(result);
                     }
                 );
             }
-
-
         });
-
-        $("#pas2").blur(function () {
-            if ($("#pas2").val() !== $("#pas1").val())
-            {
-
-            }
-            else {
-
-            }
-        });
-
     });
 
+    function checkWhenFindPassword() {
+        var $phone = $("#phone").val();
+        var $password = $("#pas1").val();
+        var $passwordSec = $("#pas2").val();
+        var $verifyCode = $("#verifyCode").val();
 
+        if(!(/^1[3456789]\d{9}$/.test($phone))){
+            layer.msg("手机号非法");
+            return false;
+        }
+        if(!(/^(?![A-Z]+$)(?![a-z]+$)(?!\d+$)\S{8,16}$/.test($password))){
+            layer.msg("密码必须由字母开头的8-16位字母加数字组成");
+            return false;
+        }
+        if(!($password==$passwordSec)){
+            layer.msg("两次密码不一致");
+            return false;
+        }
+        if(!(/\d{6}$/.test($verifyCode))){
+            layer.msg("验证码为6位数字");
+            return false;
+        }
+        return true;
+    }
 </script>
 </body>
 </html>

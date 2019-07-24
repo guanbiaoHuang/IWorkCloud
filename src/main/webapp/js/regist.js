@@ -57,6 +57,8 @@ function check(){
 
 
 
+
+
 function getCodeClick(){
 		
    var btn = $("#getCode");
@@ -71,24 +73,4 @@ function getCodeClick(){
 	    }}, 1000);
    btn.attr('disabled',true).css('cursor','not-allowed');
 	
-}
-
-function getCode(link) {
-	$("#getCode").click(function(){
-		var $phone = $("#registPhone").val();
-		if(!(/^1[3456789]\d{9}$/.test($phone))){
-			layer.msg("手机号非法");
-		}else{
-			$.post(
-				link,
-				{"phone":$phone},
-				function(result){
-					getCodeClick();
-					layer.msg(result);
-				}
-			);
-		}
-
-
-	});
 }
