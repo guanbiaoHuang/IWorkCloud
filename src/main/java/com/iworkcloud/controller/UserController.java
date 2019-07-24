@@ -126,4 +126,10 @@ public class UserController {
 	}
 
 
+	@RequestMapping("findPassword")
+    public String newPassword(String phone,String password){
+	    userService.updatePassword(phone,password);
+	    return "login";
+    }
+
 }
