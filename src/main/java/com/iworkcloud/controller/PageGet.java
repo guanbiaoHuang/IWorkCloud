@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+
+@RequestMapping("page")
 @Controller
 public class PageGet {
     @Autowired
@@ -26,46 +28,25 @@ public class PageGet {
     @Autowired
     private IIdeaService ideaService;
 
-    @RequestMapping("page/{pageName}")
-    public String DispatchView(@PathVariable("pageName") String pageName){
-        return pageName;
-    }
-
-    @RequestMapping("iframe/{iframeName}")
+    @RequestMapping("/iframe/{iframeName}")
     public String getIframe(@PathVariable("iframeName") String iframe){
         return iframe;
     }
 
-    @RequestMapping("register")
-    public String toReigister() {
-        return "register";
-    }
 
-    @RequestMapping("login")
-    public String toLogin() {
-        return "login";
-    }
 
-    @RequestMapping("index")
+    @RequestMapping("/index")
     public String toIndex(Model model, HttpSession session){
-        if(session.getAttribute("staff")==null){
-            if(session.getAttribute("phone")==null) {
-                model.addAttribute("msg", "请登录");
-                return "forward:login";
-            }else{
-                model.addAttribute("msg", "notBind");
-                return "forward:login";
-            }
-        }else {
-            List<Idea> ideas = ideaService.getAllIdeas();
-            List<Activity> welfare = activityService.getActivityByTag("welfare");
-            List<Activity> activities = activityService.getActivityByTag("activity");
-            model.addAttribute("ideaList",ideas);
-            model.addAttribute("welfareList",welfare);
-            model.addAttribute("activityList",activities);
 
-            return "index";
-        }
+        List<Idea> ideas = ideaService.getAllIdeas();
+        List<Activity> welfare = activityService.getActivityByTag("welfare");
+        List<Activity> activities = activityService.getActivityByTag("activity");
+        model.addAttribute("ideaList",ideas);
+        model.addAttribute("welfareList",welfare);
+        model.addAttribute("activityList",activities);
+
+        return "index";
+
     }
 
 

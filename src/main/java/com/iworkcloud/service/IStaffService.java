@@ -18,4 +18,5 @@ public interface IStaffService {
     boolean addStaffByExcel(MultipartFile file);
     boolean deleteStaff(String id);
     String getPhoneByStaffId(String id);
+    int getStaffCount();
 }

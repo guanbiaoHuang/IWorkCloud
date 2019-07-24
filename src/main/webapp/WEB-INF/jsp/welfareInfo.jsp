@@ -20,7 +20,7 @@
 <body>
 <div class="container">
     <div class="row" style="margin-top: 20px">
-        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/addWelfare">
+        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/page/addWelfare">
             <div class="form-group">
                 <label>领取时间：</label>
                 <input type="datetime-local" class="form-control" name="time" placeholder="选择日期">

@@ -22,7 +22,7 @@
 <body>
 <div class="container">
     <div class="row" style="margin-top: 20px">
-        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/askForHoliday">
+        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/page/askForHoliday">
             <div class="form-group">
                 <label>请假开始日期：</label>
                 <input type="datetime-local" class="form-control" name="timeStart">

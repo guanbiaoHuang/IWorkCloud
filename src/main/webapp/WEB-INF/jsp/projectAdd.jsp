@@ -20,7 +20,7 @@
 <body>
 <div class="container">
     <div class="row" style="margin-top: 20px">
-        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/addProject">
+        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/page/addProject">
             <div class="form-group">
                 <label class="sr-only"></label>
                 <input type="text" class="form-control" name="id" placeholder="请输入项目编号">

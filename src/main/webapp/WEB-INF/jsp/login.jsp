@@ -26,7 +26,7 @@
 
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 m-auto">
-                    <form method="post" action="${pageContext.request.contextPath}/log">
+                    <form method="post" action="${pageContext.request.contextPath}/user/log">
                         <div class="form-group has-feedback">
                             <label class="sr-only"></label>
                             <div class="input-group">
@@ -48,7 +48,7 @@
                                 <input type="checkbox" name="remember" value="yes">
                                 <small>记住密码</small>
                             </label>
-                            <span><a class="pull-right" href="${pageContext.request.contextPath}/page/findPassword"><small>忘记密码？</small></a></span>
+                            <span><a class="pull-right" href="${pageContext.request.contextPath}/user/findPassword"><small>忘记密码？</small></a></span>
 
                         </div>
                         <div class="form-group">
@@ -63,7 +63,7 @@
             
             <div class="row">
                     <div class="col-md-4 m-auto" style="margin-top: 20px">
-                        <p class="text-center">没有账号?<a href="${pageContext.request.contextPath}/page/register">创建账号</a></p>
+                        <p class="text-center">没有账号?<a href="${pageContext.request.contextPath}/user/register">创建账号</a></p>
                     </div>
             </div>
     
@@ -78,11 +78,11 @@
     	$(document).ready(function(){
     		$("#loginPhone").blur(function(){
     			$.get(
-    				"${pageContext.request.contextPath}/getIcon",
+    				"${pageContext.request.contextPath}/user/getIcon",
     				{"phone":$("#loginPhone").val()},
     				function(result){
     					if(result.length>0){
-    						$("#iconImg").attr("src","${pageContext.request.contextPath}/getImg?img="+result);
+    						$("#iconImg").attr("src","${pageContext.request.contextPath}/user/getImg?img="+result);
     					}else{
     						layer.msg("手机号未注册");	
     					}
@@ -98,7 +98,7 @@
             if($msg!="") {
                 if($msg=="success"){
                     layer.msg("登陆成功，即将跳转");
-                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/index')},3000);
+                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/page/index')},3000);
                 }else if($msg=="notBind"){
                     bind();
                 }else {
@@ -110,12 +110,12 @@
         function bind(){
             layer.prompt({title: '请输入输入工号绑定', formType: 1},function(val, index){
                 $.post(
-                    "${pageContext.request.contextPath}/bindStaff",
+                    "${pageContext.request.contextPath}/user/bindStaff",
                     {"staffID":val},
                     function (result) {
                         if(result=="success"){
                             layer.msg("绑定成功，即将跳转");
-                            setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/index')},3000);
+                            setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/page/index')},3000);
                         }else {
                             layer.msg(result);
                         }

@@ -33,5 +33,8 @@
     <select id="queryPhoneById" resultType="java.lang.String" parameterType="java.lang.String">
         select phone from staff where id = #{id}
     </select>
+    <select id="queryStaffNum" resultType="int">
+        select count(*) from staff
+    </select>
 
 </mapper>

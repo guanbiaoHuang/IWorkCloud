@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 import java.sql.Timestamp;
 
+@RequestMapping("page")
 @Controller
 public class IdeaController {
 
@@ -16,13 +17,13 @@ public class IdeaController {
     private IdeaService ideaService;
 
 
-    @RequestMapping("addIdea")
+    @RequestMapping("/addIdea")
     public String addIdea(String title, String content, HttpSession session){
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         Idea idea = new Idea(session.getAttribute("staff").toString(),title,timestamp,content);
 
         ideaService.addIdea(idea);
-        return "index";
+        return "redirect:page/index";
     }
 }

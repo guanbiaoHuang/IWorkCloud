@@ -13,40 +13,21 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
-
+@RequestMapping("page")
 @Controller
 public class StaffController {
     @Autowired
     private IStaffService staffService;
 
-    @ResponseBody
-    @RequestMapping("bindStaff")
-    public String bindStaff(HttpSession session, @RequestParam("staffID") String staffID){
-        if(session.getAttribute("phone")!=null){
-            HashMap<String,Object> map= new HashMap<>();
-            map.put("phone",session.getAttribute("phone"));
-            map.put("id",staffID);
-            if(staffService.bindStaff(map)) {
-                session.removeAttribute("phone");
-                session.setAttribute("staff", staffID);
-                return "success";
-            }else{
-                session.removeAttribute("phone");
-                return "绑定失败，重新登陆后绑定";
-            }
-        }else{
-            return "未登陆";
-        }
 
-    }
 
-    @RequestMapping("invalidateSession")
+    @RequestMapping("/invalidateSession")
     public String invalidateSession(HttpSession session){
         session.removeAttribute("staff");
-        return "redirect:index";
+        return "redirect:page/index";
     }
 
-    @RequestMapping("staffManage")
+    @RequestMapping("/staffManage")
     public String staffManage(Model model){
         List<Staff> staffList= staffService.getAllStaff();
         model.addAttribute("staffList",staffList);
@@ -56,25 +37,25 @@ public class StaffController {
         return "staffManage";
     }
 
-    @RequestMapping("deleteStaff")
+    @RequestMapping("/deleteStaff")
     public String deleteStaff(String id){
         staffService.deleteStaff(id);
-        return "redirect:staffManage";
+        return "redirect:page/staffManage";
     }
 
 
-    @RequestMapping("addStaff")
+    @RequestMapping("/addStaff")
     public String addStaff(String id,String name,String team,String department,String phone,String sex){
         Staff staff = new Staff(id,name,team,department,phone,sex);
 
         staffService.addStaff(staff);
 
-        return "staffManage";
+        return "redirect:page/staffManage";
     }
 
-    @RequestMapping("addStaffXls")
+    @RequestMapping("/SaddStaffXls")
     public String addStaffXls(@RequestParam("file") MultipartFile file){
         staffService.addStaffByExcel(file);
-        return "redirect:staffManage";
+        return "redirect:page/staffManage";
     }
 }

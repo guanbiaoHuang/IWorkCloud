@@ -10,18 +10,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.sql.Date;
 import java.util.List;
-
+@RequestMapping("page")
 @Controller
 public class OutController {
     @Autowired
     private IOutService outService;
 
-    @RequestMapping("addOut")
+    @RequestMapping("/addOut")
     public String addOut(String staff, String dateStart, String dateEnd){
 
         Out out = new Out(staff,new Date(Str2Date.getDateByStr(dateStart)),new Date(Str2Date.getDateByStr(dateEnd)));
         boolean isSuccess = outService.addOut(out);
-        return "redirect:excellentStaff";
+        return "redirect:page/excellentStaff";
     }
 
 

@@ -1,6 +1,7 @@
 package com.iworkcloud.serviceImp;
 
 import com.iworkcloud.mapper.AttendanceMapper;
+import com.iworkcloud.mapper.StaffMapper;
 import com.iworkcloud.pojo.Attendance;
 import com.iworkcloud.pojo.Staff;
 import com.iworkcloud.service.IAttendanceService;
@@ -24,8 +25,8 @@ public class AttendanceService implements IAttendanceService {
     }
 
     @Override
-    public List<Attendance> getAbsenceByDay() {
-        return attendanceMapper.queryAllAttendanceToday();
+    public int getAbsenceByDay() {
+        return 0;
     }
 
 
@@ -38,6 +39,11 @@ public class AttendanceService implements IAttendanceService {
     @Override
     public List<Attendance> getAttendanceToday() {
         return attendanceMapper.queryAllAttendanceToday();
+    }
+
+    @Override
+    public int getAttendanceNum() {
+        return attendanceMapper.queryAttendanceNum();
     }
 
 }

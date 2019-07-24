@@ -24,7 +24,7 @@
             </div>
             <div class="row" style="margin-top: 20px">
                 <div class="col-md-4 m-auto">
-                    <form method="post" action="${pageContext.request.contextPath}/reg" enctype="multipart/form-data" onsubmit="return check()">
+                    <form method="post" action="${pageContext.request.contextPath}/user/reg" enctype="multipart/form-data" onsubmit="return check()">
 
                         <input type="file" id="icons" style="display: none" name="icon"/>
 
@@ -72,7 +72,7 @@
 
             <div class="row">
                     <div class="col-md-4 m-auto" style="margin-top: 20px">
-                        <p class="text-center">已有账号?<a href="${pageContext.request.contextPath}/page/login">返回登陆</a></p>
+                        <p class="text-center">已有账号?<a href="${pageContext.request.contextPath}/user/login">返回登陆</a></p>
                     </div>
             </div>
     
@@ -95,7 +95,7 @@
     	    	 }else{
 
     	    		 $.post(
-    	     				"${pageContext.request.contextPath}/checkCode",
+    	     				"${pageContext.request.contextPath}/user/checkCode",
     	     				{"phone":$phone},
     	     				function(result){
 

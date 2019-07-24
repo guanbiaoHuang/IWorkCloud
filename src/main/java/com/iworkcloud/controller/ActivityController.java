@@ -11,13 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.sql.Timestamp;
 import java.util.List;
 
+@RequestMapping("page")
 @Controller
 public class ActivityController {
 
     @Autowired
     private IActivityService activityService;
 
-    @RequestMapping("activities")
+    @RequestMapping("/activities")
     public String activities(Model model){
         List<Activity> meetingList= activityService.getActivityByTag("meeting");
         List<Activity> activityList= activityService.getActivityByTag("activity");
@@ -28,22 +29,7 @@ public class ActivityController {
         return "activities";
     }
 
-    @RequestMapping("meetingInfo")
-    public String fillMeeting(){
-        return "meetingInfo";
-    }
-
-    @RequestMapping("activityInfo")
-    public String fillActivity(){
-        return "activityInfo";
-    }
-
-    @RequestMapping("welfareInfo")
-    public String fillWelfare(){
-        return "welfareInfo";
-    }
-
-    @RequestMapping("addActivity")
+    @RequestMapping("/addActivity")
     public String addActivity(String time, String title, String content){
         time = time.replace('T',' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
@@ -52,7 +38,7 @@ public class ActivityController {
         return "redirect:activities";
     }
 
-    @RequestMapping("addMeeting")
+    @RequestMapping("/addMeeting")
     public String addMeeting(String time, String title, String content){
         time = time.replace('T',' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
@@ -61,7 +47,7 @@ public class ActivityController {
         return "redirect:activities";
     }
 
-    @RequestMapping("addWelfare")
+    @RequestMapping("/addWelfare")
     public String addWelfare(String time, String content){
         time = time.replace('T',' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
@@ -70,7 +56,7 @@ public class ActivityController {
         return "redirect:activities";
     }
 
-    @RequestMapping("deleteActivity")
+    @RequestMapping("/deleteActivity")
     public String deleteActivity(String activityId){
         activityService.deleteActivityById(Integer.parseInt(activityId));
         return "redirect:activities";

@@ -14,5 +14,7 @@ public interface AttendanceMapper {
 
     List<Attendance> getAttendanceMonth(String staffId);
 
+    int queryAttendanceNum();
+
 }
 

@@ -25,7 +25,7 @@
 
     <div class="row" style="margin-top: 80px">
         <div class="col-md-4 m-auto">
-            <form method="post" action="${pageContext.request.contextPath}/findPassword" onsubmit="return checkWhenFindPassword()">
+            <form method="post" action="${pageContext.request.contextPath}/user/findPassword" onsubmit="return checkWhenFindPassword()">
                 <div class="form-group has-feedback">
                     <label class="sr-only"></label>
                     <div class="input-group">
@@ -84,7 +84,7 @@
                 layer.msg("手机号非法");
             }else{
                 $.post(
-                    "${pageContext.request.contextPath}/checkCode",
+                    "${pageContext.request.contextPath}/user/checkCode",
                     {"newPhone":$newPhone},
                     function(result){
                         getCodeClick();

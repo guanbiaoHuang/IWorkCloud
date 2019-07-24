@@ -20,7 +20,7 @@
 <body>
 <div class="container">
     <div class="row" style="margin-top: 20px">
-        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/updatePassword">
+        <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/user/updatePassword">
             <div class="form-group">
                 <label class="sr-only"></label>
                 <input type="password" class="form-control" name="oldPassword" placeholder="输入原密码">

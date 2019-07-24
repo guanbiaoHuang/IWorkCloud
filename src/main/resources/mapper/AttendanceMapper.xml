@@ -19,10 +19,9 @@
     <select id="getAttendanceMonth" parameterType="String" resultType="com.iworkcloud.pojo.Attendance">
         select * from attendance where month(time) = month(now())
     </select>
-
-
-
-
+    <select id="queryAttendanceNum" resultType="int">
+        select count(*) from attendance where date(time) = curdate();
+    </select>
 
 
 </mapper>

@@ -31,13 +31,13 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="首页">
-                <a class="nav-link" href="${pageContext.request.contextPath}/index">
+                <a class="nav-link" href="${pageContext.request.contextPath}/page/index">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">首页</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="财务">
-                <a class="nav-link" href="${pageContext.request.contextPath}/bill">
+                <a class="nav-link" href="${pageContext.request.contextPath}/page/bill">
                     <i class="fa fa-fw fa-area-chart"></i>
                     <span class="nav-link-text">财务</span>
                 </a>
@@ -49,10 +49,10 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseSchedule">
                     <li>
-                        <a href="${pageContext.request.contextPath}/schedule">日程&请假</a>
+                        <a href="${pageContext.request.contextPath}/page/schedule">日程&请假</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/note">记事本</a>
+                        <a href="${pageContext.request.contextPath}/page/note">记事本</a>
                     </li>
                 </ul>
             </li>
@@ -64,16 +64,16 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">
                     <li>
-                        <a href="${pageContext.request.contextPath}/attendance">考勤统计</a>
+                        <a href="${pageContext.request.contextPath}/page/attendance">考勤统计</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/excellentStaff">请假批示&优秀员工</a>
+                        <a href="${pageContext.request.contextPath}/page/excellentStaff">请假批示&优秀员工</a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="活动">
-                <a class="nav-link" href="${pageContext.request.contextPath}/activities">
+                <a class="nav-link" href="${pageContext.request.contextPath}/page/activities">
                     <i class="fa fa-fw fa-child"></i>
                     <span class="nav-link-text">活动</span>
                 </a>
@@ -87,10 +87,10 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseProjects">
                     <li>
-                        <a href="${pageContext.request.contextPath}/projects">项目</a>
+                        <a href="${pageContext.request.contextPath}/page/projects">项目</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/projectsManage">项目管理</a>
+                        <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
                     </li>
                 </ul>
             </li>
@@ -102,7 +102,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseMulti">
                     <li>
-                        <a href="${pageContext.request.contextPath}/staffManage">人员变动</a>
+                        <a href="${pageContext.request.contextPath}/page/staffManage">人员变动</a>
                     </li>
                 </ul>
 
@@ -213,7 +213,7 @@
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">${schedule.content}</h5>
-                                    <small><a href="${pageContext.request.contextPath}/deleteSchedule?scheduleId=${schedule.id}"><span class="badge badge-danger">删除</span></a></small>
+                                    <small><a href="${pageContext.request.contextPath}/page/deleteSchedule?scheduleId=${schedule.id}"><span class="badge badge-danger">删除</span></a></small>
                                 </div>
                                 <p class="mb-1">${schedule.time}</p>
                             </li>
@@ -271,20 +271,20 @@
     <script src="${pageContext.request.contextPath}/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/sb-admin-charts.min.js"></script>
+    <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
     <script>
         $(document).ready(function(){
             $("#addSchedule").click(function () {
                 layer.open({
                         type:2, title:'填写日程信息',area:['360px','300px'],scrollbar: false,offset: 'auto',
-                        content:'${pageContext.request.contextPath}/scheduleInfo',
+                        content:'${pageContext.request.contextPath}/page/iframe/scheduleInfo',
                 }
                 )
             });
             $("#askForHoliday").click(function () {
                 layer.open({
                     type: 2,title: '填写请假信息',area: ['500px','420px'],scrollbar: false,offset: 'auto',
-                    content: '${pageContext.request.contextPath}/holidayInfo',
+                    content: '${pageContext.request.contextPath}/page/iframe/holidayInfo',
                 })
             })
 
@@ -298,7 +298,7 @@
                     btn: ['确定','取消'] //按钮
                 }, function(){
                     layer.msg("已注销");
-                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/invalidateSession')},2000);
+                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/page/invalidateSession')},2000);
                 }, function(){
                     layer.msg("取消",{icon:2})
                 });
@@ -308,7 +308,7 @@
         function modifyPassword() {
             layer.open({
                 type: 2,title: '修改密码',area: ['500px','420px'],scrollbar: false,offset: 'auto',
-                content: '${pageContext.request.contextPath}/iframe/modifyPassword',
+                content: '${pageContext.request.contextPath}/page/iframe/modifyPassword',
             })
         }
     </script>

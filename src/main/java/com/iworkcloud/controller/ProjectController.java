@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
-
+@RequestMapping("page")
 @Controller
 public class ProjectController {
 
@@ -25,33 +25,33 @@ public class ProjectController {
     @Autowired
     private ITeamService teamService;
 
-    @RequestMapping("addProject")
+    @RequestMapping("/addProject")
     public String addProject(String id,String name, String tag){
         Project project = new Project(id,name,tag,"未审批");
         projectService.addProject(project);
         return "redirect:projectsManage";
     }
 
-    @RequestMapping("approveProject")
+    @RequestMapping("/approveProject")
     public String approveProject(String projectId){
         projectService.approveProject(projectId);
         return "redirect:projectsManage";
     }
 
-    @RequestMapping("projectsManage")
+    @RequestMapping("/projectsManage")
     public String projectsManage(Model model){
         List<Project> projectList= projectService.getProjects();
         model.addAttribute("projectList",projectList);
         return "projectsManage";
     }
 
-    @RequestMapping("deleteProject")
+    @RequestMapping("/deleteProject")
     public String deleteProject(String projectId){
         projectService.deleteProject(projectId);
         return "redirect:projectsManage";
     }
 
-    @RequestMapping("projects")
+    @RequestMapping("/projects")
     public String projects(Model model, HttpSession session){
         String staffId = session.getAttribute("staff").toString();
         String team = staffService.getStaffById(staffId).getTeam();

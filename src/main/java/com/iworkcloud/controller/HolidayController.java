@@ -15,6 +15,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.util.List;
 
+@RequestMapping("page")
 @Controller
 public class HolidayController {
     @Autowired
@@ -23,7 +24,7 @@ public class HolidayController {
     @Autowired
     private IOutService outService;
 
-    @RequestMapping("askForHoliday")
+    @RequestMapping("/askForHoliday")
     public String addHoliday(String timeStart, String timeEnd, String content, HttpSession session) throws ParseException {
         System.out.println(timeEnd+"----"+timeStart);
         timeStart = timeStart.replace('T',' ');
@@ -32,28 +33,22 @@ public class HolidayController {
                 new Timestamp(Str2Date.getTimeByStr(timeStart)),
                 new Timestamp(Str2Date.getTimeByStr(timeEnd)),
                 content,"waited"));
-        return "redirect:schedule";
+        return "redirect:page/schedule";
     }
 
-    @RequestMapping("ratifyHoliday")
+    @RequestMapping("/ratifyHoliday")
     public String ratify(String holidayId){
         holidayService.ratifyHoliday(holidayId);
-        return "redirect:excellentStaff";
+        return "redirect:page/excellentStaff";
     }
 
-    @RequestMapping("refuseHoliday")
+    @RequestMapping("/refuseHoliday")
     public String refuse(String holidayId){
         holidayService.refuseHoliday(holidayId);
-        return "redirect:excellentStaff";
+        return "redirect:page/excellentStaff";
     }
 
-    @RequestMapping("holidayInfo")
-    public String holidayInfo(){
-        return "holidayInfo";
-    }
-
-
-    @RequestMapping("excellentStaff")
+    @RequestMapping("/excellentStaff")
     public String holidayWaited(Model model){
         List<Holiday> holidays = holidayService.getHolidayWaitedRatified();
         model.addAttribute("holidayList",holidays);

@@ -20,6 +20,8 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
+
+@RequestMapping("page")
 @Controller
 public class ScheduleController {
     @Autowired
@@ -29,15 +31,15 @@ public class ScheduleController {
     @Autowired
     private IHolidayService holidayService;
 
-    @RequestMapping("addSchedule")
+    @RequestMapping("/addSchedule")
     public String addSchedule(String time, String content, HttpSession session) throws ParseException {
         time = time.replace('T',' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
         scheduleService.addSchedule(new Schedule((String)session.getAttribute("staff"),timestamp,content));
-        return "redirect:schedule";
+        return "redirect:page/schedule";
     }
 
-    @RequestMapping("schedule")
+    @RequestMapping("/schedule")
     public String getSchedule(Model model,HttpSession session){
         List<Schedule> scheduleList = scheduleService.getRecentSchedule(7,(String)session.getAttribute("staff"));
         List<Activity> meetingList = activityService.getActivitiesByTime(7,"meeting");
@@ -48,15 +50,10 @@ public class ScheduleController {
         return "schedule";
     }
 
-    @RequestMapping("scheduleInfo")
-    public String fillInfo(){
-        return "scheduleInfo";
-    }
-
-    @RequestMapping("deleteSchedule")
+    @RequestMapping("/deleteSchedule")
     public String deleteSchedule(String scheduleId){
         scheduleService.deleteSchedule(scheduleId);
-        return "redirect:schedule";
+        return "redirect:page/schedule";
 
     }
 

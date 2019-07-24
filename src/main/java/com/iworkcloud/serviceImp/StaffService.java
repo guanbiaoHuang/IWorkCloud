@@ -96,4 +96,10 @@ public class StaffService implements IStaffService {
     public String getPhoneByStaffId(String id) {
         return staffMapper.queryPhoneById(id);
     }
+
+    @Override
+    public int getStaffCount() {
+        return staffMapper.queryStaffNum();
+    }
+
 }
