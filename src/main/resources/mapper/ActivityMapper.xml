@@ -9,7 +9,7 @@
     </insert>
 
     <select id="queryActivitiesByDateAndTag" parameterType="HashMap" resultType="com.iworkcloud.pojo.Activity">
-        select * from activity where DATE_SUB(CURDATE(), INTERVAL #{days} DAY) &lt;= date(time) and tag = #{tag}
+        select * from activity where ADDDATE(CURDATE(), INTERVAL #{days} DAY) >= date(time) and tag = #{tag}
     </select>
 
     <update id="updateActivityById" parameterType="HashMap">

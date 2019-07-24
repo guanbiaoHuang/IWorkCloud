@@ -2,8 +2,10 @@ package com.iworkcloud.controller;
 
 
 import com.iworkcloud.pojo.Activity;
+import com.iworkcloud.pojo.Holiday;
 import com.iworkcloud.pojo.Schedule;
 import com.iworkcloud.service.IActivityService;
+import com.iworkcloud.service.IHolidayService;
 import com.iworkcloud.service.IScheduleService;
 import com.iworkcloud.utils.Str2Date;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +26,8 @@ public class ScheduleController {
     private IScheduleService scheduleService;
     @Autowired
     private IActivityService activityService;
+    @Autowired
+    private IHolidayService holidayService;
 
     @RequestMapping("addSchedule")
     public String addSchedule(String time, String content, HttpSession session) throws ParseException {
@@ -37,8 +41,10 @@ public class ScheduleController {
     public String getSchedule(Model model,HttpSession session){
         List<Schedule> scheduleList = scheduleService.getRecentSchedule(7,(String)session.getAttribute("staff"));
         List<Activity> meetingList = activityService.getActivitiesByTime(7,"meeting");
+        List<Holiday> holidayList = holidayService.getHolidayWaitedByStaff(session.getAttribute("staff").toString());
         model.addAttribute("meetingList",meetingList);
         model.addAttribute("scheduleList",scheduleList);
+        model.addAttribute("holidayList",holidayList);
         return "schedule";
     }
 

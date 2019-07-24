@@ -191,9 +191,6 @@
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">${meeting.title}</h5>
-                                    <c:if test="${requestScope.isNew!=null}">
-                                        <small><span class="badge badge-success">new</span></small>
-                                    </c:if>
                                 </div>
                                 <p class="mb-1">${meeting.content}</p>
                                 <small>${meeting.time}</small>
@@ -213,10 +210,10 @@
                         <i class="fa fa-bell-o"></i>近一周日程</div>
                     <div class="list-group list-group-flush small">
                         <c:forEach items="${requestScope.scheduleList}" var="schedule">
-                            <li class="list-group-item list-group-item-action flex-column align-items-start" onclick="">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">${schedule.content}</h5>
-                                    <small><a href="#"><span class="badge badge-danger">删除</span></a></small>
+                                    <small><a href="${pageContext.request.contextPath}/deleteActivity?activityId=${schedule.id}"><span class="badge badge-danger">删除</span></a></small>
                                 </div>
                                 <p class="mb-1">${schedule.time}</p>
                             </li>
@@ -230,16 +227,14 @@
                     <div class="card-header">
                         <i class="fa fa-bell-o"></i>我的待批假条</div>
                     <div class="list-group list-group-flush small">
-                        <c:forEach items="${meetingList}" var="meeting">
+                        <c:forEach items="${holidayList}" var="holiday">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">${meeting.title}</h5>
-                                    <c:if test="${requestScope.isNew!=null}">
-                                        <small><span class="badge badge-success">new</span></small>
-                                    </c:if>
+                                    <h5 class="mb-1">审核状态：${holiday.ratified}</h5>
                                 </div>
-                                <p class="mb-1">${meeting.content}</p>
-                                <small>${meeting.time}</small>
+                                <p>请假日期：${holiday.timeStart}到${holiday.timeEnd}</p>
+                                <p class="mb-1">原因：${holiday.reason}</p>
+
                             </li>
                         </c:forEach>
 <%--                        <a class="list-group-item list-group-item-action" href="#">查看所有记事</a>--%>

@@ -14,5 +14,7 @@ public interface TeamMapper {
 
     int updateTeamForManager(@Param("id")String id,@Param("managerId")String managerId);
 
+    String queryProjectIdByTeam(String id);
+
 
 }

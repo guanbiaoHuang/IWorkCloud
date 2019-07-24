@@ -204,10 +204,10 @@
                                     <td>${project.tag}</td>
                                     <td>${project.approved}</td>
                                     <td>
-                                        <a class="btn btn-danger col-6 m-auto" href="${pageContext.request.contextPath}/deleteProject?id=${project.id}">删除</a>
+                                        <a class="btn btn-danger col-6 m-auto" href="${pageContext.request.contextPath}/deleteProject?projectId=${project.id}">删除</a>
                                     </td>
                                     <td>
-                                        <a class="btn btn-success col-6 m-auto" href="${pageContext.request.contextPath}/approveProject?id=${project.id}">通过</a>
+                                        <a class="btn btn-success col-6 m-auto" href="${pageContext.request.contextPath}/approveProject?projectId=${project.id}">通过</a>
                                     </td>
                                 </tr>
                             </c:forEach>

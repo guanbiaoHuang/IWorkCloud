@@ -15,4 +15,8 @@ public interface ProjectMapper {
 
     Project queryProjectById(String id);
 
+    List<Project> queryAllProject();
+
+    int deleteProject(String projectId);
+
 }

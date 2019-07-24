@@ -14,6 +14,12 @@
     <select id="queryProjectById" parameterType="String" resultType="com.iworkcloud.pojo.Project">
         select * from project where id = #{id}
     </select>
+    <select id="queryAllProject" resultType="com.iworkcloud.pojo.Project">
+        select * from project
+    </select>
+    <delete id="deleteProject" parameterType="java.lang.String">
+        delete from project where id = #{projectId}
+    </delete>
 
 
 </mapper>

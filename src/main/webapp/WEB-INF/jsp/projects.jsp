@@ -142,9 +142,9 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="index.html">Dashboard</a>
+                <a href="index.html">个人中心</a>
             </li>
-            <li class="breadcrumb-item active">Blank Page</li>
+            <li class="breadcrumb-item active">项目</li>
         </ol>
         <div class="row">
             <div class="col-12">
@@ -152,11 +152,18 @@
                     <div class="card-header">
                         正在进行的项目
                     </div>
-                    <div class="card-body">
-                        <h3 class="card-title">项目标题</h3>
-                        <p class="card-text">项目组成员</p>
-                        <a href="#" class="btn btn-primary disabled">项目状态</a>
-                    </div>
+                    <c:if test="${Emptyproject}">
+                        <div class="card-body">
+                            <a href="#" class="btn btn-primary btn-lg disabled">没有正在进行的项目</a>
+                        </div>
+                    </c:if>
+                    <c:if test="${project!=null}">
+                        <div class="card-body">
+                            <h3 class="card-title">${project.name}</h3>
+                            <p class="card-text">项目组成员</p>
+                            <a href="#" class="btn btn-primary disabled">${project.approved}</a>
+                        </div>
+                    </c:if>
                 </div>
 
             </div>
