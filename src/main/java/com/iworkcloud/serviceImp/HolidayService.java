@@ -20,13 +20,13 @@ public class HolidayService implements IHolidayService {
     }
 
     @Override
-    public boolean refuseHoliday(String staffId) {
-        return 1==holidayMapper.refuseHoliday(staffId)?true:false;
+    public boolean refuseHoliday(String id) {
+        return 1==holidayMapper.refuseHoliday(id)?true:false;
     }
 
     @Override
-    public boolean ratifyHoliday(String staffId) {
-        return 1==holidayMapper.ratifyHoliday(staffId)?true:false;
+    public boolean ratifyHoliday(String id) {
+        return 1==holidayMapper.ratifyHoliday(id)?true:false;
     }
 
     @Override

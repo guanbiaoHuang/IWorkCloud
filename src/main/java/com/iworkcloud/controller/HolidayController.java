@@ -36,14 +36,14 @@ public class HolidayController {
     }
 
     @RequestMapping("ratifyHoliday")
-    public String ratify(String id){
-        holidayService.ratifyHoliday(id);
+    public String ratify(String holidayId){
+        holidayService.ratifyHoliday(holidayId);
         return "redirect:excellentStaff";
     }
 
     @RequestMapping("refuseHoliday")
-    public String refuse(String id){
-        holidayService.refuseHoliday(id);
+    public String refuse(String holidayId){
+        holidayService.refuseHoliday(holidayId);
         return "redirect:excellentStaff";
     }
 

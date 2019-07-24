@@ -12,7 +12,7 @@ public interface HolidayMapper {
 
     List<Holiday> queryHolidayByRatifyStatus();
 
-    int ratifyHoliday(String staffID);
+    int ratifyHoliday(String id);
 
-    int refuseHoliday(String staffID);
+    int refuseHoliday(String id);
 }

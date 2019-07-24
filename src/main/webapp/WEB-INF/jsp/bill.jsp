@@ -30,13 +30,13 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="首页">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/index">
+                <a class="nav-link" href="${pageContext.request.contextPath}/index">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">首页</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="财务">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/bill">
+                <a class="nav-link" href="${pageContext.request.contextPath}/bill">
                     <i class="fa fa-fw fa-area-chart"></i>
                     <span class="nav-link-text">财务</span>
                 </a>
@@ -48,10 +48,10 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseSchedule">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/schedule">日程&请假</a>
+                        <a href="${pageContext.request.contextPath}/schedule">日程&请假</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/note">记事本</a>
+                        <a href="${pageContext.request.contextPath}/note">记事本</a>
                     </li>
                 </ul>
             </li>
@@ -63,16 +63,16 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/attendance">考勤统计</a>
+                        <a href="${pageContext.request.contextPath}/attendance">考勤统计</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/excellentStaff">请假批示&优秀员工</a>
+                        <a href="${pageContext.request.contextPath}/excellentStaff">请假批示&优秀员工</a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="活动">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/activities">
+                <a class="nav-link" href="${pageContext.request.contextPath}/activities">
                     <i class="fa fa-fw fa-child"></i>
                     <span class="nav-link-text">活动</span>
                 </a>
@@ -86,10 +86,10 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseProjects">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/projects">项目</a>
+                        <a href="${pageContext.request.contextPath}/projects">项目</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
+                        <a href="${pageContext.request.contextPath}/projectsManage">项目管理</a>
                     </li>
                 </ul>
             </li>
@@ -101,7 +101,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseMulti">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/staffManage">人员变动</a>
+                        <a href="${pageContext.request.contextPath}/staffManage">人员变动</a>
                     </li>
                 </ul>
 
@@ -121,8 +121,8 @@
                 <div class="dropdown-menu dropdown-menu-right bg-dark" aria-labelledby="alertsDropdown">
                     <h6 class="dropdown-header">用户:</h6>
                     <div class="dropdown-divider"></div>
-                    <div class="dropdown-item">
-                        <small style="color: #868e96;">修改资料</small>
+                    <div class="dropdown-item" onclick="modifyPassword()">
+                        <small style="color: #868e96;">修改密码</small>
                     </div>
                     <div class="dropdown-divider"></div>
                     <div class="dropdown-item" id="logOut">
@@ -283,6 +283,12 @@
             })
 
         })
+        function modifyPassword() {
+            layer.open({
+                type: 2,title: '修改密码',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/iframe/modifyPassword',
+            })
+        }
     </script>
 </div>
 </body>

@@ -8,8 +8,8 @@ public interface IHolidayService {
     //添加假期申请
     boolean addHoliday(Holiday holiday);
     //核准假期，即根据id修改假期的ratified值
-    boolean refuseHoliday(String staffId);
-    boolean ratifyHoliday(String staffId);
+    boolean refuseHoliday(String id);
+    boolean ratifyHoliday(String id);
     //获取所有假期的ratified状态为waited的假期
     List<Holiday> getHolidayWaitedRatified();
     //获取个人的假期

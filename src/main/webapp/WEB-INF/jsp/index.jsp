@@ -30,13 +30,13 @@
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="首页">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/index">
+                <a class="nav-link" href="${pageContext.request.contextPath}/index">
                     <i class="fa fa-fw fa-dashboard"></i>
                     <span class="nav-link-text">首页</span>
                 </a>
             </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="财务">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/bill">
+                <a class="nav-link" href="${pageContext.request.contextPath}/bill">
                     <i class="fa fa-fw fa-area-chart"></i>
                     <span class="nav-link-text">财务</span>
                 </a>
@@ -48,10 +48,10 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseSchedule">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/schedule">日程&请假</a>
+                        <a href="${pageContext.request.contextPath}/schedule">日程&请假</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/note">记事本</a>
+                        <a href="${pageContext.request.contextPath}/note">记事本</a>
                     </li>
                 </ul>
             </li>
@@ -63,16 +63,16 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseComponents">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/attendance">考勤统计</a>
+                        <a href="${pageContext.request.contextPath}/attendance">考勤统计</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/excellentStaff">请假批示&优秀员工</a>
+                        <a href="${pageContext.request.contextPath}/excellentStaff">请假批示&优秀员工</a>
                     </li>
                 </ul>
             </li>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="活动">
-                <a class="nav-link" href="${pageContext.request.contextPath}/page/activities">
+                <a class="nav-link" href="${pageContext.request.contextPath}/activities">
                     <i class="fa fa-fw fa-child"></i>
                     <span class="nav-link-text">活动</span>
                 </a>
@@ -86,10 +86,10 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseProjects">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/projects">项目</a>
+                        <a href="${pageContext.request.contextPath}/projects">项目</a>
                     </li>
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
+                        <a href="${pageContext.request.contextPath}/projectsManage">项目管理</a>
                     </li>
                 </ul>
             </li>
@@ -101,7 +101,7 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseMulti">
                     <li>
-                        <a href="${pageContext.request.contextPath}/page/staffManage">人员变动</a>
+                        <a href="${pageContext.request.contextPath}/staffManage">人员变动</a>
                     </li>
                 </ul>
 
@@ -141,9 +141,9 @@
     <div class="container-fluid">
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="#">Dashboard</a>
+                <a href="#">iWorkCloud</a>
             </li>
-            <li class="breadcrumb-item active">My Dashboard</li>
+            <li class="breadcrumb-item active">个人中心</li>
         </ol>
         <div class="row">
             <div class="col-xl-6 col-sm-6 mb-3">
