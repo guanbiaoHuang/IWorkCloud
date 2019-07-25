@@ -38,7 +38,7 @@
                 </a>
             </li>
 
-            <c:if test="${sessionScope.department eq 'Finance'}">
+            <c:if test="${sessionScope.department eq 'Finance' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="财务">
                     <a class="nav-link" href="${pageContext.request.contextPath}/page/bill">
                         <i class="fa fa-fw fa-area-chart"></i>
@@ -61,7 +61,7 @@
                     </li>
                 </ul>
             </li>
-            <c:if test="${sessionScope.department eq 'Manager'}">
+            <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-male"></i>
@@ -78,7 +78,7 @@
                 </li>
             </c:if>
 
-            <c:if test="${sessionScope.department eq 'Manager'}">
+            <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="活动">
                     <a class="nav-link" href="${pageContext.request.contextPath}/page/activities">
                         <i class="fa fa-fw fa-child"></i>
@@ -98,14 +98,14 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/page/projects">项目</a>
                     </li>
-                    <c:if test="${sessionScope.department eq 'projectManager'}">
+                    <c:if test="${sessionScope.department eq 'projectManager' || sessionScope.department eq 'boss'}">
                         <li>
                             <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
                         </li>
                     </c:if>
                 </ul>
             </li>
-            <c:if test="${sessionScope.department eq 'Personel'}">
+            <c:if test="${sessionScope.department eq 'Personel' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-sitemap"></i>
@@ -242,6 +242,7 @@
                                 <th>工号</th>
                                 <th>开始日期</th>
                                 <th>结束日期</th>
+                                <th>删除</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -250,6 +251,11 @@
                                     <td>${out.staff}</td>
                                     <td>${out.dateStart}</td>
                                     <td>${out.dateEnd}</td>
+                                    <td>
+                                        <div class="row">
+                                            <a class="btn btn-danger col-8 m-auto" href="${pageContext.request.contextPath}/page/deleteOut?id=${out.id}">删除</a>
+                                        </div>
+                                    </td>
                                 </tr>
                             </c:forEach>
                             </tbody>

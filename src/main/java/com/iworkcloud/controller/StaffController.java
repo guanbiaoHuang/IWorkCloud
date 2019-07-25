@@ -37,7 +37,14 @@ public class StaffController {
     @RequestMapping("/invalidateSession")
     public String invalidateSession(HttpSession session){
         session.removeAttribute("staff");
-        return "redirect:index";
+        return "redirect:login";
+    }
+
+    @RequestMapping("/staffModify")
+    public String staffModify(Model model,String id){
+        model.addAttribute("id",id);
+
+        return "staffAdd";
     }
 
     @RequestMapping("/staffManage")

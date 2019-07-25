@@ -13,4 +13,6 @@ public interface OutMapper {
     List<Out> queryOutByTime(Timestamp time);
 
     List<Out> queryOutToday();
+
+    int deleteOut(String id);
 }

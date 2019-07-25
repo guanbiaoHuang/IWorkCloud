@@ -42,8 +42,15 @@ public class AttendanceService implements IAttendanceService {
     }
 
     @Override
-    public int getAttendanceNum() {
+    public boolean isAttend(String staffId) {
+        return null!=attendanceMapper.queryAttendanceByStaffToday(staffId);
+    }
+
+    @Override
+    public int getLateNum() {
         return attendanceMapper.getLatedStaffNum();
     }
+
+
 
 }

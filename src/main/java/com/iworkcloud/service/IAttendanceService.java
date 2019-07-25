@@ -15,8 +15,8 @@ public interface IAttendanceService {
     //获得某个员工的出勤统计（按月份）
     List<Attendance> getAttendanceByStaff(String staffId);
     List<Attendance> getAttendanceToday();
-
-    int getAttendanceNum();
+    boolean isAttend(String staffId);
+    int getLateNum();
 
 
 }

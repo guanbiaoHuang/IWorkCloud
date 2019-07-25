@@ -24,5 +24,11 @@ public class OutController {
         return "redirect:excellentStaff";
     }
 
+    @RequestMapping("deleteOut")
+    public String deleteOut(String id){
+        outService.deleteOut(id);
+        return "redirect:excellentStaff";
+    }
+
 
 }

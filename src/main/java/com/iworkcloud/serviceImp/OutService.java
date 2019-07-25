@@ -22,4 +22,9 @@ public class OutService implements IOutService {
     public List<Out> outToday() {
         return outMapper.queryOutToday();
     }
+
+    @Override
+    public boolean deleteOut(String id) {
+        return 1==outMapper.deleteOut(id);
+    }
 }

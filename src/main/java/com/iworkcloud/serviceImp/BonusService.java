@@ -63,7 +63,7 @@ public class BonusService implements IBonusService {
     }
 
     @Override
-    public List<Bonus> queryBonusNumOrderByMonth(String tag) {
+    public Double queryBonusNumOrderByMonth(String tag) {
         return bonusMapper.queryBonusNumOrderByMonth(tag);
     }
 }

@@ -25,9 +25,9 @@
         select count(*) as '今日迟到人数' from attendance where timediff(time(time),'08:00:00') &gt; 0 and date (time) = curdate()
 <!--            group by (date(time) = curdate())-->
     </select>
-
-
-
+    <select id="queryAttendanceByStaffToday" resultType="com.iworkcloud.pojo.Attendance" parameterType="String">
+        select * from attendance where date(time) = curdate() and staff = #{staffId}
+    </select>
 
 
 </mapper>

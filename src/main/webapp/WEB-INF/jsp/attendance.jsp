@@ -37,7 +37,7 @@
                 </a>
             </li>
 
-            <c:if test="${sessionScope.department eq 'Finance'}">
+            <c:if test="${sessionScope.department eq 'Finance' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="财务">
                     <a class="nav-link" href="${pageContext.request.contextPath}/page/bill">
                         <i class="fa fa-fw fa-area-chart"></i>
@@ -60,7 +60,7 @@
                     </li>
                 </ul>
             </li>
-            <c:if test="${sessionScope.department eq 'Manager'}">
+            <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-male"></i>
@@ -77,7 +77,7 @@
                 </li>
             </c:if>
 
-            <c:if test="${sessionScope.department eq 'Manager'}">
+            <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="活动">
                     <a class="nav-link" href="${pageContext.request.contextPath}/page/activities">
                         <i class="fa fa-fw fa-child"></i>
@@ -97,14 +97,14 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/page/projects">项目</a>
                     </li>
-                    <c:if test="${sessionScope.department eq 'projectManager'}">
+                    <c:if test="${sessionScope.department eq 'projectManager' || sessionScope.department eq 'boss'}">
                         <li>
                             <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
                         </li>
                     </c:if>
                 </ul>
             </li>
-            <c:if test="${sessionScope.department eq 'Personel'}">
+            <c:if test="${sessionScope.department eq 'Personel' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-sitemap"></i>
@@ -194,7 +194,7 @@
                     <div class="card-header">
                         <i class="fa fa-bar-chart"></i>签到统计</div>
                     <div class="card-body">
-                        <canvas id="myBarChart" width="100" height="60"></canvas>
+                        <canvas id="attendancePie" width="100" height="60"></canvas>
                     </div>
                     <div class="card-footer small text-muted">签到统计状况</div>
                 </div>
@@ -250,6 +250,25 @@
                 content: '${pageContext.request.contextPath}/page/iframe/modifyPassword',
             })
         }
+    </script>
+    <script>
+        // Chart.js scripts
+        // -- Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#292b2c';
+        // -- Area Chart Example
+        var ctx = document.getElementById("attendancePie");
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: [ "未签到", "迟到", "准时签到"],
+                datasets: [{
+                    data: [${absenceNum}, ${lateNum}, ${inTimeNum}],
+                    backgroundColor: ['#dc3545', '#ffc107', '#28a745'],
+                }],
+            },
+        });
+
     </script>
 </div>
 </body>

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +37,7 @@
                 </a>
             </li>
 
-            <c:if test="${sessionScope.department eq 'Finance'}">
+            <c:if test="${sessionScope.department eq 'Finance' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="财务">
                     <a class="nav-link" href="${pageContext.request.contextPath}/page/bill">
                         <i class="fa fa-fw fa-area-chart"></i>
@@ -59,7 +60,7 @@
                     </li>
                 </ul>
             </li>
-            <c:if test="${sessionScope.department eq 'Manager'}">
+            <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-male"></i>
@@ -76,7 +77,7 @@
                 </li>
             </c:if>
 
-            <c:if test="${sessionScope.department eq 'Manager'}">
+            <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="活动">
                     <a class="nav-link" href="${pageContext.request.contextPath}/page/activities">
                         <i class="fa fa-fw fa-child"></i>
@@ -96,14 +97,14 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/page/projects">项目</a>
                     </li>
-                    <c:if test="${sessionScope.department eq 'projectManager'}">
+                    <c:if test="${sessionScope.department eq 'projectManager' || sessionScope.department eq 'boss'}">
                         <li>
                             <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
                         </li>
                     </c:if>
                 </ul>
             </li>
-            <c:if test="${sessionScope.department eq 'Personel'}">
+            <c:if test="${sessionScope.department eq 'Personel' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-sitemap"></i>
@@ -193,46 +194,39 @@
         <!-- Area Chart Example-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-area-chart"></i> Area Chart Example</div>
+                <i class="fa fa-area-chart"></i>今年净营收</div>
             <div class="card-body">
                 <canvas id="myAreaChart" width="100%" height="30"></canvas>
             </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
         </div>
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-12">
                 <!-- Example Bar Chart Card-->
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-bar-chart"></i> 近月收入 </div>
+                        <i class="fa fa-bar-chart"></i> 近月收入支出对比 </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-sm-8 my-auto">
+                            <div class="col-sm-12 my-auto">
                                 <canvas id="myBarChart" width="100%" height="70"></canvas>
-                            </div>
-                            <div class="col-sm-4 text-center my-auto">
-                                <div class="h4 mb-0 text-success">$34,693</div>
-                                <div class="small text-muted">收入</div>
-
-                                <hr>
-                                <div class="h4 mb-0 text-warning">$18,474</div>
-                                <div class="small text-muted">支出</div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+        </div>
+        <di class="row">
+            <div class="col-lg-6">
                 <!-- Example Pie Chart Card-->
                 <div class="card mb-3">
                     <div class="card-header">
                         <i class="fa fa-pie-chart"></i>支出内容</div>
                     <div class="card-body">
-                        <canvas id="myPieChart" width="100%" height="100"></canvas>
+                        <canvas id="myPieChart" width="100%" height="60"></canvas>
                     </div>
                 </div>
             </div>
-        </div>
+        </di>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
@@ -262,7 +256,6 @@
     <script src="${pageContext.request.contextPath}/js/sb-admin.min.js"></script>
     <!-- Custom scripts for this page-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
-    <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
     <script>
         function bonusAdd() {
             layer.open({
@@ -309,6 +302,161 @@
                 content: '${pageContext.request.contextPath}/page/iframe/modifyPassword',
             })
         }
+    </script>
+    <script>
+        // Chart.js scripts
+        // -- Set new default font family and font color to mimic Bootstrap's default styling
+        Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
+        Chart.defaults.global.defaultFontColor = '#292b2c';
+        // -- Area Chart Example
+        var ctx = document.getElementById("myAreaChart");
+        var myLineChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                datasets: [{
+                    label: "净营收",
+                    lineTension: 0.3,
+                    backgroundColor: "rgba(2,117,216,0.2)",
+                    borderColor: "rgba(2,117,216,1)",
+                    pointRadius: 5,
+                    pointBackgroundColor: "rgba(2,117,216,1)",
+                    pointBorderColor: "rgba(255,255,255,0.8)",
+                    pointHoverRadius: 5,
+                    pointHoverBackgroundColor: "rgba(2,117,216,1)",
+                    pointHitRadius: 20,
+                    pointBorderWidth: 2,
+                    data: [
+                        ${income[0]-expense[0]},
+                        ${income[1]-expense[1]},
+                        ${income[2]-expense[2]},
+                        ${income[3]-expense[3]},
+                        ${income[4]-expense[4]},
+                        ${income[5]-expense[5]},
+                        ${income[6]-expense[6]},
+                        ${income[7]-expense[7]},
+                        ${income[8]-expense[8]},
+                        ${income[9]-expense[9]},
+                        ${income[10]-expense[10]},
+                        ${income[11]-expense[11]},
+                    ],
+                }],
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'month'
+                        },
+                        gridLines: {
+                            display: false
+                        },
+                        ticks: {
+                            maxTicksLimit: 7
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 1000000,
+                            maxTicksLimit: 5
+                        },
+                        gridLines: {
+                            color: "rgba(0, 0, 0, .125)",
+                        }
+                    }],
+                },
+                legend: {
+                    display: false
+                }
+            }
+        });
+        // -- Bar Chart Example
+        var ctx = document.getElementById("myBarChart");
+        var myLineChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                datasets: [{
+                    label: "收入",
+                    backgroundColor: "rgb(0,216,91)",
+                    borderColor: "rgb(0,216,91)",
+                    data: [
+                        ${income[0]},
+                        ${income[1]},
+                        ${income[2]},
+                        ${income[3]},
+                        ${income[4]},
+                        ${income[5]},
+                        ${income[6]},
+                        ${income[7]},
+                        ${income[8]},
+                        ${income[9]},
+                        ${income[10]},
+                        ${income[11]},
+                        ]
+                },{
+                    label: "支出",
+                    backgroundColor: "rgb(216,62,15)",
+                    borderColor: "rgb(216,62,15)",
+                    data: [
+                        ${expense[0]},
+                        ${expense[1]},
+                        ${expense[2]},
+                        ${expense[3]},
+                        ${expense[4]},
+                        ${expense[5]},
+                        ${expense[6]},
+                        ${expense[7]},
+                        ${expense[8]},
+                        ${expense[9]},
+                        ${expense[10]},
+                        ${expense[11]},
+                        ]
+                }],
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                        time: {
+                            unit: 'month'
+                        },
+                        gridLines: {
+                            display: false
+                        },
+                        ticks: {
+                            maxTicksLimit: 12
+                        }
+                    }],
+                    yAxes: [{
+                        ticks: {
+                            min: 0,
+                            max: 1000000,
+                            maxTicksLimit: 5
+                        },
+                        gridLines: {
+                            display: true
+                        }
+                    }],
+                },
+                legend: {
+                    display: false
+                }
+            }
+        });
+        // -- Pie Chart Example
+        var ctx = document.getElementById("myPieChart");
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["其他","工资", "补贴", "奖金"],
+                datasets: [{
+                    data: [${expenses-salary},${salary}, ${subsidies}, ${bonuses}],
+                    backgroundColor: ['#007bff','#00ff58', '#dc3545', '#ffc107'],
+                }],
+            },
+        });
+
     </script>
 </div>
 </body>

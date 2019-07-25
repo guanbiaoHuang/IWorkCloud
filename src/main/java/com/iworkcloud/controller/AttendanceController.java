@@ -26,28 +26,29 @@ public class AttendanceController {
 
     @RequestMapping("/attend")
     public String attend(HttpSession session){
+
         String staffId = (String)session.getAttribute("staff");
-         String name = staffService.getStaffById(staffId).getName();
-        Attendance attendance = new Attendance(name,staffId,new Timestamp(System.currentTimeMillis()));
-        attendanceService.addAttendance(attendance);
-        return "redirect:index";
+        if(attendanceService.isAttend(staffId)){
+            return "index";
+        }else {
+            String name = staffService.getStaffById(staffId).getName();
+            Attendance attendance = new Attendance(name,staffId,new Timestamp(System.currentTimeMillis()));
+            attendanceService.addAttendance(attendance);
+            return "redirect:index";
+        }
+
     };
 
     @RequestMapping("/attendance")
     public String attendance(Model model){
         List<Attendance> attendances = attendanceService.getAttendanceToday();
-        int absence = staffService.getStaffCount()-attendanceService.getAttendanceNum();
-        Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(""));
-        int late = 0;
-        for(Attendance attendance:attendances){
-            if(attendance.getTime().after(timestamp)){
-                late++;
-            }
-        }
-        int inTime = attendanceService.getAttendanceNum()-late;
+
+        int staffNum = staffService.getStaffCount();
+        int late = attendanceService.getLateNum();
+        int inTime = attendances.size()-late;
         model.addAttribute("inTimeNum",inTime);
-        model.addAttribute("late",late);
-        model.addAttribute("absenceNum",absence);
+        model.addAttribute("lateNum",late);
+        model.addAttribute("absenceNum",staffNum-late-inTime);
         model.addAttribute("attendanceList",attendances);
         return "attendance";
     }

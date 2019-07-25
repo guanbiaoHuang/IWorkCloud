@@ -3,12 +3,6 @@
 <mapper namespace="com.iworkcloud.mapper.BillMapper">
 
 
-    <resultMap id="monthBill" type="com.iworkcloud.pojo.BillMonthCount">
-        <result column="time" jdbcType="INTEGER" property="month"/>
-        <result column="mount" jdbcType="DOUBLE" property="monthCount"/>
-        <result column="tag" jdbcType="VARCHAR" property="tag"/>
-    </resultMap>
-
     <insert id="insertBill" parameterType="com.iworkcloud.pojo.Bill">
         insert into bill (ID,TIME,MOUNT,TAG,DETAILS) values (#{id},#{time},#{mount},#{tag},#{details})
     </insert>
@@ -21,16 +15,21 @@
         select * from bill where id = #{id}
     </select>
 
-    <select id="queryBillsByTag" parameterType="String" resultType="com.iworkcloud.pojo.Bill">
-        select * from bill where tag = #{tag}
+    <select id="queryBillsByTag" parameterType="String" resultType="Double">
+        select sum(bill.mount) from bill
+        where tag = #{tag}
     </select>
 
-    <select id="queryBillNumOrderByMonth" parameterType="String" resultMap="monthBill">
-        select date_format(time,'%m') as '月份', sum(bill.mount)as '月总计',tag from bill
-        where tag = #{tag} and year(time) = year(now())
+    <select id="queryBillNumOrderByMonth" parameterType="String" resultType="double">
+        select sum(bill.mount) from bill
+        where tag = #{tag}
         group by (date_format(time,'%m'))
+        order by (date_format(time,'%m'))
     </select>
-
+    <select id="queryBillsByDetail" resultType="java.lang.Double" parameterType="String">
+        select sum(bill.mount) from bill
+        where tag = #{detail}
+    </select>
 
 
 </mapper>

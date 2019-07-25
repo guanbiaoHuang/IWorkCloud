@@ -23,7 +23,7 @@
         <form class="col-10 m-auto" method="post" action="${pageContext.request.contextPath}/page/addStaff">
             <div class="form-group">
                 <label class="sr-only"></label>
-                <input type="text" class="form-control" name="id" placeholder="请输入工号">
+                <input type="text" class="form-control" name="id" placeholder="请输入工号" value="${id}">
             </div>
 
             <div class="form-group">

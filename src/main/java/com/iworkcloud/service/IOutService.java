@@ -10,4 +10,6 @@ public interface IOutService {
     //获取今天的出差状况
     List<Out> outToday();
 
+    boolean deleteOut(String id);
+
 }

@@ -36,7 +36,7 @@
                 </a>
             </li>
 
-            <c:if test="${sessionScope.department eq 'Finance'}">
+            <c:if test="${sessionScope.department eq 'Finance' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="财务">
                     <a class="nav-link" href="${pageContext.request.contextPath}/page/bill">
                         <i class="fa fa-fw fa-area-chart"></i>
@@ -59,7 +59,7 @@
                     </li>
                 </ul>
             </li>
-            <c:if test="${sessionScope.department eq 'Manager'}">
+            <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-male"></i>
@@ -76,7 +76,7 @@
                 </li>
             </c:if>
 
-            <c:if test="${sessionScope.department eq 'Manager'}">
+            <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="活动">
                     <a class="nav-link" href="${pageContext.request.contextPath}/page/activities">
                         <i class="fa fa-fw fa-child"></i>
@@ -96,14 +96,14 @@
                     <li>
                         <a href="${pageContext.request.contextPath}/page/projects">项目</a>
                     </li>
-                    <c:if test="${sessionScope.department eq 'projectManager'}">
+                    <c:if test="${sessionScope.department eq 'projectManager' || sessionScope.department eq 'boss'}">
                         <li>
                             <a href="${pageContext.request.contextPath}/page/projectsManage">项目管理</a>
                         </li>
                     </c:if>
                 </ul>
             </li>
-            <c:if test="${sessionScope.department eq 'Personel'}">
+            <c:if test="${sessionScope.department eq 'Personel' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
                     <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-sitemap"></i>
@@ -189,26 +189,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12 mb-3">
-                <div class="card mb-3">
-                    <div class="card-header">
-                        <i class="fa fa-bell-o"></i>意见墙</div>
-                    <div class="list-group list-group-flush small">
-                        <c:forEach var="idea" items="${ideaList}">
-                            <li class="list-group-item list-group-item-action flex-column align-items-start">
-                                <div class="d-flex w-100 justify-content-between">
-                                    <h5 class="mb-1">${idea.title}</h5>
-                                </div>
-                                <p class="mb-1">${idea.content}</p>
-                                <small>${idea.time}</small>
-                            </li>
-                        </c:forEach>
-                    </div>
-                </div>
-            </div>
 
-        </div>
 
         <div class="row">
             <div class="col-md-6 col-sm-12 mb-3">
@@ -247,6 +228,26 @@
             </div>
         </div>
         <!-- Example DataTables Card-->
+        <div class="row">
+            <div class="col-md-12 col-sm-12 mb-3">
+                <div class="card mb-3">
+                    <div class="card-header">
+                        <i class="fa fa-bell-o"></i>意见墙</div>
+                    <div class="list-group list-group-flush small">
+                        <c:forEach var="idea" items="${ideaList}">
+                            <li class="list-group-item list-group-item-action flex-column align-items-start">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">${idea.title}</h5>
+                                </div>
+                                <p class="mb-1">${idea.content}</p>
+                                <small>${idea.time}</small>
+                            </li>
+                        </c:forEach>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->

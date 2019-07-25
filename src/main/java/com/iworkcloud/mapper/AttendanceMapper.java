@@ -12,9 +12,13 @@ public interface AttendanceMapper {
 
     List<Attendance> queryAllAttendanceToday();
 
+    Attendance queryAttendanceByStaffToday(String staffId);
+
     List<Attendance> getAttendanceMonth(String staffId);
 
     int getLatedStaffNum();
+
+
 
 }
 

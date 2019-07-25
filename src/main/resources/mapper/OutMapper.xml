@@ -20,4 +20,7 @@
     <select id="queryOutToday" resultMap="outMap">
         select * from `out` where CURDATE() between date(date_start) and date (date_end)
     </select>
+    <delete id="deleteOut" parameterType="String">
+        delete from `out` where id = #{id}
+    </delete>
 </mapper>

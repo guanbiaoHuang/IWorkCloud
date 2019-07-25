@@ -34,6 +34,8 @@ public class PageGet {
     }
 
 
+
+
     @RequestMapping("/index")
     public String toIndex(Model model, HttpSession session){
         List<Idea> ideas = ideaService.getAllIdeas();

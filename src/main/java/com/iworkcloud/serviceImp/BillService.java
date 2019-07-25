@@ -2,8 +2,6 @@ package com.iworkcloud.serviceImp;
 
 import com.iworkcloud.mapper.BillMapper;
 import com.iworkcloud.pojo.Bill;
-import com.iworkcloud.pojo.BillMonthCount;
-import com.iworkcloud.pojo.Bonus;
 import com.iworkcloud.service.IBillService;
 import com.iworkcloud.utils.ExcelUtil;
 import com.iworkcloud.utils.Str2Date;
@@ -33,8 +31,8 @@ public class BillService implements IBillService {
     }
 
     @Override
-    public List<Bill> queryBillByTag(String tag) {
-        return queryBillByTag(tag);
+    public Double getBillByTag(String tag) {
+        return billMapper.queryBillsByTag(tag);
     }
 
     @Override
@@ -68,7 +66,12 @@ public class BillService implements IBillService {
     }
 
     @Override
-    public List<BillMonthCount> queryBillNumOrderByMonth(String tag) {
+    public Double getBillOfSalary(String detail) {
+        return billMapper.queryBillsByDetail(detail);
+    }
+
+    @Override
+    public List<Double> queryBillNumOrderByMonth(String tag) {
         return billMapper.queryBillNumOrderByMonth(tag);
     }
 }

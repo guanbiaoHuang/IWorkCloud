@@ -23,10 +23,10 @@
         update bonus set staff=#{staff}, mount=#{mount},tag = #{tag},time = #{time} where ID = #{id}
     </update>
 
-    <select id="queryBonusNumOrderByMonth" parameterType="String" resultMap="monthBonus">
-        select date_format(time,'%Y-%m') as '月份', sum(mount)as '月总计',tag
+    <select id="queryBonusNumOrderByMonth" parameterType="String" resultType="java.lang.Double">
+        select sum(mount)
         from bonus
-        where tag = #{tag} group by (date_format(time,'%Y-%m'))
+        where tag = #{tag} and year(time)=year(now());
     </select>
 
 
