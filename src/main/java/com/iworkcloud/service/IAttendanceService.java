@@ -17,6 +17,8 @@ public interface IAttendanceService {
     List<Attendance> getAttendanceToday();
     boolean isAttend(String staffId);
     int getLateNum();
+    int getMyAttendance(String staffId);
+    int getMyLateNum(String staffId);
 
 
 }

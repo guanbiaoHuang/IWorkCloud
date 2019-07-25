@@ -164,7 +164,7 @@
                         </div>
                         <a class="mr-5 text-white" href="${pageContext.request.contextPath}/page/attend">签到</a>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="#"  onclick="myAttendance">
+                    <a class="card-footer text-white clearfix small z-1" href="#" onclick="getMyAttendance()">
                         <span class="float-left">查看个人签到情况</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -306,11 +306,10 @@
                 content: '${pageContext.request.contextPath}/page/iframe/modifyPassword',
             })
         }
-
-        function myAttendance() {
+        function getMyAttendance() {
             layer.open({
-                type:2,title: '查看考勤', area: ['50px','420px'],scrollbar: false, off: 'auto',
-                content: '${pageContext.request.contextPath}/page/iframe/myAttendance'
+                type: 2,title: '考勤统计',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                content: '${pageContext.request.contextPath}/page/myAttendance',
             })
         }
     </script>

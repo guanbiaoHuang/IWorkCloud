@@ -51,6 +51,15 @@ public class AttendanceService implements IAttendanceService {
         return attendanceMapper.getLatedStaffNum();
     }
 
+    @Override
+    public int getMyAttendance(String staffId) {
+        return attendanceMapper.getAttendanceMonth(staffId).size();
+    }
+
+    @Override
+    public int getMyLateNum(String staffId) {
+        return attendanceMapper.getMyLateNum(staffId);
+    }
 
 
 }

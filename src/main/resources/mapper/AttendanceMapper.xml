@@ -17,7 +17,7 @@
     </select>
 
     <select id="getAttendanceMonth" parameterType="String" resultType="com.iworkcloud.pojo.Attendance">
-        select * from attendance where month(time) = month(now())
+        select * from attendance where month(time) = month(now()) and staff = #{staffId}
     </select>
 
 
@@ -27,6 +27,10 @@
     </select>
     <select id="queryAttendanceByStaffToday" resultType="com.iworkcloud.pojo.Attendance" parameterType="String">
         select * from attendance where date(time) = curdate() and staff = #{staffId}
+    </select>
+
+    <select id="getMyLateNum" parameterType="String" resultType="int">
+        select count(*) as '本月迟到' from attendance where timediff(time(time),'08:00:00') &gt; 0 and month (time) = month(now()) and staff =#{staffId}
     </select>
 
 

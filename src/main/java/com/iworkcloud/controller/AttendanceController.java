@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 @RequestMapping("page")
@@ -38,6 +40,23 @@ public class AttendanceController {
         }
 
     };
+
+
+    @RequestMapping("/myAttendance")
+    public String getMyAttendance(HttpSession session,Model model){
+        String staffId = session.getAttribute("staff").toString();
+        int myAttendance = attendanceService.getMyAttendance(staffId);
+        int late = attendanceService.getMyLateNum(staffId);
+        Calendar calendar = new GregorianCalendar();
+        int absence = calendar.get(calendar.DAY_OF_MONTH) - myAttendance;
+        int inTime = myAttendance - late;
+        model.addAttribute("late",late);
+        model.addAttribute("absence",absence);
+        model.addAttribute("inTime",inTime);
+        return "myAttendance";
+
+
+    }
 
     @RequestMapping("/attendance")
     public String attendance(Model model){

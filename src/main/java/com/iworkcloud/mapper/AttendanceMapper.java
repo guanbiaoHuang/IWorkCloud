@@ -18,6 +18,8 @@ public interface AttendanceMapper {
 
     int getLatedStaffNum();
 
+    int getMyLateNum(String staffId);
+
 
 
 }

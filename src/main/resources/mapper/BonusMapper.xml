@@ -26,7 +26,7 @@
     <select id="queryBonusNumOrderByMonth" parameterType="String" resultType="java.lang.Double">
         select sum(mount)
         from bonus
-        where tag = #{tag} and year(time)=year(now());
+        where tag = #{tag} ;
     </select>
 
 
