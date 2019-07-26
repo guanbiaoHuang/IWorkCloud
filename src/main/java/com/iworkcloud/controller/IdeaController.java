@@ -18,10 +18,10 @@ public class IdeaController {
 
 
     @RequestMapping("/addIdea")
-    public String addIdea(String title, String content, HttpSession session){
+    public String addIdea(String title, String content, HttpSession session) {
 
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        Idea idea = new Idea(session.getAttribute("staff").toString(),title,timestamp,content);
+        Idea idea = new Idea(session.getAttribute("staff").toString(), title, timestamp, content);
 
         ideaService.addIdea(idea);
         return "redirect:index";

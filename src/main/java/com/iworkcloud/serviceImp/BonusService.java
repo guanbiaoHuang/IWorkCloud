@@ -23,14 +23,14 @@ public class BonusService implements IBonusService {
 
     @Override
     public boolean addBonus(Bonus bonus) {
-        return 1==bonusMapper.insertBonus(bonus)?true:false;
+        return 1 == bonusMapper.insertBonus(bonus);
     }
 
 
     @Override
     public List<Bonus> queryAllBonus(String staffId) {
         return bonusMapper.queryAllBonus(staffId);
-}
+    }
 
     @Override
     public boolean addBonusByExcel(MultipartFile file) {
@@ -38,20 +38,20 @@ public class BonusService implements IBonusService {
         List<List<Object>> lists = null;
         try {
             inputStream = file.getInputStream();
-            lists = new ExcelUtil().getBankListByExcel(inputStream,file.getOriginalFilename());
-            for (int i = 0; i<lists.size();i++){
+            lists = new ExcelUtil().getBankListByExcel(inputStream, file.getOriginalFilename());
+            for (int i = 0; i < lists.size(); i++) {
                 List<Object> list = lists.get(i);
                 Bonus bonus = new Bonus(String.valueOf(list.get(0)),
-                                        String.valueOf(list.get(1)),
+                        String.valueOf(list.get(1)),
                         new Timestamp(Str2Date.getTimeByStr(String.valueOf(list.get(3)))),
                         Double.parseDouble(String.valueOf(list.get(2))),
-                                        String.valueOf(list.get(4)));
+                        String.valueOf(list.get(4)));
                 bonusMapper.insertBonus(bonus);
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (inputStream!=null) {
+        } finally {
+            if (inputStream != null) {
                 try {
                     inputStream.close();
                 } catch (IOException e) {

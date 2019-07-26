@@ -16,7 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>IWorkCLoud</title>
     <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
     <link href="${pageContext.request.contextPath}/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/iworkcloud.css" rel="stylesheet">
 </head>
@@ -25,7 +26,9 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="#">IWorkCloud</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -47,7 +50,8 @@
             </c:if>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="日程">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSchedule" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSchedule"
+                   data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-calendar"></i>
                     <span class="nav-link-text">日程</span>
                 </a>
@@ -62,7 +66,8 @@
             </li>
             <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents"
+                       data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-male"></i>
                         <span class="nav-link-text">考勤</span>
                     </a>
@@ -87,9 +92,9 @@
             </c:if>
 
 
-
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="项目">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects"
+                   data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">项目</span>
                 </a>
@@ -106,7 +111,8 @@
             </li>
             <c:if test="${sessionScope.department eq 'Personel' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti"
+                       data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-sitemap"></i>
                         <span class="nav-link-text">部门管理</span>
                     </a>
@@ -140,7 +146,8 @@
                         <small style="color: #868e96;">登出</small>
                     </div>
                 </div>
-                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="d-lg-none">用户</span>
                 </div>
@@ -195,7 +202,8 @@
             <div class="col-md-12 col-sm-12 mb-3">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-bell-o"></i>近一周会议通知</div>
+                        <i class="fa fa-bell-o"></i>近一周会议通知
+                    </div>
                     <div class="list-group list-group-flush small">
                         <c:forEach items="${meetingList}" var="meeting">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
@@ -217,13 +225,16 @@
             <div class="col-md-6 col-sm-6 mb-3">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-bell-o"></i>近一周日程</div>
+                        <i class="fa fa-bell-o"></i>近一周日程
+                    </div>
                     <div class="list-group list-group-flush small">
                         <c:forEach items="${requestScope.scheduleList}" var="schedule">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
                                 <div class="d-flex w-100 justify-content-between">
                                     <h5 class="mb-1">${schedule.content}</h5>
-                                    <small><a href="${pageContext.request.contextPath}/page/deleteSchedule?scheduleId=${schedule.id}"><span class="badge badge-danger">删除</span></a></small>
+                                    <small><a
+                                            href="${pageContext.request.contextPath}/page/deleteSchedule?scheduleId=${schedule.id}"><span
+                                            class="badge badge-danger">删除</span></a></small>
                                 </div>
                                 <p class="mb-1">${schedule.time}</p>
                             </li>
@@ -235,7 +246,8 @@
             <div class="col-md-6 col-sm-6 mb-3" id="MeetingPanel">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-bell-o"></i>我的待批假条</div>
+                        <i class="fa fa-bell-o"></i>我的待批假条
+                    </div>
                     <div class="list-group list-group-flush small">
                         <c:forEach items="${holidayList}" var="holiday">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
@@ -247,7 +259,7 @@
 
                             </li>
                         </c:forEach>
-<%--                        <a class="list-group-item list-group-item-action" href="#">查看所有记事</a>--%>
+                        <%--                        <a class="list-group-item list-group-item-action" href="#">查看所有记事</a>--%>
                     </div>
                 </div>
             </div>
@@ -258,7 +270,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Nanchang University </small>
+                <small>Copyright © Nanchang University</small>
             </div>
         </div>
     </footer>
@@ -283,17 +295,17 @@
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $("#addSchedule").click(function () {
                 layer.open({
-                        type:2, title:'填写日程信息',area:['360px','300px'],scrollbar: false,offset: 'auto',
-                        content:'${pageContext.request.contextPath}/page/iframe/scheduleInfo',
-                }
+                        type: 2, title: '填写日程信息', area: ['360px', '300px'], scrollbar: false, offset: 'auto',
+                        content: '${pageContext.request.contextPath}/page/iframe/scheduleInfo',
+                    }
                 )
             });
             $("#askForHoliday").click(function () {
                 layer.open({
-                    type: 2,title: '填写请假信息',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                    type: 2, title: '填写请假信息', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                     content: '${pageContext.request.contextPath}/page/iframe/holidayInfo',
                 })
             })
@@ -302,22 +314,25 @@
 
     </script>
     <script>
-        $(document).ready(function(){
-            $("#logOut").click(function(){
+        $(document).ready(function () {
+            $("#logOut").click(function () {
                 layer.confirm('确定注销登陆？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
                     layer.msg("已注销");
-                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/page/invalidateSession')},2000);
-                }, function(){
-                    layer.msg("取消",{icon:2})
+                    setTimeout(function () {
+                        $(location).attr('href', '${pageContext.request.contextPath}/page/invalidateSession')
+                    }, 2000);
+                }, function () {
+                    layer.msg("取消", {icon: 2})
                 });
             })
 
         })
+
         function modifyPassword() {
             layer.open({
-                type: 2,title: '修改密码',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '修改密码', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/iframe/modifyPassword',
             })
         }

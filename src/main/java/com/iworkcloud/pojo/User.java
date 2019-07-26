@@ -5,43 +5,43 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-  private String phone;
-  private String password;
-  private String icon;
+    private String phone;
+    private String password;
+    private String icon;
 
 
-  public String getPhone() {
-    return phone;
-  }
+    public String getPhone() {
+        return phone;
+    }
 
-  public void setPhone(String phone) {
-    this.phone = phone;
-  }
-
-
-  public String getPassword() {
-    return password;
-  }
-
-  public void setPassword(String password) {
-    this.password = password;
-  }
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
 
-  public String getIcon() {
-    return icon;
-  }
+    public String getPassword() {
+        return password;
+    }
 
-  public void setIcon(String icon) {
-    this.icon = icon;
-  }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
-  public User() {
-  }
 
-  public User(String phone, String password, String icon) {
-    this.phone = phone;
-    this.password = password;
-    this.icon = icon;
-  }
+    public String getIcon() {
+        return icon;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public User() {
+    }
+
+    public User(String phone, String password, String icon) {
+        this.phone = phone;
+        this.password = password;
+        this.icon = icon;
+    }
 }

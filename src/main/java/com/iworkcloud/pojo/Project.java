@@ -4,58 +4,57 @@ import java.io.Serializable;
 
 public class Project implements Serializable {
 
-  private String id;
-  private String name;
-  private String tag;
-  private String approved;
+    private String id;
+    private String name;
+    private String tag;
+    private String approved;
 
 
-  public Project() {
-  }
+    public Project() {
+    }
 
 
-  public Project(String id, String name, String tag, String approved) {
-    this.id = id;
-    this.name = name;
-    this.tag = tag;
-    this.approved = approved;
-  }
+    public Project(String id, String name, String tag, String approved) {
+        this.id = id;
+        this.name = name;
+        this.tag = tag;
+        this.approved = approved;
+    }
 
 
+    public String getId() {
+        return id;
+    }
 
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
-
-
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
+    public void setId(String id) {
+        this.id = id;
+    }
 
 
-  public String getTag() {
-    return tag;
-  }
+    public String getName() {
+        return name;
+    }
 
-  public void setTag(String tag) {
-    this.tag = tag;
-  }
+    public void setName(String name) {
+        this.name = name;
+    }
 
 
-  public String getApproved() {
-    return approved;
-  }
+    public String getTag() {
+        return tag;
+    }
 
-  public void setApproved(String approved) {
-    this.approved = approved;
-  }
+    public void setTag(String tag) {
+        this.tag = tag;
+    }
+
+
+    public String getApproved() {
+        return approved;
+    }
+
+    public void setApproved(String approved) {
+        this.approved = approved;
+    }
 
 }

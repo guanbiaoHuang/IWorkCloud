@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
+
 @RequestMapping("page")
 @Controller
 public class ProjectController {
@@ -26,39 +27,39 @@ public class ProjectController {
     private ITeamService teamService;
 
     @RequestMapping("/addProject")
-    public String addProject(String id,String name, String tag){
-        Project project = new Project(id,name,tag,"未审批");
+    public String addProject(String id, String name, String tag) {
+        Project project = new Project(id, name, tag, "未审批");
         projectService.addProject(project);
         return "redirect:projectsManage";
     }
 
     @RequestMapping("/approveProject")
-    public String approveProject(String projectId){
+    public String approveProject(String projectId) {
         projectService.approveProject(projectId);
         return "redirect:projectsManage";
     }
 
     @RequestMapping("/projectsManage")
-    public String projectsManage(Model model){
-        List<Project> projectList= projectService.getProjects();
-        model.addAttribute("projectList",projectList);
+    public String projectsManage(Model model) {
+        List<Project> projectList = projectService.getProjects();
+        model.addAttribute("projectList", projectList);
         return "projectsManage";
     }
 
     @RequestMapping("/deleteProject")
-    public String deleteProject(String projectId){
+    public String deleteProject(String projectId) {
         projectService.deleteProject(projectId);
         return "redirect:projectsManage";
     }
 
     @RequestMapping("/projects")
-    public String projects(Model model, HttpSession session){
+    public String projects(Model model, HttpSession session) {
         String staffId = session.getAttribute("staff").toString();
         String team = staffService.getStaffById(staffId).getTeam();
         String projectId = teamService.getProject(team);
-        if(null!=projectId&&projectId.length()>0){
+        if (null != projectId && projectId.length() > 0) {
             Project project = projectService.getMyProject(projectId);
-            model.addAttribute("project",project);
+            model.addAttribute("project", project);
             return "projects";
         }
         return "projects";

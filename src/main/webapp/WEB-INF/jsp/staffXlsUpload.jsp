@@ -13,14 +13,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>添加日程</title>
     <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
     <link href="${pageContext.request.contextPath}/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
 </head>
 <body>
 <div class="container">
     <div class="row" style="margin-top: 20px">
-        <form class="col-10 m-auto" method="post" enctype="multipart/form-data" action="${pageContext.request.contextPath}/page/addStaffXls">
+        <form class="col-10 m-auto" method="post" enctype="multipart/form-data"
+              action="${pageContext.request.contextPath}/page/addStaffXls">
             <div class="form-group" style="display: none;">
                 <label class="sr-only"></label>
                 <input type="file" class="form-control" name="file" id="file">
@@ -43,15 +45,17 @@
     </div>
 
 </div>
-<script type="text/javascript" src="${pageContext.request.contextPath}/vendor/jquery/jquery.js" ></script>
-<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.js" ></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/vendor/jquery/jquery.js"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/vendor/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/layer/layer.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/regist.js"></script>
 <script>
     $(document).ready(function () {
         var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
-        $('#submit').on('click', function(){
+        $('#submit').on('click', function () {
             parent.layer.close(index); //执行关闭
         });
 

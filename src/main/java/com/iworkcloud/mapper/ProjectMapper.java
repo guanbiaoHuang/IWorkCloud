@@ -11,7 +11,7 @@ public interface ProjectMapper {
     int insertProject(Project project);
 
 
-    int updateProjectStatus(@Param("projectId")String projectId,@Param("approved")String approved);
+    int updateProjectStatus(@Param("projectId") String projectId, @Param("approved") String approved);
 
     Project queryProjectById(String id);
 

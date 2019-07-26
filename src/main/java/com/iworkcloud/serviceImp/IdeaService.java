@@ -16,13 +16,13 @@ public class IdeaService implements IIdeaService {
 
     @Override
     public boolean addIdea(Idea idea) {
-        return 1==ideaMapper.insertIdea(idea)?true:false;
+        return 1 == ideaMapper.insertIdea(idea);
     }
 
 
     @Override
     public boolean deleteIdea(long id) {
-        return 1==ideaMapper.deleteIdeaByStaffId(id)?true:false;
+        return 1 == ideaMapper.deleteIdeaByStaffId(id);
     }
 
     @Override

@@ -11,6 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
+
 @RequestMapping("page")
 @Controller
 public class BonusController {
@@ -18,18 +19,18 @@ public class BonusController {
     private BonusService bonusService;
 
     @RequestMapping("/addBonus")
-    public String addBonus(String id,String staff,String time,String mount,String bonusType){
+    public String addBonus(String id, String staff, String time, String mount, String bonusType) {
 
-        time = time.replace('T',' ');
+        time = time.replace('T', ' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
 
-        bonusService.addBonus(new Bonus(id,staff,timestamp,Double.parseDouble(mount),bonusType));
+        bonusService.addBonus(new Bonus(id, staff, timestamp, Double.parseDouble(mount), bonusType));
 
         return "redirect:bill";
     }
 
     @RequestMapping("/addBonusXls")
-    public String addBonusByExcel(@RequestParam("file") MultipartFile file){
+    public String addBonusByExcel(@RequestParam("file") MultipartFile file) {
         bonusService.addBonusByExcel(file);
         return "redirect:bill";
 

@@ -17,7 +17,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>IWorkCLoud</title>
     <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
     <link href="${pageContext.request.contextPath}/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/iworkcloud.css" rel="stylesheet">
 </head>
@@ -26,7 +27,9 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="#">IWorkCloud</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -48,7 +51,8 @@
             </c:if>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="日程">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSchedule" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSchedule"
+                   data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-calendar"></i>
                     <span class="nav-link-text">日程</span>
                 </a>
@@ -63,7 +67,8 @@
             </li>
             <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents"
+                       data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-male"></i>
                         <span class="nav-link-text">考勤</span>
                     </a>
@@ -88,9 +93,9 @@
             </c:if>
 
 
-
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="项目">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects"
+                   data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">项目</span>
                 </a>
@@ -107,7 +112,8 @@
             </li>
             <c:if test="${sessionScope.department eq 'Personel' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti"
+                       data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-sitemap"></i>
                         <span class="nav-link-text">部门管理</span>
                     </a>
@@ -141,7 +147,8 @@
                         <small style="color: #868e96;">登出</small>
                     </div>
                 </div>
-                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="d-lg-none">用户</span>
                 </div>
@@ -183,7 +190,8 @@
                         </div>
                         <div class="mr-5"></div>
                     </div>
-                    <a class="card-footer text-white clearfix small z-1" href="${pageContext.request.contextPath}/page/iframe/outInfo">
+                    <a class="card-footer text-white clearfix small z-1"
+                       href="${pageContext.request.contextPath}/page/iframe/outInfo">
                         <span class="float-left">新增出差计划</span>
                         <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -198,34 +206,36 @@
                     <div class="card-header">请假批示名单</div>
                     <div class="card-body">
                         <table class="table table-bordered table-hover" id="dataTable">
-                    <thead>
-                    <tr>
-                        <th>工号</th>
-                        <th>开始日期</th>
-                        <th>结束日期</th>
-                        <th>理由</th>
-                        <th>是否批准</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <c:forEach var="holiday" items="${holidayList}">
-                    <tr>
-                        <td>${holiday.staff}</td>
-                        <td>${holiday.timeStart}</td>
-                        <td>${holiday.timeEnd}</td>
-                        <td>${holiday.reason}</td>
-                        <td>
-                            <div class="row">
-                                <div class="col-12 m-auto">
-                                    <a class="btn btn-success col-5" href="${pageContext.request.contextPath}/page/ratifyHoliday?holidayId=${holiday.id}">允许</a>
-                                    <a class="btn btn-danger col-5" href="${pageContext.request.contextPath}/page/refuseHoliday?holidayId=${holiday.id}">拒绝</a>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    </c:forEach>
-                    </tbody>
-                </table>
+                            <thead>
+                            <tr>
+                                <th>工号</th>
+                                <th>开始日期</th>
+                                <th>结束日期</th>
+                                <th>理由</th>
+                                <th>是否批准</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <c:forEach var="holiday" items="${holidayList}">
+                                <tr>
+                                    <td>${holiday.staff}</td>
+                                    <td>${holiday.timeStart}</td>
+                                    <td>${holiday.timeEnd}</td>
+                                    <td>${holiday.reason}</td>
+                                    <td>
+                                        <div class="row">
+                                            <div class="col-12 m-auto">
+                                                <a class="btn btn-success col-5"
+                                                   href="${pageContext.request.contextPath}/page/ratifyHoliday?holidayId=${holiday.id}">允许</a>
+                                                <a class="btn btn-danger col-5"
+                                                   href="${pageContext.request.contextPath}/page/refuseHoliday?holidayId=${holiday.id}">拒绝</a>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </c:forEach>
+                            </tbody>
+                        </table>
                     </div>
                     <div class="card-footer"></div>
                 </div>
@@ -253,7 +263,8 @@
                                     <td>${out.dateEnd}</td>
                                     <td>
                                         <div class="row">
-                                            <a class="btn btn-danger col-8 m-auto" href="${pageContext.request.contextPath}/page/deleteOut?id=${out.id}">删除</a>
+                                            <a class="btn btn-danger col-8 m-auto"
+                                               href="${pageContext.request.contextPath}/page/deleteOut?id=${out.id}">删除</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -272,7 +283,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Nanchang University </small>
+                <small>Copyright © Nanchang University</small>
             </div>
         </div>
     </footer>
@@ -298,22 +309,25 @@
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
 
     <script>
-        $(document).ready(function(){
-            $("#logOut").click(function(){
+        $(document).ready(function () {
+            $("#logOut").click(function () {
                 layer.confirm('确定注销登陆？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
                     layer.msg("已注销");
-                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/page/invalidateSession')},2000);
-                }, function(){
-                    layer.msg("取消",{icon:2})
+                    setTimeout(function () {
+                        $(location).attr('href', '${pageContext.request.contextPath}/page/invalidateSession')
+                    }, 2000);
+                }, function () {
+                    layer.msg("取消", {icon: 2})
                 });
             })
 
         })
+
         function modifyPassword() {
             layer.open({
-                type: 2,title: '修改密码',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '修改密码', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/iframe/modifyPassword',
             })
         }

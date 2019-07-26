@@ -9,6 +9,7 @@ public interface IIdeaService {
     boolean addIdea(Idea idea);
 
     boolean deleteIdea(long id);
+
     //获取想法或建议
     List<Idea> getAllIdeas();
 }

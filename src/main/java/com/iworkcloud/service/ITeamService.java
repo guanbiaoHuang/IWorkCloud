@@ -7,7 +7,10 @@ import java.util.HashMap;
 
 public interface ITeamService {
     boolean addTeam(Team team);
+
     boolean modifyManager(String id, String ManagerId);
-    boolean decideProject(HashMap<Object,Object>map);
+
+    boolean decideProject(HashMap<Object, Object> map);
+
     String getProject(String id);
 }

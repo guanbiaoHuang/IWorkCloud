@@ -16,17 +16,17 @@ public class TeamService implements ITeamService {
 
     @Override
     public boolean addTeam(Team team) {
-        return 1==teamMapper.insertTeam(team)?true:false;
+        return 1 == teamMapper.insertTeam(team);
     }
 
     @Override
     public boolean modifyManager(String id, String ManagerId) {
-        return 1==teamMapper.updateTeamForManager(id,ManagerId)?true:false;
+        return 1 == teamMapper.updateTeamForManager(id, ManagerId);
     }
 
     @Override
-    public boolean decideProject(HashMap<Object,Object>map) {
-        return 1==teamMapper.updateTeamProject(map)?true:false;
+    public boolean decideProject(HashMap<Object, Object> map) {
+        return 1 == teamMapper.updateTeamProject(map);
     }
 
     @Override

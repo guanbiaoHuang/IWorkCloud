@@ -16,7 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>IWorkCLoud</title>
     <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
     <link href="${pageContext.request.contextPath}/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/iworkcloud.css" rel="stylesheet">
 </head>
@@ -25,7 +26,9 @@
 <!-- Navigation-->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="#">IWorkCloud</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -47,7 +50,8 @@
             </c:if>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="日程">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSchedule" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSchedule"
+                   data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-calendar"></i>
                     <span class="nav-link-text">日程</span>
                 </a>
@@ -62,7 +66,8 @@
             </li>
             <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents"
+                       data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-male"></i>
                         <span class="nav-link-text">考勤</span>
                     </a>
@@ -87,9 +92,9 @@
             </c:if>
 
 
-
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="项目">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects"
+                   data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">项目</span>
                 </a>
@@ -106,7 +111,8 @@
             </li>
             <c:if test="${sessionScope.department eq 'Personel' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti"
+                       data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-sitemap"></i>
                         <span class="nav-link-text">部门管理</span>
                     </a>
@@ -140,7 +146,8 @@
                         <small style="color: #868e96;">登出</small>
                     </div>
                 </div>
-                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="d-lg-none">用户</span>
                 </div>
@@ -194,7 +201,8 @@
         <!-- Area Chart Example-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-area-chart"></i>今年净营收</div>
+                <i class="fa fa-area-chart"></i>今年净营收
+            </div>
             <div class="card-body">
                 <canvas id="myAreaChart" width="100%" height="30"></canvas>
             </div>
@@ -204,7 +212,8 @@
                 <!-- Example Bar Chart Card-->
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-bar-chart"></i> 近月收入支出对比 </div>
+                        <i class="fa fa-bar-chart"></i> 近月收入支出对比
+                    </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-sm-12 my-auto">
@@ -220,7 +229,8 @@
                 <!-- Example Pie Chart Card-->
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-pie-chart"></i>支出内容</div>
+                        <i class="fa fa-pie-chart"></i>支出内容
+                    </div>
                     <div class="card-body">
                         <canvas id="myPieChart" width="100%" height="60"></canvas>
                     </div>
@@ -233,7 +243,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Nanchang University </small>
+                <small>Copyright © Nanchang University</small>
             </div>
         </div>
     </footer>
@@ -259,46 +269,52 @@
     <script>
         function bonusAdd() {
             layer.open({
-                type: 2,title: '添加奖金或补贴',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '添加奖金或补贴', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/iframe/bonusAdd',
             })
         }
+
         function bonusXlsAdd() {
             layer.open({
-                type: 2,title: '导入奖金补贴报表',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '导入奖金补贴报表', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/iframe/bonusXlsUpload',
             })
         }
+
         function billAdd() {
             layer.open({
-                type: 2,title: '添加公司账单',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '添加公司账单', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/iframe/billAdd',
             })
         }
+
         function billXlsAdd() {
             layer.open({
-                type: 2,title: '导入账单报表',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '导入账单报表', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/iframe/billXlsUpload',
             })
         }
     </script>
     <script>
-        $(document).ready(function(){
-            $("#logOut").click(function(){
+        $(document).ready(function () {
+            $("#logOut").click(function () {
                 layer.confirm('确定注销登陆？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
                     layer.msg("已注销");
-                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/page/invalidateSession')},2000);
-                }, function(){
-                    layer.msg("取消",{icon:2})
+                    setTimeout(function () {
+                        $(location).attr('href', '${pageContext.request.contextPath}/page/invalidateSession')
+                    }, 2000);
+                }, function () {
+                    layer.msg("取消", {icon: 2})
                 });
             })
 
         })
+
         function modifyPassword() {
             layer.open({
-                type: 2,title: '修改密码',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '修改密码', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/iframe/modifyPassword',
             })
         }
@@ -394,8 +410,8 @@
                         ${income[9]},
                         ${income[10]},
                         ${income[11]},
-                        ]
-                },{
+                    ]
+                }, {
                     label: "支出",
                     backgroundColor: "rgb(216,62,15)",
                     borderColor: "rgb(216,62,15)",
@@ -412,7 +428,7 @@
                         ${expense[9]},
                         ${expense[10]},
                         ${expense[11]},
-                        ]
+                    ]
                 }],
             },
             options: {
@@ -449,10 +465,10 @@
         var myPieChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ["其他","工资", "补贴", "奖金"],
+                labels: ["其他", "工资", "补贴", "奖金"],
                 datasets: [{
-                    data: [${expenses-salary},${salary}, ${subsidies}, ${bonuses}],
-                    backgroundColor: ['#007bff','#00ff58', '#dc3545', '#ffc107'],
+                    data: [${expenses-salary}, ${salary}, ${subsidies}, ${bonuses}],
+                    backgroundColor: ['#007bff', '#00ff58', '#dc3545', '#ffc107'],
                 }],
             },
         });

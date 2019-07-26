@@ -18,16 +18,16 @@ public class NoteService implements INoteService {
 
     @Override
     public boolean addNote(Note note) {
-        return 1==noteMapper.insertNote(note)?true:false;
+        return 1 == noteMapper.insertNote(note);
     }
 
     @Override
     public List<Note> getNote(String staffId) {
-       return noteMapper.queryNoteByStaff(staffId);
+        return noteMapper.queryNoteByStaff(staffId);
     }
 
     @Override
     public boolean deleteNote(String noteId) {
-        return 1==noteMapper.deleteNoteById(noteId)?true:false;
+        return 1 == noteMapper.deleteNoteById(noteId);
     }
 }

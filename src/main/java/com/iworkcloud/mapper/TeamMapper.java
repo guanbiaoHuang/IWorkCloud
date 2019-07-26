@@ -10,9 +10,9 @@ public interface TeamMapper {
 
     int insertTeam(Team team);
 
-    int updateTeamProject(HashMap<Object,Object>map);
+    int updateTeamProject(HashMap<Object, Object> map);
 
-    int updateTeamForManager(@Param("id")String id,@Param("managerId")String managerId);
+    int updateTeamForManager(@Param("id") String id, @Param("managerId") String managerId);
 
     String queryProjectIdByTeam(String id);
 

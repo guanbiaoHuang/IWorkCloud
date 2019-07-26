@@ -21,7 +21,7 @@ public class BillService implements IBillService {
 
     @Override
     public boolean addBill(Bill bill) {
-        return 1==billMapper.insertBill(bill)?true:false;
+        return 1 == billMapper.insertBill(bill);
     }
 
 
@@ -41,8 +41,8 @@ public class BillService implements IBillService {
         List<List<Object>> lists = null;
         try {
             inputStream = file.getInputStream();
-            lists = new ExcelUtil().getBankListByExcel(inputStream,file.getOriginalFilename());
-            for (int i = 0; i<lists.size();i++){
+            lists = new ExcelUtil().getBankListByExcel(inputStream, file.getOriginalFilename());
+            for (int i = 0; i < lists.size(); i++) {
                 List<Object> list = lists.get(i);
                 Bill bill = new Bill(String.valueOf(list.get(0)),
                         new Timestamp(Str2Date.getTimeByStr(String.valueOf(list.get(1)))),
@@ -53,8 +53,8 @@ public class BillService implements IBillService {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (inputStream!=null) {
+        } finally {
+            if (inputStream != null) {
                 try {
                     inputStream.close();
                 } catch (IOException e) {

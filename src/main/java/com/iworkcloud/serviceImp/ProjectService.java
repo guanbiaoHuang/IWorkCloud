@@ -16,17 +16,17 @@ public class ProjectService implements IProjectService {
 
     @Override
     public boolean addProject(Project project) {
-        return 1==projectMapper.insertProject(project);
+        return 1 == projectMapper.insertProject(project);
     }
 
     @Override
     public boolean approveProject(String projectId) {
-        return 1==projectMapper.updateProjectStatus(projectId,"审批通过");
+        return 1 == projectMapper.updateProjectStatus(projectId, "审批通过");
     }
 
     @Override
     public boolean rejectProject(String projectId) {
-        return 1==projectMapper.updateProjectStatus(projectId,"审批不通过");
+        return 1 == projectMapper.updateProjectStatus(projectId, "审批不通过");
     }
 
     @Override
@@ -36,7 +36,7 @@ public class ProjectService implements IProjectService {
 
     @Override
     public boolean deleteProject(String projectId) {
-        return 1==projectMapper.deleteProject(projectId);
+        return 1 == projectMapper.deleteProject(projectId);
     }
 
     @Override

@@ -16,11 +16,10 @@ public interface ScheduleMapper {
 
     int updateScheduleContent(Schedule schedule);
 
-    List<Schedule>queryScheduleByDays(@Param("days")int days,@Param("staffId")String staffId);
+    List<Schedule> queryScheduleByDays(@Param("days") int days, @Param("staffId") String staffId);
 
 
     int deleteSchedule(String id);
-
 
 
 }

@@ -9,7 +9,7 @@ public interface BonusMapper {
 
     int insertBonus(Bonus bonus);
 
-    int updateBonusContent(HashMap<Object,Object>map);
+    int updateBonusContent(HashMap<Object, Object> map);
 
     List<Bonus> queryAllBonus(String staffId);
 

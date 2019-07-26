@@ -15,7 +15,7 @@ public class ActivityService implements IActivityService {
 
     @Override
     public boolean addActivity(Activity activity) {
-        return 1==activityMapper.insertActivity(activity)?true:false;
+        return 1 == activityMapper.insertActivity(activity);
     }
 
     @Override
@@ -25,7 +25,7 @@ public class ActivityService implements IActivityService {
 
     @Override
     public List<Activity> getActivitiesByTime(int recentDays, String tag) {
-        return activityMapper.queryActivitiesByDateAndTag(recentDays,tag);
+        return activityMapper.queryActivitiesByDateAndTag(recentDays, tag);
     }
 
     @Override
@@ -35,6 +35,6 @@ public class ActivityService implements IActivityService {
 
     @Override
     public boolean deleteActivityById(long id) {
-        return 1==activityMapper.deleteActivityById(id)?true:false;
+        return 1 == activityMapper.deleteActivityById(id);
     }
 }

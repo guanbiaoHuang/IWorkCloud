@@ -13,5 +13,5 @@ public interface IdeaMapper {
 
     List<Idea> queryAllIdea();
 
-    int updateIdeaContent(HashMap<Object,Object>map);
+    int updateIdeaContent(HashMap<Object, Object> map);
 }

@@ -19,45 +19,45 @@ public class ActivityController {
     private IActivityService activityService;
 
     @RequestMapping("/activities")
-    public String activities(Model model){
-        List<Activity> meetingList= activityService.getActivityByTag("meeting");
-        List<Activity> activityList= activityService.getActivityByTag("activity");
-        List<Activity> welfareList= activityService.getActivityByTag("welfare");
-        model.addAttribute("meetingList",meetingList);
-        model.addAttribute("activityList",activityList);
-        model.addAttribute("welfareList",welfareList);
+    public String activities(Model model) {
+        List<Activity> meetingList = activityService.getActivityByTag("meeting");
+        List<Activity> activityList = activityService.getActivityByTag("activity");
+        List<Activity> welfareList = activityService.getActivityByTag("welfare");
+        model.addAttribute("meetingList", meetingList);
+        model.addAttribute("activityList", activityList);
+        model.addAttribute("welfareList", welfareList);
         return "activities";
     }
 
     @RequestMapping("/addActivity")
-    public String addActivity(String time, String title, String content){
-        time = time.replace('T',' ');
+    public String addActivity(String time, String title, String content) {
+        time = time.replace('T', ' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
-        Activity activity = new Activity(timestamp,title,content,"activity");
+        Activity activity = new Activity(timestamp, title, content, "activity");
         activityService.addActivity(activity);
         return "redirect:activities";
     }
 
     @RequestMapping("/addMeeting")
-    public String addMeeting(String time, String title, String content){
-        time = time.replace('T',' ');
+    public String addMeeting(String time, String title, String content) {
+        time = time.replace('T', ' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
-        Activity activity = new Activity(timestamp,title,content,"meeting");
+        Activity activity = new Activity(timestamp, title, content, "meeting");
         activityService.addActivity(activity);
         return "redirect:activities";
     }
 
     @RequestMapping("/addWelfare")
-    public String addWelfare(String time, String content){
-        time = time.replace('T',' ');
+    public String addWelfare(String time, String content) {
+        time = time.replace('T', ' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
-        Activity activity = new Activity(timestamp,"员工福利",content,"welfare");
+        Activity activity = new Activity(timestamp, "员工福利", content, "welfare");
         activityService.addActivity(activity);
         return "redirect:activities";
     }
 
     @RequestMapping("/deleteActivity")
-    public String deleteActivity(String activityId){
+    public String deleteActivity(String activityId) {
         activityService.deleteActivityById(Integer.parseInt(activityId));
         return "redirect:activities";
     }

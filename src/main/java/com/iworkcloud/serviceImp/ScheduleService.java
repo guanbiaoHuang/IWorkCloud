@@ -18,26 +18,26 @@ public class ScheduleService implements IScheduleService {
 
     @Override
     public boolean addSchedule(Schedule schedule) {
-        return 1==scheduleMapper.insertSchedule(schedule)?true:false;
+        return 1 == scheduleMapper.insertSchedule(schedule);
     }
 
     @Override
     public boolean emptyPastSchedule(String staffId) {
-        return 1==scheduleMapper.deleteScheduleByStaffId(staffId)?true:false;
+        return 1 == scheduleMapper.deleteScheduleByStaffId(staffId);
     }
 
     @Override
     public boolean modifySchedule(Schedule schedule) {
-        return 1==scheduleMapper.updateScheduleContent(schedule)?true:false;
+        return 1 == scheduleMapper.updateScheduleContent(schedule);
     }
 
     @Override
     public List<Schedule> getRecentSchedule(int recentDays, String staffId) {
-        return scheduleMapper.queryScheduleByDays(recentDays,staffId);
+        return scheduleMapper.queryScheduleByDays(recentDays, staffId);
     }
 
     @Override
     public boolean deleteSchedule(String id) {
-        return 1==scheduleMapper.deleteSchedule(id);
+        return 1 == scheduleMapper.deleteSchedule(id);
     }
 }

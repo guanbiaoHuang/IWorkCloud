@@ -21,24 +21,24 @@ public class NoteController {
     private INoteService noteService;
 
     @RequestMapping("/addNote")
-    public String addNote(HttpServletRequest request,String content, String title, Model model, HttpSession session){
+    public String addNote(HttpServletRequest request, String content, String title, Model model, HttpSession session) {
         System.out.println(request.getCharacterEncoding());
-        Note note = new Note((String)session.getAttribute("staff"),title,new Timestamp(System.currentTimeMillis()),content);
+        Note note = new Note((String) session.getAttribute("staff"), title, new Timestamp(System.currentTimeMillis()), content);
         boolean isAdded = noteService.addNote(note);
         return "redirect:note";
     }
 
     @RequestMapping("/deleteNote")
-    public String deleteNote(String noteId){
+    public String deleteNote(String noteId) {
         noteService.deleteNote(noteId);
         return "redirect:note";
     }
 
     @RequestMapping("/note")
-    public String note(Model model,HttpSession session){
+    public String note(Model model, HttpSession session) {
 
-        List<Note> noteList = noteService.getNote((String)session.getAttribute("staff"));
-        model.addAttribute("noteList",noteList);
+        List<Note> noteList = noteService.getNote((String) session.getAttribute("staff"));
+        model.addAttribute("noteList", noteList);
         return "note";
 
     }

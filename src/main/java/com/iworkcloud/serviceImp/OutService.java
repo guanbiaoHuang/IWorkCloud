@@ -15,7 +15,7 @@ public class OutService implements IOutService {
 
     @Override
     public boolean addOut(Out out) {
-        return 1==outMapper.insertOut(out)?true:false;
+        return 1 == outMapper.insertOut(out);
     }
 
     @Override
@@ -25,6 +25,6 @@ public class OutService implements IOutService {
 
     @Override
     public boolean deleteOut(String id) {
-        return 1==outMapper.deleteOut(id);
+        return 1 == outMapper.deleteOut(id);
     }
 }

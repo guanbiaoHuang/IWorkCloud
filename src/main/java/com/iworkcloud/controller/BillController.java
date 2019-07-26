@@ -25,24 +25,24 @@ public class BillController {
     private BonusService bonusService;
 
     @RequestMapping("/addBill")
-    public String billAdd(String id,String time,String mount,String details,String billType){
+    public String billAdd(String id, String time, String mount, String details, String billType) {
 
-        time = time.replace('T',' ');
+        time = time.replace('T', ' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
-        Bill bill = new Bill(id,timestamp,Double.parseDouble(mount),billType,details);
+        Bill bill = new Bill(id, timestamp, Double.parseDouble(mount), billType, details);
         billService.addBill(bill);
         return "redirect:bill";
     }
 
     @RequestMapping("/addBillXls")
-    public String billAddByExcel(@RequestParam("file") MultipartFile file){
+    public String billAddByExcel(@RequestParam("file") MultipartFile file) {
         billService.addBillByExcel(file);
         return "redirect:bill";
 
     }
 
     @RequestMapping("/bill")
-    public String bill(Model model){
+    public String bill(Model model) {
         Double bonuses = bonusService.queryBonusNumOrderByMonth("奖金");
         Double subsidies = bonusService.queryBonusNumOrderByMonth("补贴");
         Double expenses = billService.getBillByTag("支出");
@@ -50,12 +50,12 @@ public class BillController {
         List<Double> expense = billService.queryBillNumOrderByMonth("支出");
         List<Double> income = billService.queryBillNumOrderByMonth("收入");
 
-        model.addAttribute("bonuses",bonuses);
-        model.addAttribute("subsidies",subsidies);
-        model.addAttribute("expense",expense);
-        model.addAttribute("income",income);
-        model.addAttribute("expenses",expenses);
-        model.addAttribute("salary",salary);
+        model.addAttribute("bonuses", bonuses);
+        model.addAttribute("subsidies", subsidies);
+        model.addAttribute("expense", expense);
+        model.addAttribute("income", income);
+        model.addAttribute("expenses", expenses);
+        model.addAttribute("salary", salary);
         return "bill";
     }
 }

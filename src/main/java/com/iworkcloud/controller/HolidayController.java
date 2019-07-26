@@ -26,34 +26,34 @@ public class HolidayController {
 
     @RequestMapping("/askForHoliday")
     public String addHoliday(String timeStart, String timeEnd, String content, HttpSession session) throws ParseException {
-        System.out.println(timeEnd+"----"+timeStart);
-        timeStart = timeStart.replace('T',' ');
-        timeEnd = timeEnd.replace('T',' ');
+        System.out.println(timeEnd + "----" + timeStart);
+        timeStart = timeStart.replace('T', ' ');
+        timeEnd = timeEnd.replace('T', ' ');
         holidayService.addHoliday(new Holiday(session.getAttribute("staff").toString(),
                 new Timestamp(Str2Date.getTimeByStr(timeStart)),
                 new Timestamp(Str2Date.getTimeByStr(timeEnd)),
-                content,"waited"));
+                content, "waited"));
         return "redirect:schedule";
     }
 
     @RequestMapping("/ratifyHoliday")
-    public String ratify(String holidayId){
+    public String ratify(String holidayId) {
         holidayService.ratifyHoliday(holidayId);
         return "redirect:excellentStaff";
     }
 
     @RequestMapping("/refuseHoliday")
-    public String refuse(String holidayId){
+    public String refuse(String holidayId) {
         holidayService.refuseHoliday(holidayId);
         return "redirect:excellentStaff";
     }
 
     @RequestMapping("/excellentStaff")
-    public String holidayWaited(Model model){
+    public String holidayWaited(Model model) {
         List<Holiday> holidays = holidayService.getHolidayWaitedRatified();
-        model.addAttribute("holidayList",holidays);
+        model.addAttribute("holidayList", holidays);
         List<Out> outs = outService.outToday();
-        model.addAttribute("outList",outs);
+        model.addAttribute("outList", outs);
         return "excellentStaff";
     }
 

@@ -11,9 +11,9 @@ import java.util.List;
 public interface ActivityMapper {
 
 
-    List<Activity> queryActivitiesByDateAndTag(@Param("days") int days, @Param("tag")String tag);
+    List<Activity> queryActivitiesByDateAndTag(@Param("days") int days, @Param("tag") String tag);
 
-    int updateActivityById(HashMap<Object,Object>map);
+    int updateActivityById(HashMap<Object, Object> map);
 
     List<Activity> queryActivityByTag(String tag);
 

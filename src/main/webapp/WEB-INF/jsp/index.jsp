@@ -16,7 +16,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>IWorkCLoud</title>
     <link href="${pageContext.request.contextPath}/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="${pageContext.request.contextPath}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet"
+          type="text/css">
     <link href="${pageContext.request.contextPath}/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <link href="${pageContext.request.contextPath}/css/iworkcloud.css" rel="stylesheet">
 </head>
@@ -24,7 +25,9 @@
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="#">IWorkCloud</a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+            data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+            aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -46,7 +49,8 @@
             </c:if>
 
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="日程">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSchedule" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSchedule"
+                   data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-calendar"></i>
                     <span class="nav-link-text">日程</span>
                 </a>
@@ -61,7 +65,8 @@
             </li>
             <c:if test="${sessionScope.department eq 'Manager' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="考勤">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents"
+                       data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-male"></i>
                         <span class="nav-link-text">考勤</span>
                     </a>
@@ -86,9 +91,9 @@
             </c:if>
 
 
-
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="项目">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects" data-parent="#exampleAccordion">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProjects"
+                   data-parent="#exampleAccordion">
                     <i class="fa fa-fw fa-wrench"></i>
                     <span class="nav-link-text">项目</span>
                 </a>
@@ -105,7 +110,8 @@
             </li>
             <c:if test="${sessionScope.department eq 'Personel' || sessionScope.department eq 'boss'}">
                 <li class="nav-item" data-toggle="tooltip" data-placement="right" title="部门管理">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti"
+                       data-parent="#exampleAccordion">
                         <i class="fa fa-fw fa-sitemap"></i>
                         <span class="nav-link-text">部门管理</span>
                     </a>
@@ -139,7 +145,8 @@
                         <small style="color: #868e96;">登出</small>
                     </div>
                 </div>
-                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" data-toggle="dropdown"
+                     aria-haspopup="true" aria-expanded="false">
                     <i class="fa fa-fw fa-user"></i>
                     <span class="d-lg-none">用户</span>
                 </div>
@@ -195,7 +202,8 @@
             <div class="col-md-6 col-sm-12 mb-3">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-bell-o"></i>近期活动</div>
+                        <i class="fa fa-bell-o"></i>近期活动
+                    </div>
                     <div class="list-group list-group-flush small">
                         <c:forEach var="activity" items="${activityList}">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
@@ -212,7 +220,8 @@
             <div class="col-md-6 col-sm-12 mb-3">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-bell-o"></i>福利</div>
+                        <i class="fa fa-bell-o"></i>福利
+                    </div>
                     <div class="list-group list-group-flush small">
                         <c:forEach var="welfare" items="${welfareList}">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
@@ -232,7 +241,8 @@
             <div class="col-md-12 col-sm-12 mb-3">
                 <div class="card mb-3">
                     <div class="card-header">
-                        <i class="fa fa-bell-o"></i>意见墙</div>
+                        <i class="fa fa-bell-o"></i>意见墙
+                    </div>
                     <div class="list-group list-group-flush small">
                         <c:forEach var="idea" items="${ideaList}">
                             <li class="list-group-item list-group-item-action flex-column align-items-start">
@@ -254,7 +264,7 @@
     <footer class="sticky-footer">
         <div class="container">
             <div class="text-center">
-                <small>Copyright © Nanchang University </small>
+                <small>Copyright © Nanchang University</small>
             </div>
         </div>
     </footer>
@@ -279,36 +289,39 @@
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
 
     <script>
-        $(document).ready(function(){
-            $("#logOut").click(function(){
+        $(document).ready(function () {
+            $("#logOut").click(function () {
                 layer.confirm('确定注销登陆？', {
-                    btn: ['确定','取消'] //按钮
-                }, function(){
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
                     layer.msg("已注销");
-                    setTimeout(function (){$(location).attr('href', '${pageContext.request.contextPath}/page/invalidateSession')},2000);
-                }, function(){
-                    layer.msg("取消",{icon:2})
+                    setTimeout(function () {
+                        $(location).attr('href', '${pageContext.request.contextPath}/page/invalidateSession')
+                    }, 2000);
+                }, function () {
+                    layer.msg("取消", {icon: 2})
                 });
             })
 
         })
 
-        function addIdea(){
+        function addIdea() {
             layer.open({
-                type: 2,title: '填写您的建议',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '填写您的建议', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/iframe/ideaAdd',
             })
         }
-        
+
         function modifyPassword() {
             layer.open({
-                type: 2,title: '修改密码',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '修改密码', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/iframe/modifyPassword',
             })
         }
+
         function getMyAttendance() {
             layer.open({
-                type: 2,title: '考勤统计',area: ['500px','420px'],scrollbar: false,offset: 'auto',
+                type: 2, title: '考勤统计', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
                 content: '${pageContext.request.contextPath}/page/myAttendance',
             })
         }

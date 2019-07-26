@@ -21,14 +21,13 @@ public class AttendanceService implements IAttendanceService {
 
     @Override
     public boolean addAttendance(Attendance attendance) {
-        return 1==attendanceMapper.insertAttendance(attendance)?true:false;
+        return 1 == attendanceMapper.insertAttendance(attendance);
     }
 
     @Override
     public int getAbsenceByDay() {
         return 0;
     }
-
 
 
     @Override
@@ -43,7 +42,7 @@ public class AttendanceService implements IAttendanceService {
 
     @Override
     public boolean isAttend(String staffId) {
-        return null!=attendanceMapper.queryAttendanceByStaffToday(staffId);
+        return null != attendanceMapper.queryAttendanceByStaffToday(staffId);
     }
 
     @Override

@@ -33,25 +33,25 @@ public class ScheduleController {
 
     @RequestMapping("/addSchedule")
     public String addSchedule(String time, String content, HttpSession session) throws ParseException {
-        time = time.replace('T',' ');
+        time = time.replace('T', ' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
-        scheduleService.addSchedule(new Schedule((String)session.getAttribute("staff"),timestamp,content));
+        scheduleService.addSchedule(new Schedule((String) session.getAttribute("staff"), timestamp, content));
         return "redirect:schedule";
     }
 
     @RequestMapping("/schedule")
-    public String getSchedule(Model model,HttpSession session){
-        List<Schedule> scheduleList = scheduleService.getRecentSchedule(7,(String)session.getAttribute("staff"));
-        List<Activity> meetingList = activityService.getActivitiesByTime(7,"meeting");
+    public String getSchedule(Model model, HttpSession session) {
+        List<Schedule> scheduleList = scheduleService.getRecentSchedule(7, (String) session.getAttribute("staff"));
+        List<Activity> meetingList = activityService.getActivitiesByTime(7, "meeting");
         List<Holiday> holidayList = holidayService.getHolidayWaitedByStaff(session.getAttribute("staff").toString());
-        model.addAttribute("meetingList",meetingList);
-        model.addAttribute("scheduleList",scheduleList);
-        model.addAttribute("holidayList",holidayList);
+        model.addAttribute("meetingList", meetingList);
+        model.addAttribute("scheduleList", scheduleList);
+        model.addAttribute("holidayList", holidayList);
         return "schedule";
     }
 
     @RequestMapping("/deleteSchedule")
-    public String deleteSchedule(String scheduleId){
+    public String deleteSchedule(String scheduleId) {
         scheduleService.deleteSchedule(scheduleId);
         return "redirect:schedule";
 

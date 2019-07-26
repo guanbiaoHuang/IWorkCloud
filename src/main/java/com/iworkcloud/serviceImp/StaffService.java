@@ -26,7 +26,7 @@ public class StaffService implements IStaffService {
 
     @Override
     public boolean isBindStaff(String phone) {
-       return null!=staffMapper.queryStaffByPhone(phone)?true:false;
+        return null != staffMapper.queryStaffByPhone(phone);
     }
 
     @Override
@@ -37,12 +37,12 @@ public class StaffService implements IStaffService {
     @Override
     public boolean bindStaff(HashMap<String, Object> map) {
         int status = staffMapper.updatePhoneById(map);
-        return status==1?true:false;
+        return status == 1;
     }
 
     @Override
     public boolean modifyInfo(Staff staff) {
-        return 1==staffMapper.updateAllById(staff)?true:false;
+        return 1 == staffMapper.updateAllById(staff);
     }
 
     @Override
@@ -52,7 +52,7 @@ public class StaffService implements IStaffService {
 
     @Override
     public boolean addStaff(Staff staff) {
-        return 1==staffMapper.insertStaff(staff)?true:false;
+        return 1 == staffMapper.insertStaff(staff);
     }
 
     @Override
@@ -61,8 +61,8 @@ public class StaffService implements IStaffService {
         List<List<Object>> lists = null;
         try {
             inputStream = file.getInputStream();
-            lists = new ExcelUtil().getBankListByExcel(inputStream,file.getOriginalFilename());
-            for (int i = 0; i<lists.size();i++){
+            lists = new ExcelUtil().getBankListByExcel(inputStream, file.getOriginalFilename());
+            for (int i = 0; i < lists.size(); i++) {
                 List<Object> list = lists.get(i);
                 Staff staff = new Staff(String.valueOf(list.get(0)),
                         String.valueOf(list.get(1)),
@@ -75,8 +75,8 @@ public class StaffService implements IStaffService {
             }
         } catch (Exception e) {
             e.printStackTrace();
-        }finally {
-            if (inputStream!=null) {
+        } finally {
+            if (inputStream != null) {
                 try {
                     inputStream.close();
                 } catch (IOException e) {
@@ -89,7 +89,7 @@ public class StaffService implements IStaffService {
 
     @Override
     public boolean deleteStaff(String id) {
-        return 1==staffMapper.deleteStaff(id)?true:false;
+        return 1 == staffMapper.deleteStaff(id);
     }
 
     @Override

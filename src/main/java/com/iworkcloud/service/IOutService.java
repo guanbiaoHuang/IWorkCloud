@@ -7,6 +7,7 @@ import java.util.List;
 public interface IOutService {
 
     boolean addOut(Out out);
+
     //获取今天的出差状况
     List<Out> outToday();
 

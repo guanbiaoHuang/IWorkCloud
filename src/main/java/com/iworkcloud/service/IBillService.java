@@ -11,8 +11,10 @@ public interface IBillService {
 
     //根据ID查账单
     List<Bill> queryBillById(String id);
+
     //根据tag查账单
     Double getBillByTag(String tag);
+
     //从Excel导入
     boolean addBillByExcel(MultipartFile file);
 
