@@ -325,6 +325,9 @@
 
         })
 
+        /**
+         * Layer弹出层
+         */
         function modifyPassword() {
             layer.open({
                 type: 2, title: '修改密码', area: ['500px', '420px'], scrollbar: false, offset: 'auto',

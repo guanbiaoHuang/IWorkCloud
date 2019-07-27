@@ -12,15 +12,27 @@ import org.springframework.web.multipart.MultipartFile;
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Timestamp;
 
+/**
+ * Bonus控制器
+ */
 @RequestMapping("page")
 @Controller
 public class BonusController {
     @Autowired
     private BonusService bonusService;
 
+    /**
+     * 添加一笔奖金补贴信息
+     * @param id 流水号
+     * @param staff 发放的员工工号
+     * @param time 发放时间
+     * @param mount 发放金额
+     * @param bonusType 奖金类型
+     * @return
+     */
     @RequestMapping("/addBonus")
     public String addBonus(String id, String staff, String time, String mount, String bonusType) {
-
+        //时间字符串处理
         time = time.replace('T', ' ');
         Timestamp timestamp = new Timestamp(Str2Date.getTimeByStr(time));
 
@@ -29,6 +41,11 @@ public class BonusController {
         return "redirect:bill";
     }
 
+    /**
+     * 根据上传的Excel表格批量添加奖金补贴信息
+     * @param file 上传的Excel文件
+     * @return
+     */
     @RequestMapping("/addBonusXls")
     public String addBonusByExcel(@RequestParam("file") MultipartFile file) {
         bonusService.addBonusByExcel(file);

@@ -101,6 +101,10 @@
         });
     });
 
+    /**
+     * 使用正则表达式进行表单验证
+     * @returns {boolean}
+     */
     function checkWhenFindPassword() {
         var $newPhone = $("#newPhone").val();
         var $password = $("#pas1").val();

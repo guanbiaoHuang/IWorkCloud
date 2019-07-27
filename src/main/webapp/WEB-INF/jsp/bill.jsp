@@ -267,6 +267,9 @@
     <!-- Custom scripts for this page-->
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
     <script>
+        /**
+         * LayerJS打开iframe弹窗
+         */
         function bonusAdd() {
             layer.open({
                 type: 2, title: '添加奖金或补贴', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
@@ -296,6 +299,7 @@
         }
     </script>
     <script>
+
         $(document).ready(function () {
             $("#logOut").click(function () {
                 layer.confirm('确定注销登陆？', {
@@ -320,6 +324,10 @@
         }
     </script>
     <script>
+        /**
+         * ChartJS线性图
+         * @type {string}
+         */
         // Chart.js scripts
         // -- Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
@@ -342,6 +350,7 @@
                     pointHoverBackgroundColor: "rgba(2,117,216,1)",
                     pointHitRadius: 20,
                     pointBorderWidth: 2,
+                    //EL表达式数据填充
                     data: [
                         ${income[0]-expense[0]},
                         ${income[1]-expense[1]},
@@ -387,12 +396,17 @@
                 }
             }
         });
+        /**
+         * 柱状图
+         * @type {HTMLElement}
+         */
         // -- Bar Chart Example
         var ctx = document.getElementById("myBarChart");
         var myLineChart = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"],
+                //填充两个datasets易于对比
                 datasets: [{
                     label: "收入",
                     backgroundColor: "rgb(0,216,91)",
@@ -460,6 +474,10 @@
                 }
             }
         });
+        /**
+         * 饼状图
+         * @type {HTMLElement}
+         */
         // -- Pie Chart Example
         var ctx = document.getElementById("myPieChart");
         var myPieChart = new Chart(ctx, {

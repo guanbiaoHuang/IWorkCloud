@@ -54,12 +54,15 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/regist.js"></script>
 <script>
     $(document).ready(function () {
+
         var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
         $('#submit').on('click', function () {
             parent.layer.close(index); //执行关闭
         });
 
-
+        /**
+         * 根据按钮调用input file输入框用于修改原生输入框的样式
+         */
         $("#fileBtn").click(function () {
             $("#file").click();
         })

@@ -264,6 +264,10 @@
         }
     </script>
     <script>
+        /**
+         * 饼状图
+         * @type {string}
+         */
         // Chart.js scripts
         // -- Set new default font family and font color to mimic Bootstrap's default styling
         Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
@@ -275,6 +279,7 @@
             data: {
                 labels: ["未签到", "迟到", "准时签到"],
                 datasets: [{
+                    //El表达式填充数据
                     data: [${absenceNum}, ${lateNum}, ${inTimeNum}],
                     backgroundColor: ['#dc3545', '#ffc107', '#28a745'],
                 }],

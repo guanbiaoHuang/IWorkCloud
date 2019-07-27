@@ -93,7 +93,10 @@
     $(document).ready(function () {
 
         $("#getCode").click(function () {
-
+            /**
+             * Ajax异步获取验证码
+             * @type {*|jQuery|Array|string|undefined}
+             */
             var $phone = $("#registPhone").val();
             if (!(/^1[3456789]\d{9}$/.test($phone))) {
                 layer.msg("手机号非法");

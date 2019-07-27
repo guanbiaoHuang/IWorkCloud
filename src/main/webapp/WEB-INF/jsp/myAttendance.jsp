@@ -49,7 +49,10 @@
             parent.layer.close(index); //执行关闭
         });
     });
-
+    /**
+     * 饼状图用于信息填充
+     * @type {string}
+     */
     Chart.defaults.global.defaultFontFamily = '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
     Chart.defaults.global.defaultFontColor = '#292b2c';
     // -- Area Chart Example

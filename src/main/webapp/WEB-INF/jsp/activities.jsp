@@ -311,6 +311,9 @@
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
     <script>
         $(document).ready(function () {
+            /**
+             * 使用LayerJS中的open函数打开iframe窗口用于信息填写
+             */
             $("#addActivity").click(function () {
                 layer.open({
                     type: 2, title: '填写活动信息', area: ['500px', '420px'], scrollbar: false, offset: 'auto',
@@ -334,6 +337,9 @@
     </script>
     <script>
         $(document).ready(function () {
+            /**
+             * 调用LayerJS组件用于
+             */
             $("#logOut").click(function () {
                 layer.confirm('确定注销登陆？', {
                     btn: ['确定', '取消'] //按钮
@@ -349,6 +355,9 @@
 
         })
 
+        /**
+         * 调用LayerJS用于iframe
+         */
         function modifyPassword() {
             layer.open({
                 type: 2, title: '修改密码', area: ['500px', '420px'], scrollbar: false, offset: 'auto',

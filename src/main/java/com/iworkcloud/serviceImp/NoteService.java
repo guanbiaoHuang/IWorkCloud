@@ -16,16 +16,31 @@ public class NoteService implements INoteService {
         this.noteMapper = noteMapper;
     }
 
+    /**
+     * 添加记事
+     * @param note
+     * @return
+     */
     @Override
     public boolean addNote(Note note) {
         return 1 == noteMapper.insertNote(note);
     }
 
+    /**
+     * 获取本人的记事本
+     * @param staffId 员工号
+     * @return
+     */
     @Override
     public List<Note> getNote(String staffId) {
         return noteMapper.queryNoteByStaff(staffId);
     }
 
+    /**
+     * 删除记事
+     * @param noteId
+     * @return
+     */
     @Override
     public boolean deleteNote(String noteId) {
         return 1 == noteMapper.deleteNoteById(noteId);

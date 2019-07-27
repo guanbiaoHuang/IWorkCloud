@@ -59,7 +59,9 @@
         $('#submit').on('click', function () {
             parent.layer.close(index); //执行关闭
         });
-
+        /**
+         * 表单验证
+         */
         $('#passwordSec').blur(function () {
             var $ps1 = $("#password").val();
             var $ps2 = $(this).val();

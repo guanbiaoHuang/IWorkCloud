@@ -295,6 +295,9 @@
     <script src="${pageContext.request.contextPath}/js/sb-admin-datatables.min.js"></script>
     <script src="${pageContext.request.contextPath}/js/sb-admin-charts.js"></script>
     <script>
+        /**
+         * Layer弹出层
+         */
         $(document).ready(function () {
             $("#addSchedule").click(function () {
                 layer.open({

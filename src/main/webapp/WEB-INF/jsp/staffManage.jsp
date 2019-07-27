@@ -275,6 +275,9 @@
 
         })
 
+        /**
+         * Layer弹出层
+         */
         function staffAdd() {
             layer.open({
                 type: 2, title: '添加员工信息', area: ['500px', '480px'], scrollbar: false, offset: 'auto',

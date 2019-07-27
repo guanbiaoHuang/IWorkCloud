@@ -19,12 +19,15 @@ public class LoginFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         String servletPath = request.getServletPath();
         HttpSession session = request.getSession();
-        //访问login.jsp时，才放过，并且login.jsp的后续操作，继续执行，不拦截
+        //拦截访问路劲以以下前缀开始的地址
         if (servletPath.startsWith("/page/")) {
+            //判断是否已经登陆
             if (session.getAttribute("staff") != null) {
+                //放行
                 filterChain.doFilter(servletRequest, servletResponse);
                 return;
             } else {
+                //跳转至登陆界面
                 String contextPath = request.getContextPath();
                 response.setCharacterEncoding("utf-8");
                 request.setCharacterEncoding("utf-8");
@@ -35,6 +38,7 @@ public class LoginFilter implements Filter {
             }
 
         } else {
+            //放行其他页的访问以及静态资源的访问
             filterChain.doFilter(request, response);
         }
     }

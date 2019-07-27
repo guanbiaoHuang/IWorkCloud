@@ -15,6 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
+/**
+ * Project控制器
+ */
 @RequestMapping("page")
 @Controller
 public class ProjectController {
@@ -26,6 +29,13 @@ public class ProjectController {
     @Autowired
     private ITeamService teamService;
 
+    /**
+     * 添加项目
+     * @param id 项目Id
+     * @param name 项目名称
+     * @param tag 项目分类
+     * @return
+     */
     @RequestMapping("/addProject")
     public String addProject(String id, String name, String tag) {
         Project project = new Project(id, name, tag, "未审批");
@@ -33,12 +43,22 @@ public class ProjectController {
         return "redirect:projectsManage";
     }
 
+    /**
+     * 批准项目
+     * @param projectId 项目Id
+     * @return
+     */
     @RequestMapping("/approveProject")
     public String approveProject(String projectId) {
         projectService.approveProject(projectId);
         return "redirect:projectsManage";
     }
 
+    /**
+     * 项目管理界面
+     * @param model 处理模型数据类
+     * @return
+     */
     @RequestMapping("/projectsManage")
     public String projectsManage(Model model) {
         List<Project> projectList = projectService.getProjects();
@@ -46,12 +66,23 @@ public class ProjectController {
         return "projectsManage";
     }
 
+    /**
+     * 删除项目
+     * @param projectId 项目Id
+     * @return
+     */
     @RequestMapping("/deleteProject")
     public String deleteProject(String projectId) {
         projectService.deleteProject(projectId);
         return "redirect:projectsManage";
     }
 
+    /**
+     * 我的项目界面
+     * @param model 处理模型数据类
+     * @param session
+     * @return
+     */
     @RequestMapping("/projects")
     public String projects(Model model, HttpSession session) {
         String staffId = session.getAttribute("staff").toString();

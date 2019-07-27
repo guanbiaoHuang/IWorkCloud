@@ -11,12 +11,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.sql.Date;
 import java.util.List;
 
+/**
+ * Out控制器
+ */
 @RequestMapping("page")
 @Controller
 public class OutController {
     @Autowired
     private IOutService outService;
 
+    /**
+     * 添加出差
+     * @param staff 员工号
+     * @param dateStart 开始日期
+     * @param dateEnd 结束日期
+     * @return
+     */
     @RequestMapping("/addOut")
     public String addOut(String staff, String dateStart, String dateEnd) {
 
@@ -25,6 +35,11 @@ public class OutController {
         return "redirect:excellentStaff";
     }
 
+    /**
+     * 删除出差
+     * @param id 出差Id
+     * @return
+     */
     @RequestMapping("deleteOut")
     public String deleteOut(String id) {
         outService.deleteOut(id);

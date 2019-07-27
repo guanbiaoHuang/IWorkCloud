@@ -80,6 +80,9 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/log.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
+        /**
+         * Ajax异步获取手机号的注册信息并换头像
+         */
         $("#loginPhone").blur(function () {
             $.get(
                 "${pageContext.request.contextPath}/user/getIcon",
@@ -98,11 +101,15 @@
 
     });
 
+    /**
+     * layer信息提示框
+     */
     function msg() {
         var $msg = $("#msg").text().trim();
         if ($msg != "") {
             if ($msg == "success") {
                 layer.msg("登陆成功，即将跳转");
+                //定时跳转
                 setTimeout(function () {
                     $(location).attr('href', '${pageContext.request.contextPath}/page/index')
                 }, 3000);
@@ -116,6 +123,9 @@
 
     function bind() {
         layer.prompt({title: '请输入输入工号绑定', formType: 1}, function (val, index) {
+            /**
+             * Ajax异步绑定手机号
+             */
             $.post(
                 "${pageContext.request.contextPath}/user/bindStaff",
                 {"staffID": val},

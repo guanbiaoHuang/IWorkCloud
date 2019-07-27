@@ -305,6 +305,10 @@
 
         })
 
+        /**
+         * Layer弹出层
+         */
+
         function addIdea() {
             layer.open({
                 type: 2, title: '填写您的建议', area: ['500px', '420px'], scrollbar: false, offset: 'auto',

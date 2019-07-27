@@ -13,16 +13,30 @@ public class OutService implements IOutService {
         this.outMapper = outMapper;
     }
 
+    /**
+     * 添加出差
+     * @param out
+     * @return
+     */
     @Override
     public boolean addOut(Out out) {
         return 1 == outMapper.insertOut(out);
     }
 
+    /**
+     * 获取今天的出差人数
+     * @return
+     */
     @Override
     public List<Out> outToday() {
         return outMapper.queryOutToday();
     }
 
+    /**
+     *删除出差
+     * @param id
+     * @return
+     */
     @Override
     public boolean deleteOut(String id) {
         return 1 == outMapper.deleteOut(id);

@@ -8,6 +8,12 @@ public class Str2Date {
 
     private static final String DEFAULT_FORMAT = "yyyy-MM-dd HH:mm";
 
+    /**
+     * 根据字符串获取时间
+     * @param dateStr
+     * @param format
+     * @return
+     */
     public static long getTimeByStr(String dateStr, String format) {
         DateFormat simpleDateFormat = new SimpleDateFormat(format);
         try {

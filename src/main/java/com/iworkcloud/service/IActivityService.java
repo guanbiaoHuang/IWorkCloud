@@ -13,11 +13,12 @@ public interface IActivityService {
     //修改Activity，全部信息
     boolean modifyActivity(Activity activity);
 
-    //获得近期的某类型的活动
+    //获得指定近几天的某类型的活动
     List<Activity> getActivitiesByTime(int recentDays, String tag);
 
-    //
+    //获取某种类型的活动
     List<Activity> getActivityByTag(String tag);
 
+    //删除活动
     boolean deleteActivityById(long id);
 }

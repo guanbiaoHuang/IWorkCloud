@@ -8,6 +8,9 @@ import java.io.OutputStream;
 
 import javax.servlet.http.HttpServletRequest;
 
+/**
+ * 文件上传工具类
+ */
 public class UploadUtils {
 
     public static void uploadIcon(String path, HttpServletRequest request, InputStream is) {

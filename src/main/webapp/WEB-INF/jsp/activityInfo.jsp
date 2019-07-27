@@ -54,6 +54,9 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/layer/layer.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/regist.js"></script>
 <script>
+    /**
+     * 点击确定按钮关闭当前窗口
+     */
     $(document).ready(function () {
         var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
         $('#submit').on('click', function () {
